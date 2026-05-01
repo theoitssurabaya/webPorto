@@ -96,3 +96,42 @@ window.addEventListener('scroll', () => {
         nav.style.boxShadow = 'var(--glass-shadow)';
     }
 });
+
+// Email copy functionality and click handling
+document.querySelectorAll('.email-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const email = "theopinem05@gmail.com";
+        
+        // Copy to clipboard
+        navigator.clipboard.writeText(email).then(() => {
+            // Visual feedback based on whether it's an icon or a button with text
+            if (link.querySelector('span')) {
+                const span = link.querySelector('span');
+                const originalText = span.innerText;
+                span.innerText = "Email Copied!";
+                setTimeout(() => {
+                    span.innerText = originalText;
+                }, 2000);
+            } else {
+                // If it's just the icon, change its styling temporarily
+                const originalBg = link.style.background;
+                const originalColor = link.style.color;
+                link.style.background = "rgba(16, 185, 129, 0.2)"; // green success
+                link.style.color = "#10b981";
+                setTimeout(() => {
+                    link.style.background = originalBg;
+                    link.style.color = originalColor;
+                }, 2000);
+            }
+            
+            // Try to open mail client as well
+            setTimeout(() => {
+                window.location.href = "mailto:" + email;
+            }, 500);
+        }).catch(() => {
+            // Fallback if clipboard fails
+            window.location.href = "mailto:" + email;
+        });
+    });
+});
