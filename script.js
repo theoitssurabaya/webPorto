@@ -135,3 +135,20 @@ document.querySelectorAll('.email-link').forEach(link => {
         });
     });
 });
+
+// Mobile menu toggle
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navLinksContainer = document.querySelector('.nav-links');
+
+if (mobileBtn && navLinksContainer) {
+    mobileBtn.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    navLinksContainer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinksContainer.classList.remove('active');
+        });
+    });
+}
