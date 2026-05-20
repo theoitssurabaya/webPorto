@@ -16,6 +16,12 @@ if (window.matchMedia("(pointer: fine)").matches) {
         
         // Move core cursor instantly
         cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        
+        // Background parallax effect
+        const moveX = (mouseX / window.innerWidth - 0.5) * 30;
+        const moveY = (mouseY / window.innerHeight - 0.5) * 30;
+        document.body.style.setProperty('--mouse-x-parallax', `${moveX}px`);
+        document.body.style.setProperty('--mouse-y-parallax', `${moveY}px`);
     });
 
     // Smooth follower animation loop
@@ -89,11 +95,20 @@ window.addEventListener('scroll', () => {
     // Add blur effect to nav when scrolled
     const nav = document.querySelector('.nav-container');
     if (scrollY > 50) {
-        nav.style.background = 'rgba(255, 255, 255, 0.85)';
-        nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+        nav.style.background = 'rgba(17, 24, 39, 0.85)';
+        nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
     } else {
-        nav.style.background = 'rgba(255, 255, 255, 0.7)';
+        nav.style.background = 'rgba(17, 24, 39, 0.6)';
         nav.style.boxShadow = 'var(--glass-shadow)';
+    }
+    
+    // Scroll progress bar
+    const scrollProgress = document.querySelector('.scroll-progress-bar');
+    if (scrollProgress) {
+        const totalScroll = document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scroll = `${(totalScroll / windowHeight) * 100}%`;
+        scrollProgress.style.width = scroll;
     }
 });
 
