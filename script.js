@@ -231,6 +231,14 @@ const selectorContents = document.querySelectorAll('.selector-content');
 const tabIndicator = document.querySelector('.selector-tab-indicator');
 const tabsContainer = document.querySelector('.selector-tabs-container');
 const tabsWrapper = document.querySelector('.selector-tabs');
+const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+
+if (mobileDropdownToggle && tabsWrapper) {
+    mobileDropdownToggle.addEventListener('click', () => {
+        mobileDropdownToggle.classList.toggle('open');
+        tabsWrapper.classList.toggle('open');
+    });
+}
 
 function updateIndicator(activeTab) {
     if (!activeTab || !tabIndicator) return;
@@ -292,6 +300,14 @@ if (selectorTabs.length > 0) {
             const targetContent = document.getElementById(targetId);
             if (targetContent) {
                 targetContent.classList.add('active');
+            }
+            
+            // Close dropdown and update toggle text on mobile
+            if (window.innerWidth <= 768 && mobileDropdownToggle) {
+                const tabTitle = tab.querySelector('.tab-title').textContent;
+                mobileDropdownToggle.querySelector('span').textContent = tabTitle;
+                mobileDropdownToggle.classList.remove('open');
+                tabsWrapper.classList.remove('open');
             }
         });
     });
