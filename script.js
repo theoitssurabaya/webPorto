@@ -167,3 +167,75 @@ if (mobileBtn && navLinksContainer) {
         });
     });
 }
+
+// Interactive Selector (Experience Section)
+const selectorTabs = document.querySelectorAll('.selector-tab');
+const selectorContents = document.querySelectorAll('.selector-content');
+const tabIndicator = document.querySelector('.selector-tab-indicator');
+const tabsContainer = document.querySelector('.selector-tabs-container');
+const tabsWrapper = document.querySelector('.selector-tabs');
+
+function updateIndicator(activeTab) {
+    if (!activeTab || !tabIndicator) return;
+    
+    // Check if we are in mobile layout (horizontal tabs)
+    if (window.innerWidth <= 768) {
+        tabIndicator.style.top = 'auto';
+        tabIndicator.style.height = '3px';
+        
+        // Calculate offset accounting for any scrolling
+        const scrollLeft = tabsWrapper ? tabsWrapper.scrollLeft : 0;
+        tabIndicator.style.left = `${activeTab.offsetLeft - scrollLeft}px`;
+        tabIndicator.style.width = `${activeTab.offsetWidth}px`;
+    } else {
+        // Desktop layout (vertical tabs)
+        tabIndicator.style.left = '-2px';
+        tabIndicator.style.width = '3px';
+        tabIndicator.style.top = `${activeTab.offsetTop}px`;
+        tabIndicator.style.height = `${activeTab.offsetHeight}px`;
+    }
+}
+
+if (selectorTabs.length > 0) {
+    // Initialize indicator on load
+    const initialActive = document.querySelector('.selector-tab.active') || selectorTabs[0];
+    
+    // Use setTimeout to ensure DOM is fully rendered before calculating positions
+    setTimeout(() => updateIndicator(initialActive), 100);
+    
+    // Update on window resize and scroll (if mobile scrollable tabs)
+    window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('.selector-tab.active');
+        updateIndicator(activeTab);
+    });
+    
+    if (tabsWrapper) {
+        tabsWrapper.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                const activeTab = document.querySelector('.selector-tab.active');
+                updateIndicator(activeTab);
+            }
+        });
+    }
+
+    selectorTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and contents
+            selectorTabs.forEach(t => t.classList.remove('active'));
+            selectorContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Update indicator position
+            updateIndicator(tab);
+            
+            // Show corresponding content
+            const targetId = tab.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+}
