@@ -168,6 +168,63 @@ if (mobileBtn && navLinksContainer) {
     });
 }
 
+// Copy Email Functionality
+function copyEmail() {
+    const email = 'theopinem05@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        const copyBtn = document.querySelector('.copy-email-btn');
+        const copyText = copyBtn.querySelector('.copy-text');
+        
+        copyBtn.classList.add('success');
+        copyText.textContent = 'Copied!';
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+            copyBtn.classList.remove('success');
+            copyText.textContent = 'Copy';
+        }, 3000);
+    }).catch(err => {
+        console.error('Failed to copy email: ', err);
+    });
+}
+
+// Typewriter Effect
+const typewriterElement = document.getElementById('typewriter-text');
+if (typewriterElement) {
+    const textToType = typewriterElement.getAttribute('data-text');
+    let i = 0;
+    
+    function typeWriter() {
+        if (i < textToType.length) {
+            typewriterElement.textContent += textToType.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    }
+    
+    // Start after a slight delay
+    setTimeout(typeWriter, 800);
+}
+
+
+// Magnetic Buttons
+const magneticBtns = document.querySelectorAll('.magnetic-btn');
+magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 768) {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        }
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = `translate(0px, 0px)`;
+    });
+});
+
 // Interactive Selector (Experience Section)
 const selectorTabs = document.querySelectorAll('.selector-tab');
 const selectorContents = document.querySelectorAll('.selector-content');
