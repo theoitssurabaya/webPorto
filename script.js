@@ -1,61 +1,7 @@
 // Initialize AOS (Animate On Scroll)
 AOS.init({ duration: 1000, once: true, offset: 50 });
 
-// Custom Cursor Implementation
-const cursor = document.querySelector('.cursor');
-const follower = document.querySelector('.cursor-follower');
 
-// Desktop only cursor logic
-if (window.matchMedia("(pointer: fine)").matches) {
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Move core cursor instantly
-        cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-        
-        // Background parallax effect
-        const moveX = (mouseX / window.innerWidth - 0.5) * 30;
-        const moveY = (mouseY / window.innerHeight - 0.5) * 30;
-        document.body.style.setProperty('--mouse-x-parallax', `${moveX}px`);
-        document.body.style.setProperty('--mouse-y-parallax', `${moveY}px`);
-    });
-
-    // Smooth follower animation loop
-    function animate() {
-        // Easing factor
-        followerX += (mouseX - followerX) * 0.15;
-        followerY += (mouseY - followerY) * 0.15;
-        
-        follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Hover effect on interactable elements
-    const interactables = document.querySelectorAll('a, button, .project-card, .social-icon, .timeline-content, .skill-category, .cert-badge');
-    
-    interactables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(0)`;
-            follower.style.width = '50px';
-            follower.style.height = '50px';
-            follower.style.background = 'rgba(59, 130, 246, 0.1)';
-            follower.style.borderColor = 'rgba(59, 130, 246, 0.8)';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(1)`;
-            follower.style.width = '30px';
-            follower.style.height = '30px';
-            follower.style.background = 'transparent';
-            follower.style.borderColor = 'rgba(59, 130, 246, 0.5)';
-        });
-    });
-}
 
 // Interactive Project Card Glow
 document.querySelectorAll('.project-card').forEach(card => {
