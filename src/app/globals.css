@@ -1675,8 +1675,6 @@ nav {
 
     .section {
         padding: 60px 0;
-        padding-bottom: 80px; /* Ruang ekstra agar Dock tidak menutupi konten terbawah */
-        overflow-x: hidden;
         width: 100%;
         box-sizing: border-box;
     }
