@@ -23,19 +23,20 @@ This portfolio is designed to provide a comprehensive view of my skills and achi
 
 ## 🛠️ Technologies Used
 
-- **HTML5:** Semantic structure and content organization.
-- **CSS3:** Custom styling, animations, flexbox/grid layouts, and responsive media queries.
-- **JavaScript (Vanilla):** DOM manipulation, custom cursor logic, scroll events, and interactive functionalities.
-- **AOS (Animate On Scroll):** Library used for scroll-triggered animations to enhance visual appeal.
-- **Google Fonts:** Utilizing 'Outfit' for modern headings and 'Inter' for clean body text.
+- **Next.js 16 (App Router):** Core framework for SSR and routing.
+- **React 19:** Component-based UI architecture.
+- **CSS Modules / Global CSS:** Custom styling, glassmorphism UI, and responsive layouts.
+- **AOS (Animate On Scroll):** Library used for scroll-triggered animations.
+- **next/font/google:** utilizing 'Outfit' for headings and 'Inter' for body text.
+- **next/image:** Automatic WebP image optimization and lazy loading.
 
 ## 🚀 Getting Started
 
-To view this project locally on your machine, follow these simple steps:
+To run this Next.js project locally on your machine:
 
 ### Prerequisites
 
-You only need a modern web browser (Chrome, Firefox, Safari, Edge) to run this project. No complex backend or build tools are required.
+You need to have **Node.js** (v18 or higher) and npm installed on your system.
 
 ### Installation
 
@@ -47,19 +48,30 @@ You only need a modern web browser (Chrome, Firefox, Safari, Edge) to run this p
    ```bash
    cd webPorto
    ```
-3. **Open the project:**
-   Simply open the `index.html` file in your preferred web browser. You can double-click the file or use a local development server like the "Live Server" extension in VS Code.
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+5. **Open the project:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio.
 
 ## 📂 Project Structure
 
 ```text
 webPorto/
-├── index.html     # Main HTML structure
-├── style.css      # Core styles, layout, and animations
-├── script.js      # Interactive logic (cursor, navigation, etc.)
-├── fotoDiri.png   # Profile image
-├── its.jpg        # Education timeline image
-└── README.md      # Project documentation
+├── src/
+│   ├── app/
+│   │   ├── layout.js      # Root layout and font definitions
+│   │   ├── page.js        # Main entry page assembling components
+│   │   └── globals.css    # Core styles, layout, and animations
+│   └── components/        # Modular React components (Hero, Skills, etc.)
+├── public/                # Static assets (images, CV, icons)
+├── package.json           # Project dependencies and scripts
+└── README.md              # Project documentation
 ```
 
 ## 📬 Contact
