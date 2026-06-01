@@ -37,7 +37,7 @@ export default function Navbar() {
         <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <a href="#hero" className={activeSection === "hero" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Profile</a>
           <a href="#skills" className={activeSection === "skills" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
-          <a href="#edu" className={activeSection === "edu" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Education</a>
+          <a href="#education" className={activeSection === "education" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Education</a>
           <a href="#experience" className={activeSection === "experience" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Experience</a>
           <a href="#projects" className={activeSection === "projects" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
           <a href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>Contact</a>

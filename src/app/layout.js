@@ -12,6 +12,8 @@ export const metadata = {
   description: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
 };
 
+import LenisProvider from "@/components/LenisProvider";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
@@ -22,7 +24,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <div className="scroll-progress-bar"></div>
-        {children}
+        <LenisProvider>
+            {children}
+        </LenisProvider>
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Education() {
   return (
-    <section id="edu" className="section alt-bg relative">
+    <section id="education" className="section alt-bg relative">
         <div className="hero-bg-shapes">
             <div className="shape shape-5"></div>
         </div>

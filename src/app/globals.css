@@ -46,7 +46,8 @@ body::before {
 }
 
 .alt-bg {
-    background-color: var(--bg-alt);
+    /* Menggunakan semi-transparan agar partikel melayang tetap terlihat di latar belakang */
+    background-color: rgba(16, 24, 43, 0.85);
 }
 
 /* Typography */
@@ -476,7 +477,6 @@ nav {
     height: auto;
     display: block;
     margin-top: 5%;
-    filter: drop-shadow(0 -10px 30px rgba(59, 130, 246, 0.2));
 }
 
 .hero-content-overlay {
@@ -1675,6 +1675,7 @@ nav {
 
     .section {
         padding: 60px 0;
+        padding-bottom: 80px; /* Ruang ekstra agar Dock tidak menutupi konten terbawah */
         overflow-x: hidden;
         width: 100%;
         box-sizing: border-box;
