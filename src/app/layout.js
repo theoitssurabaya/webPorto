@@ -1,4 +1,6 @@
 import "./globals.css";
+import LenisProvider from "@/components/LenisProvider";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const viewport = {
   width: 'device-width',
@@ -12,8 +14,6 @@ export const metadata = {
   description: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
 };
 
-import LenisProvider from "@/components/LenisProvider";
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
@@ -23,10 +23,12 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <div className="scroll-progress-bar"></div>
-        <LenisProvider>
-            {children}
-        </LenisProvider>
+        <LanguageProvider>
+          <div className="scroll-progress-bar"></div>
+          <LenisProvider>
+              {children}
+          </LenisProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

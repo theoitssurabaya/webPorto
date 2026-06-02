@@ -1,7 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/utils/translations";
 
 export default function Skills() {
+  const { language } = useLanguage();
+  const t = translations[language].skills;
+
   return (
     <section id="skills" className="section relative">
         <div className="hero-bg-shapes">
@@ -16,7 +21,7 @@ export default function Skills() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
             >
-                Technical Arsenal
+                {t.sectionTitle}
             </motion.span>
             <motion.h2
                 initial={{ opacity: 0, y: 30 }}
@@ -24,7 +29,7 @@ export default function Skills() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
             >
-                Core Competencies
+                {t.title}
             </motion.h2>
             <motion.div 
                 className="skills-grid"
@@ -37,7 +42,7 @@ export default function Skills() {
                     <div className="skill-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                     </div>
-                    <h3>AI & Machine Learning</h3>
+                    <h3>{t.categories.ai}</h3>
                     <div className="skill-pills-container">
                         <span className="skill-pill-sm">Deep Learning</span>
                         <span className="skill-pill-sm">Neural Networks</span>
@@ -50,7 +55,7 @@ export default function Skills() {
                     <div className="skill-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
                     </div>
-                    <h3>Embedded & IoT</h3>
+                    <h3>{t.categories.hardware}</h3>
                     <div className="skill-pills-container">
                         <span className="skill-pill-sm">ESP32</span>
                         <span className="skill-pill-sm">ESP-IDF</span>
@@ -66,7 +71,7 @@ export default function Skills() {
                     <div className="skill-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                     </div>
-                    <h3>Software Engineering</h3>
+                    <h3>{t.categories.programming}</h3>
                     <div className="skill-pills-container">
                         <span className="skill-pill-sm">Python</span>
                         <span className="skill-pill-sm">JavaScript</span>

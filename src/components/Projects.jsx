@@ -1,7 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/utils/translations";
 
 export default function Projects() {
+    const { language } = useLanguage();
+    const t = translations[language].projects;
+
     return (
         <section id="projects" className="section alt-bg relative">
             <div className="hero-bg-shapes">
@@ -16,7 +21,7 @@ export default function Projects() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        Technical Works
+                        {t.sectionTitle}
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 30 }}
@@ -24,7 +29,7 @@ export default function Projects() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        Featured Engineering Projects
+                        {t.title}
                     </motion.h2>
                 </div>
 
@@ -45,8 +50,8 @@ export default function Projects() {
                         <div className="bento-content">
 
                             <div className="bento-text">
-                                <h3>Autonomous Robotic Vehicle</h3>
-                                <p>An intelligent, self-driving robotic vehicle powered by an ESP32 microcontroller. Engineered for real-time sensor processing, obstacle avoidance, and dynamic pathfinding.</p>
+                                <h3>{t.proj1.title}</h3>
+                                <p>{t.proj1.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">C++</span><span className="tech-tag">ESP32</span><span className="tech-tag">Robotics</span>
                                 </div>
@@ -70,8 +75,8 @@ export default function Projects() {
                         <div className="bento-content">
 
                             <div className="bento-text">
-                                <h3>PZEM-Anomaly Detector</h3>
-                                <p>IoT-based power monitoring system detecting electrical device anomalies.</p>
+                                <h3>{t.proj2.title}</h3>
+                                <p>{t.proj2.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">C++</span><span className="tech-tag">ML</span><span className="tech-tag">ESP32</span>
                                 </div>
@@ -95,8 +100,8 @@ export default function Projects() {
                         <div className="bento-content">
 
                             <div className="bento-text">
-                                <h3>Distance Target Game</h3>
-                                <p>Real-time distance measuring game with ESP32.</p>
+                                <h3>{t.proj3.title}</h3>
+                                <p>{t.proj3.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">JS</span><span className="tech-tag">ESP32</span><span className="tech-tag">IoT</span>
                                 </div>
@@ -120,8 +125,8 @@ export default function Projects() {
                         <div className="bento-content">
 
                             <div className="bento-text">
-                                <h3>Smart Irrigation System</h3>
-                                <p>Intelligent IoT plant watering.</p>
+                                <h3>{t.proj4.title}</h3>
+                                <p>{t.proj4.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">ESP32</span><span className="tech-tag">ML</span><span className="tech-tag">Raspberry Pi</span>
                                 </div>
@@ -145,8 +150,8 @@ export default function Projects() {
                         <div className="bento-content">
 
                             <div className="bento-text">
-                                <h3>Smart Water Distribution System</h3>
-                                <p>End-to-end IoT Smart Dispenser built with ESP32 & Flutter.</p>
+                                <h3>{t.proj5.title}</h3>
+                                <p>{t.proj5.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">Dart/Flutter</span><span className="tech-tag">ESP32</span><span className="tech-tag">IoT</span>
                                 </div>
@@ -170,8 +175,8 @@ export default function Projects() {
                         <div className="bento-content">
 
                             <div className="bento-text">
-                                <h3>Bird Shooter Game</h3>
-                                <p>Interactive arcade LED matrix game.</p>
+                                <h3>{t.proj6.title}</h3>
+                                <p>{t.proj6.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">C++</span><span className="tech-tag">Hardware</span><span className="tech-tag">ESP32</span>
                                 </div>

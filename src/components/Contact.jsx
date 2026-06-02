@@ -1,15 +1,39 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/utils/translations";
 
 export default function Contact() {
-  const [copyText, setCopyText] = useState("Copy");
+  const { language } = useLanguage();
+  const t = translations[language].contact;
+  
+  const [status, setStatus] = useState("idle"); // idle, sending, success, error
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText("theopinem05@gmail.com").then(() => {
-      setCopyText("Copied!");
-      setTimeout(() => setCopyText("Copy"), 2000);
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+    const formData = new FormData(e.target);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/theopinem05@gmail.com", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+      if (res.ok) {
+        setStatus("success");
+        e.target.reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch (err) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   return (
@@ -25,52 +49,114 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
         >
-            <div className="text-center mb-5">
-                <span className="section-title">Get in Touch</span>
-                <h2>Let's Build Something Together</h2>
-            </div>
-            
-            <div className="contact-bento-grid">
-                {/* Email Card */}
-                <div className="contact-card email-card glass-card">
-                    <div className="contact-icon-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <div className="contact-layout">
+                
+                {/* Contact Info (Left Side) */}
+                <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+                    <div>
+                        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, marginBottom: "16px", textAlign: "left" }}>
+                            {t.title}.
+                        </h2>
+                        <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)", lineHeight: "1.6", fontWeight: 500 }}>
+                            {t.emailCardDesc}
+                        </p>
                     </div>
-                    <h3>theopinem05@gmail.com</h3>
-                    <p>My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                    <div className="contact-actions">
-                        <a href="mailto:theopinem05@gmail.com" className="btn-primary">
-                            <span>Send Email</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        </a>
-                        <button className="btn-secondary copy-email-btn" onClick={copyEmail}>
-                            <span className="copy-text">{copyText}</span>
-                            <svg className="copy-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        </button>
+                    
+                    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                        {/* Email */}
+                        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                            <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "rgba(59, 130, 246, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(59, 130, 246, 0.2)", flexShrink: 0 }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+                            </div>
+                            <div>
+                                <p style={{ fontSize: "12px", fontWeight: "bold", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "1px", margin: "0 0 4px 0" }}>Email</p>
+                                <a href="mailto:theopinem05@gmail.com" style={{ fontSize: "18px", fontWeight: "900", color: "#fff", textDecoration: "none", transition: "color 0.3s" }} onMouseOver={e => e.target.style.color = "#3b82f6"} onMouseOut={e => e.target.style.color = "#fff"}>theopinem05@gmail.com</a>
+                            </div>
+                        </div>
+
+                        {/* Location */}
+                        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                            <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "rgba(236, 72, 153, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(236, 72, 153, 0.2)", flexShrink: 0 }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div>
+                                <p style={{ fontSize: "12px", fontWeight: "bold", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "1px", margin: "0 0 4px 0" }}>{language === 'id' ? 'Lokasi' : 'Location'}</p>
+                                <p style={{ fontSize: "18px", fontWeight: "900", color: "#fff", margin: 0 }}>Surabaya, Indonesia</p>
+                            </div>
+                        </div>
+
+                        {/* Phone */}
+                        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                            <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "rgba(16, 185, 129, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(16, 185, 129, 0.2)", flexShrink: 0 }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div>
+                                <p style={{ fontSize: "12px", fontWeight: "bold", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "1px", margin: "0 0 4px 0" }}>{language === 'id' ? 'Telepon' : 'Phone'}</p>
+                                <a href="tel:+6282114150363" style={{ fontSize: "18px", fontWeight: "900", color: "#fff", textDecoration: "none", transition: "color 0.3s" }} onMouseOver={e => e.target.style.color = "#10b981"} onMouseOut={e => e.target.style.color = "#fff"}>+62 821 1415 0363</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Socials Card */}
-                <div className="social-bento">
-                    <a href="https://github.com/theoitssurabaya" target="_blank" className="social-card glass-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>GitHub</span>
-                        <div className="social-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/theopinem/" target="_blank" className="social-card glass-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        <span>LinkedIn</span>
-                        <div className="social-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-                    </a>
-                    <a href="https://www.instagram.com/pinemtheo/" target="_blank" className="social-card glass-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        <span>Instagram</span>
-                        <div className="social-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-                    </a>
+                {/* Message Box Form (Right Side) */}
+                <div className="glass-card form-card" style={{ padding: "32px", display: "flex", flexDirection: "column" }}>
+                    <h3 style={{ marginBottom: "20px", fontSize: "24px" }}>{t.messageBox.title}</h3>
+                    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px", flexGrow: 1 }}>
+                        <input type="hidden" name="_captcha" value="false" />
+                        
+                        <div className="input-group">
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder={t.messageBox.name} 
+                                required 
+                                className="contact-input"
+                            />
+                        </div>
+                        <div className="input-group">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder={t.messageBox.email} 
+                                required 
+                                className="contact-input"
+                            />
+                        </div>
+                        <div className="input-group">
+                            <input 
+                                type="text" 
+                                name="_subject" 
+                                placeholder={t.messageBox.subject} 
+                                required 
+                                className="contact-input"
+                            />
+                        </div>
+                        <div className="input-group" style={{ flexGrow: 1 }}>
+                            <textarea 
+                                name="message" 
+                                placeholder={t.messageBox.message} 
+                                required 
+                                className="contact-input"
+                                style={{ height: "100%", minHeight: "150px", resize: "none" }}
+                            ></textarea>
+                        </div>
+                        <button 
+                            type="submit" 
+                            className="btn-primary" 
+                            disabled={status === "sending"}
+                            style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}
+                        >
+                            {status === "sending" ? t.messageBox.sending : t.messageBox.submit}
+                        </button>
+
+                        {status === "success" && <p style={{ color: "#4ade80", textAlign: "center", marginTop: "10px", fontSize: "14px", fontWeight: "bold" }}>{t.messageBox.success}</p>}
+                        {status === "error" && <p style={{ color: "#f87171", textAlign: "center", marginTop: "10px", fontSize: "14px", fontWeight: "bold" }}>{t.messageBox.error}</p>}
+                    </form>
                 </div>
+
             </div>
             
-            <div className="footer-bottom mt-5" style={{ marginTop: "50px", textAlign: "center" }}>
+            <div className="footer-bottom mt-5" style={{ marginTop: "50px", textAlign: "center", paddingBottom: "20px" }}>
                 <p>&copy; 2026 Theo Kawalisa Pinem</p>
             </div>
         </motion.div>

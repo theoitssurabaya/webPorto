@@ -297,7 +297,9 @@ nav {
 }
 
 .nav-container {
-    max-width: 1000px;
+    width: fit-content;
+    max-width: 100%;
+    gap: 40px;
     margin: 0 auto;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -321,16 +323,20 @@ nav {
     color: var(--accent);
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .nav-links a {
     color: var(--text-dim);
     text-decoration: none;
-    margin-left: 20px;
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
     padding: 8px 16px;
     border-radius: 100px;
-    display: inline-block;
 }
 
 .nav-links a:hover,
@@ -1429,6 +1435,20 @@ nav {
     padding-bottom: 80px;
 }
 
+.contact-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
 /* Contact Bento Grid */
 .contact-bento-grid {
     display: grid;
@@ -1765,4 +1785,34 @@ nav {
     .social-card {
         padding: 20px 25px;
     }
+}
+
+/* Contact Form Styles */
+.contact-input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,20 +1,25 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/utils/translations";
 
 export default function Hero() {
+  const { language } = useLanguage();
+  const t = translations[language].hero;
+
   const [typewriterText, setTypewriterText] = useState("");
-  const fullText = "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.";
   
   useEffect(() => {
     let index = 0;
+    setTypewriterText("");
     const interval = setInterval(() => {
-      setTypewriterText(fullText.substring(0, index + 1));
+      setTypewriterText(t.subtitle.substring(0, index + 1));
       index++;
-      if (index === fullText.length) clearInterval(interval);
+      if (index >= t.subtitle.length) clearInterval(interval);
     }, 50);
     return () => clearInterval(interval);
-  }, []);
+  }, [t.subtitle]);
 
   return (
     <section id="hero" className="section hero-section centered-hero">
@@ -42,15 +47,15 @@ export default function Hero() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-                <h1 className="hero-title">Theo Kawalisa Pinem</h1>
+                <h1 className="hero-title">{t.title}</h1>
                 <p className="subtitle hero-subtitle" style={{ minHeight: "60px" }}>
                     <span>{typewriterText}</span><span className="typewriter-cursor">|</span>
                 </p>
                 <div className="btn-group justify-center">
-                    <a href="#projects" className="btn-primary">Explore Projects</a>
+                    <a href="#projects" className="btn-primary">{t.btnExplore}</a>
                     <a href="CV_Theo Kawalisa Pinem.pdf" download className="btn-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                        Download CV
+                        {t.btnCV}
                     </a>
                 </div>
                 <div className="social-links justify-center mt-4">
