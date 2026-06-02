@@ -8,29 +8,23 @@ export default function Skills() {
   const t = translations[language].skills;
 
   return (
-    <section id="skills" className="section relative">
+    <section id="skills" className="section skills-section relative">
         <div className="hero-bg-shapes">
             <div className="shape shape-3"></div>
             <div className="shape shape-4"></div>
         </div>
         <div className="container text-center relative" style={{ zIndex: 1 }}>
-            <motion.span 
-                className="section-title"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-            >
-                {t.sectionTitle}
-            </motion.span>
-            <motion.h2
+            <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
             >
-                {t.title}
-            </motion.h2>
+                <h2>
+                    {t.title.split(' ').slice(0, -1).join(' ')}{' '}
+                    <span style={{ color: 'var(--c-pink)' }}>{t.title.split(' ').slice(-1)}</span>.
+                </h2>
+            </motion.div>
             <motion.div 
                 className="skills-grid"
                 initial={{ opacity: 0, y: 40 }}

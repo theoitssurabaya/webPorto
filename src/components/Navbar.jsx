@@ -12,12 +12,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Scroll progress
-      const scrollProgress = document.querySelector(".scroll-progress-bar");
-      if (scrollProgress) {
-        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        scrollProgress.style.width = `${scrolled}%`;
-      }
+
 
       // Active section mapping
       const sections = document.querySelectorAll("section");
@@ -55,17 +50,17 @@ export default function Navbar() {
                       justifyContent: 'center',
                       gap: '6px',
                       padding: '6px 12px',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      border: '1px solid rgba(0, 0, 0, 0.1)',
                       borderRadius: '9999px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      color: '#fff',
+                      backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                      color: 'var(--text-main)',
                       fontSize: '12px',
                       fontWeight: 800,
                       cursor: 'pointer',
                       transition: 'all 0.2s ease'
                   }}
-                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'}
-                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)'}
+                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
+                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.05)'}
               >
                   <Globe size={14} style={{ opacity: 0.8 }} />
                   <span>{language.toUpperCase()}</span>

@@ -26,6 +26,15 @@ const TECH_ICONS = [
   },
 ];
 
+const COLORS = [
+  "rgba(249, 115, 22, 0.4)", // Orange
+  "rgba(236, 72, 153, 0.4)", // Pink
+  "rgba(139, 92, 246, 0.4)", // Violet
+  "rgba(16, 185, 129, 0.4)", // Emerald
+  "rgba(59, 130, 246, 0.4)", // Blue
+  "rgba(239, 68, 68, 0.4)"   // Red
+];
+
 // Konfigurasi partikel acak
 function generateParticles(count) {
   const particles = [];
@@ -33,6 +42,7 @@ function generateParticles(count) {
     particles.push({
       id: i,
       icon: TECH_ICONS[i % TECH_ICONS.length],
+      color: COLORS[i % COLORS.length],
       x: Math.random() * 90 + 5,        // 5-95% (menghindari tepi layar)
       y: Math.random() * 90 + 5,
       size: 16 + Math.random() * 14,
@@ -97,7 +107,7 @@ export default function FloatingParticles() {
         >
           <svg
             viewBox="0 0 24 24"
-            fill="rgba(147, 197, 253, 0.7)"
+            fill={p.color}
             width="100%"
             height="100%"
             xmlns="http://www.w3.org/2000/svg"

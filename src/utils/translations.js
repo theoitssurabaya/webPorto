@@ -26,7 +26,7 @@ export const translations = {
     },
     education: {
       sectionTitle: "Academic Journey",
-      title: "Education",
+      title: "Education Journey",
       school1: "SMAN 2 Tangerang Selatan",
       major1: "Science Major",
       desc1: "Graduated with honors. Active in science club and mathematics olympiad. Built strong foundational knowledge in physics and computer science.",
@@ -62,7 +62,7 @@ export const translations = {
       title: "Featured Projects",
       proj1: {
         title: "Fully Autonomous ESP32 Robotic Vehicle",
-        desc: "Designed and programmed a self-driving robot capable of obstacle avoidance, line tracking, and web-based remote control via Wi-Fi."
+        desc: "Firmware implementation for an autonomous 4-wheel drive (4WD) robotic vehicle. Powered by an ESP32 microcontroller and dual L298N motor drivers, the robot intelligently navigates its environment using five HC-SR04 ultrasonic sensors to detect and avoid obstacles in real-time."
       },
       proj2: {
         title: "PZEM Anomaly Detector",
@@ -78,11 +78,11 @@ export const translations = {
       },
       proj5: {
         title: "Smart Dispenser IoT",
-        desc: "Water dispenser integrated with RFID authentication and volume tracking. Built for smart office environments with web monitoring."
+        desc: "End-to-end IoT Smart Dispenser system built with ESP32 and Flutter. Features real-time water level monitoring, precision pouring via MQTT, and user quota management with Firebase."
       },
       proj6: {
         title: "Bird Shooter ESP32",
-        desc: "Automated pest deterrent system using computer vision to detect birds and aim a motorized water turret using ESP32."
+        desc: "Interactive, reaction-based arcade game that challenges players to memorize a target's position on a 4x4 LED matrix and time their shots as LEDs flash at escalating speeds."
       }
     },
     contact: {
@@ -132,7 +132,7 @@ export const translations = {
     },
     education: {
       sectionTitle: "Perjalanan Akademik",
-      title: "Pendidikan",
+      title: "Perjalanan Pendidikan",
       school1: "SMAN 2 Tangerang Selatan",
       major1: "Jurusan MIPA",
       desc1: "Lulus dengan predikat memuaskan. Aktif di klub sains dan olimpiade matematika. Membangun dasar yang kuat di bidang fisika dan ilmu komputer.",
@@ -168,7 +168,7 @@ export const translations = {
       title: "Proyek Unggulan",
       proj1: {
         title: "Kendaraan Robotik Otonom ESP32",
-        desc: "Merancang dan memprogram robot swakemudi yang mampu menghindari rintangan, melacak garis, dan dikendalikan jarak jauh via Wi-Fi."
+        desc: "Implementasi firmware untuk kendaraan robotik otonom 4-wheel drive (4WD). Ditenagai oleh mikrokontroler ESP32 dan dua driver motor L298N, robot ini bernavigasi secara cerdas menggunakan lima sensor ultrasonik HC-SR04 untuk mendeteksi dan menghindari rintangan secara real-time."
       },
       proj2: {
         title: "Detektor Anomali PZEM",
@@ -184,11 +184,11 @@ export const translations = {
       },
       proj5: {
         title: "Dispenser Pintar IoT",
-        desc: "Dispenser air yang terintegrasi dengan autentikasi RFID dan pelacakan volume. Dibangun untuk lingkungan kantor pintar."
+        desc: "Sistem IoT Smart Dispenser end-to-end yang dibangun dengan ESP32 dan Flutter. Menampilkan pemantauan ketinggian air real-time, penuangan presisi via MQTT, dan manajemen kuota pengguna dengan Firebase."
       },
       proj6: {
         title: "Penembak Burung ESP32",
-        desc: "Sistem pengusir hama otomatis menggunakan computer vision untuk mendeteksi burung dan mengarahkan turret air bermotor menggunakan ESP32."
+        desc: "Game arcade interaktif berbasis reaksi yang menantang pemain untuk menghafal posisi target pada matriks LED 4x4 dan mengatur waktu tembakan saat LED berkedip dengan kecepatan yang terus meningkat."
       }
     },
     contact: {

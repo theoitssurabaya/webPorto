@@ -8,28 +8,20 @@ export default function Projects() {
     const t = translations[language].projects;
 
     return (
-        <section id="projects" className="section alt-bg relative">
+        <section id="projects" className="section projects-section relative">
             <div className="hero-bg-shapes">
                 <div className="shape shape-8"></div>
             </div>
             <div className="container relative" style={{ zIndex: 1 }}>
                 <div className="text-center mb-5">
-                    <motion.span
-                        className="section-title"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        {t.sectionTitle}
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        {t.title}
+                        {t.title.split(' ').slice(0, -1).join(' ')}{' '}
+                        <span style={{ color: 'var(--c-violet)' }}>{t.title.split(' ').slice(-1)}</span>.
                     </motion.h2>
                 </div>
 
@@ -43,7 +35,6 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        whileHover={{ scale: 1.02 }}
                     >
                         <img src="assets/fully-autonomous-esp32-robotic-vehicle.jpeg" alt="Fully Autonomous ESP32 Robotic Vehicle" className="bento-bg" />
                         <div className="bento-overlay"></div>
@@ -68,7 +59,6 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        whileHover={{ scale: 1.02 }}
                     >
                         <img src="assets/pzem-anomaly-detector.jpeg" alt="PZEM Anomaly Detector" className="bento-bg" />
                         <div className="bento-overlay"></div>
@@ -93,7 +83,6 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        whileHover={{ scale: 1.02 }}
                     >
                         <img src="assets/distance-target-game.png" alt="Distance Target Game" className="bento-bg" style={{ objectPosition: "left center" }} />
                         <div className="bento-overlay"></div>
@@ -118,7 +107,6 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        whileHover={{ scale: 1.02 }}
                     >
                         <img src="assets/smart-irrigation.jpeg" alt="Smart Irrigation" className="bento-bg" />
                         <div className="bento-overlay"></div>
@@ -143,7 +131,6 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        whileHover={{ scale: 1.02 }}
                     >
                         <img src="assets/smart-dispenser-iot.jpeg" alt="Smart Dispenser IoT" className="bento-bg" />
                         <div className="bento-overlay"></div>
@@ -168,7 +155,6 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        whileHover={{ scale: 1.02 }}
                     >
                         <img src="assets/bird-shooter-esp32.jpeg" alt="Bird Shooter ESP32" className="bento-bg" />
                         <div className="bento-overlay"></div>

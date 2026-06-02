@@ -47,7 +47,10 @@ export default function Hero() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-                <h1 className="hero-title">{t.title}</h1>
+                <h1 className="hero-title" style={{ color: 'var(--text-main)' }}>
+                    {t.title.split(' ').slice(0, -1).join(' ')}{' '}
+                    <span style={{ color: 'var(--c-blue)' }}>{t.title.split(' ').slice(-1)}</span>.
+                </h1>
                 <p className="subtitle hero-subtitle" style={{ minHeight: "60px" }}>
                     <span>{typewriterText}</span><span className="typewriter-cursor">|</span>
                 </p>

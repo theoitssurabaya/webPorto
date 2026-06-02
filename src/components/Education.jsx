@@ -8,28 +8,21 @@ export default function Education() {
   const t = translations[language].education;
 
   return (
-    <section id="education" className="section alt-bg relative">
+    <section id="education" className="section education-section relative">
         <div className="hero-bg-shapes">
             <div className="shape shape-5"></div>
         </div>
         <div className="container relative" style={{ zIndex: 1 }}>
             <div className="text-center mb-5">
-                <motion.span 
-                    className="section-title"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    {t.sectionTitle}
-                </motion.span>
+
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    {t.title}
+                    {t.title.split(' ').slice(0, -1).join(' ')}{' '}
+                    <span style={{ color: 'var(--c-orange)' }}>{t.title.split(' ').slice(-1)}</span>.
                 </motion.h2>
             </div>
             

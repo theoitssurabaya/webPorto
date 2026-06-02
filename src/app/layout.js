@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <LanguageProvider>
-          <div className="scroll-progress-bar"></div>
+
           <LenisProvider>
               {children}
           </LenisProvider>
