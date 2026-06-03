@@ -62,7 +62,7 @@ export const translations = {
       title: "Featured Projects",
       proj1: {
         title: "Fully Autonomous ESP32 Robotic Vehicle",
-        desc: "Firmware implementation for an autonomous 4-wheel drive (4WD) robotic vehicle. Powered by an ESP32 microcontroller and dual L298N motor drivers, the robot intelligently navigates its environment using five HC-SR04 ultrasonic sensors to detect and avoid obstacles in real-time."
+        desc: "Autonomous 4WD robot powered by ESP32 that navigates and avoids obstacles in real-time using ultrasonic sensors."
       },
       proj2: {
         title: "PZEM Anomaly Detector",
@@ -70,7 +70,7 @@ export const translations = {
       },
       proj3: {
         title: "Distance Target Game",
-        desc: "Interactive ultrasonic sensor game built with Arduino. Players must position their hand at exact distances to score points within a time limit."
+        desc: "Interactive Arduino game challenging players to score points by holding their hands at exact distances using ultrasonic sensors."
       },
       proj4: {
         title: "Smart Irrigation System",
@@ -82,7 +82,7 @@ export const translations = {
       },
       proj6: {
         title: "Bird Shooter ESP32",
-        desc: "Interactive, reaction-based arcade game that challenges players to memorize a target's position on a 4x4 LED matrix and time their shots as LEDs flash at escalating speeds."
+        desc: "Reaction-based arcade game on a 4x4 LED matrix challenging players to memorize and shoot targets at escalating speeds."
       }
     },
     contact: {
@@ -168,7 +168,7 @@ export const translations = {
       title: "Proyek Unggulan",
       proj1: {
         title: "Kendaraan Robotik Otonom ESP32",
-        desc: "Implementasi firmware untuk kendaraan robotik otonom 4-wheel drive (4WD). Ditenagai oleh mikrokontroler ESP32 dan dua driver motor L298N, robot ini bernavigasi secara cerdas menggunakan lima sensor ultrasonik HC-SR04 untuk mendeteksi dan menghindari rintangan secara real-time."
+        desc: "Robot 4WD otonom bertenaga ESP32 yang cerdas menavigasi dan menghindari rintangan secara real-time menggunakan sensor ultrasonik."
       },
       proj2: {
         title: "Detektor Anomali PZEM",
@@ -176,7 +176,7 @@ export const translations = {
       },
       proj3: {
         title: "Game Target Jarak",
-        desc: "Permainan interaktif menggunakan sensor ultrasonik Arduino. Pemain harus memosisikan tangan pada jarak yang tepat untuk mencetak poin."
+        desc: "Game interaktif Arduino yang menantang pemain mencetak poin dengan menempatkan tangan pada jarak presisi via sensor ultrasonik."
       },
       proj4: {
         title: "Sistem Irigasi Pintar",
@@ -188,7 +188,7 @@ export const translations = {
       },
       proj6: {
         title: "Penembak Burung ESP32",
-        desc: "Game arcade interaktif berbasis reaksi yang menantang pemain untuk menghafal posisi target pada matriks LED 4x4 dan mengatur waktu tembakan saat LED berkedip dengan kecepatan yang terus meningkat."
+        desc: "Game arcade reaksi pada matriks LED 4x4, menantang pemain mengingat dan menembak target pada kecepatan kilat."
       }
     },
     contact: {

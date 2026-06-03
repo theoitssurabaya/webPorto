@@ -1259,7 +1259,7 @@ nav {
 
 .bento-item-1 {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 1;
 }
 
 .bento-item-2 {
@@ -1268,22 +1268,22 @@ nav {
 }
 
 .bento-item-3 {
-    grid-column: span 1;
-    grid-row: span 2;
-}
-
-.bento-item-4 {
-    grid-column: span 1;
-    grid-row: span 1;
-}
-
-.bento-item-5 {
     grid-column: span 2;
     grid-row: span 1;
 }
 
-.bento-item-6 {
+.bento-item-4 {
     grid-column: span 1;
+    grid-row: span 2;
+}
+
+.bento-item-5 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.bento-item-6 {
+    grid-column: span 2;
     grid-row: span 1;
 }
 
@@ -1351,16 +1351,14 @@ nav {
 }
 
 .bento-text p {
-    color: var(--text-dim);
+    color: #000;
+    font-weight: 500;
     font-size: 0.9rem;
     margin-bottom: 15px;
     opacity: 0;
     transition: opacity 0.5s ease;
     line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block;
 }
 
 .bento-card .tech-stack {
