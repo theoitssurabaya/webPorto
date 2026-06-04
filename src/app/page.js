@@ -1,3 +1,4 @@
+import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
@@ -10,6 +11,7 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <>
+      <Preloader />
       <Navbar />
 
       {/* Overlay global: partikel melayang (di belakang konten) */}

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
+import { toast } from "sonner";
 
 export default function Contact() {
   const { language } = useLanguage();
@@ -14,26 +15,29 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
     const formData = new FormData(e.target);
-    try {
-      const res = await fetch("https://formsubmit.co/ajax/theopinem05@gmail.com", {
+    const formEl = e.target;
+    
+    const promise = fetch("https://formsubmit.co/ajax/theopinem05@gmail.com", {
         method: "POST",
-        headers: {
-          'Accept': 'application/json'
-        },
+        headers: { 'Accept': 'application/json' },
         body: formData
-      });
-      if (res.ok) {
-        setStatus("success");
-        e.target.reset();
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
-      }
-    } catch (err) {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
+    }).then(async (res) => {
+        if (!res.ok) throw new Error("Failed to send");
+        return res.json();
+    });
+
+    toast.promise(promise, {
+        loading: t.messageBox.sending || "Sending...",
+        success: () => {
+            formEl.reset();
+            setStatus("idle");
+            return t.messageBox.success || "Message sent successfully!";
+        },
+        error: () => {
+            setStatus("idle");
+            return t.messageBox.error || "Failed to send message.";
+        }
+    });
   };
 
   return (
@@ -149,9 +153,6 @@ export default function Contact() {
                         >
                             {status === "sending" ? t.messageBox.sending : t.messageBox.submit}
                         </button>
-
-                        {status === "success" && <p style={{ color: "#4ade80", textAlign: "center", marginTop: "10px", fontSize: "14px", fontWeight: "bold" }}>{t.messageBox.success}</p>}
-                        {status === "error" && <p style={{ color: "#f87171", textAlign: "center", marginTop: "10px", fontSize: "14px", fontWeight: "bold" }}>{t.messageBox.error}</p>}
                     </form>
                 </div>
 
