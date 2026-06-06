@@ -19,6 +19,10 @@ export default function Preloader() {
     useEffect(() => {
         // Lock scroll on mount
         document.body.style.overflow = "hidden";
+        if (typeof window !== "undefined") {
+            window.history.scrollRestoration = "manual";
+            window.scrollTo(0, 0);
+        }
 
         if (index === greetings.length - 1) {
             setTimeout(() => {

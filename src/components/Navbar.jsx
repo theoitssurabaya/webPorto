@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="nav-container">
-        <div className="logo">THEO<span>.</span></div>
+        <div className="logo">THEO</div>
         <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <a href="#hero" className={activeSection === "hero" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>{t.profile}</a>
           <a href="#skills" className={activeSection === "skills" ? "active" : ""} onClick={() => setIsMobileMenuOpen(false)}>{t.skills}</a>

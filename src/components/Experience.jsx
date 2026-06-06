@@ -41,7 +41,7 @@ export default function Experience() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span style={{ color: 'var(--c-emerald)' }}>{t.title.split(' ').slice(-1)}</span>.
+                        <span style={{ color: 'var(--c-emerald)' }}>{t.title.split(' ').slice(-1)}</span>
                     </motion.h2>
                 </div>
 
@@ -176,9 +176,9 @@ export default function Experience() {
                         transition={{ duration: 0.6 }}
                     >
                         {language === 'id' ? (
-                            <>Sertifikasi <span style={{ color: 'var(--c-emerald)' }}>Profesional</span>.</>
+                            <>Sertifikasi <span style={{ color: 'var(--c-emerald)' }}>Profesional</span></>
                         ) : (
-                            <>Professional <span style={{ color: 'var(--c-emerald)' }}>Certifications</span>.</>
+                            <>Professional <span style={{ color: 'var(--c-emerald)' }}>Certifications</span></>
                         )}
                     </motion.h3>
                     <div className="cert-grid">

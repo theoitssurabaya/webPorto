@@ -22,7 +22,7 @@ export default function Skills() {
             >
                 <h2>
                     {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                    <span style={{ color: 'var(--c-pink)' }}>{t.title.split(' ').slice(-1)}</span>.
+                    <span style={{ color: 'var(--c-pink)' }}>{t.title.split(' ').slice(-1)}</span>
                 </h2>
             </motion.div>
             <motion.div 

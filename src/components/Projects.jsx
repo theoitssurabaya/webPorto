@@ -21,7 +21,7 @@ export default function Projects() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span style={{ color: 'var(--c-violet)' }}>{t.title.split(' ').slice(-1)}</span>.
+                        <span style={{ color: 'var(--c-violet)' }}>{t.title.split(' ').slice(-1)}</span>
                     </motion.h2>
                 </div>
 
