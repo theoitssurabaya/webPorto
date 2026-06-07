@@ -19,7 +19,7 @@ export default function Hero() {
         setTypewriterText(t.subtitle.substring(0, index + 1));
         index++;
         if (index >= t.subtitle.length) clearInterval(interval);
-      }, 50);
+      }, 25);
     }, 2800); // Wait for preloader splash screen to finish
 
     return () => {

@@ -10,7 +10,7 @@ export const translations = {
     },
     hero: {
       title: "Theo Kawalisa Pinem",
-      subtitle: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
+      subtitle: "Computer Engineering Undergraduate. Internet of Things and Artificial Intelligence Enthusiast.",
       btnExplore: "Explore Projects",
       btnCV: "View CV"
     },
@@ -61,8 +61,8 @@ export const translations = {
       sectionTitle: "Selected Works",
       title: "Featured Projects",
       proj1: {
-        title: "Fully Autonomous ESP32 Robotic Vehicle",
-        desc: "Autonomous 4WD robot powered by ESP32 that navigates and avoids obstacles in real-time using ultrasonic sensors."
+        title: "Bird Shooter ESP32",
+        desc: "Reaction-based arcade game on a 4x4 LED matrix challenging players to memorize and shoot targets at escalating speeds."
       },
       proj2: {
         title: "PZEM Anomaly Detector",
@@ -81,8 +81,12 @@ export const translations = {
         desc: "End-to-end IoT Smart Dispenser system built with ESP32 and Flutter. Features real-time water level monitoring, precision pouring via MQTT, and user quota management with Firebase."
       },
       proj6: {
-        title: "Bird Shooter ESP32",
-        desc: "Reaction-based arcade game on a 4x4 LED matrix challenging players to memorize and shoot targets at escalating speeds."
+        title: "PERISAI",
+        desc: "AI-driven Fullstack Web App predicting risk of Diabetes, Hypertension, and High Cholesterol using Deep Learning."
+      },
+      proj7: {
+        title: "Fully Autonomous ESP32 Robotic Vehicle",
+        desc: "Autonomous 4WD robot powered by ESP32 that navigates and avoids obstacles in real-time using ultrasonic sensors."
       }
     },
     contact: {
@@ -116,7 +120,7 @@ export const translations = {
     },
     hero: {
       title: "Theo Kawalisa Pinem",
-      subtitle: "Mahasiswa Teknik Komputer. Penggiat AI, IoT, dan Robotika.",
+      subtitle: "Mahasiswa Teknik Komputer. Penggiat Internet of Things dan Artificial Intelligence.",
       btnExplore: "Jelajahi Proyek",
       btnCV: "Lihat CV"
     },
@@ -167,8 +171,8 @@ export const translations = {
       sectionTitle: "Karya Pilihan",
       title: "Proyek Unggulan",
       proj1: {
-        title: "Kendaraan Robotik Otonom ESP32",
-        desc: "Robot 4WD otonom bertenaga ESP32 yang cerdas menavigasi dan menghindari rintangan secara real-time menggunakan sensor ultrasonik."
+        title: "Penembak Burung ESP32",
+        desc: "Game arcade reaksi pada matriks LED 4x4, menantang pemain mengingat dan menembak target pada kecepatan kilat."
       },
       proj2: {
         title: "Detektor Anomali PZEM",
@@ -187,8 +191,12 @@ export const translations = {
         desc: "Sistem IoT Smart Dispenser end-to-end yang dibangun dengan ESP32 dan Flutter. Menampilkan pemantauan ketinggian air real-time, penuangan presisi via MQTT, dan manajemen kuota pengguna dengan Firebase."
       },
       proj6: {
-        title: "Penembak Burung ESP32",
-        desc: "Game arcade reaksi pada matriks LED 4x4, menantang pemain mengingat dan menembak target pada kecepatan kilat."
+        title: "PERISAI",
+        desc: "Web App Fullstack berbasis AI untuk memprediksi risiko Diabetes, Hipertensi, dan Kolesterol Tinggi menggunakan Deep Learning."
+      },
+      proj7: {
+        title: "Kendaraan Robotik Otonom ESP32",
+        desc: "Robot 4WD otonom bertenaga ESP32 yang cerdas menavigasi dan menghindari rintangan secara real-time menggunakan sensor ultrasonik."
       }
     },
     contact: {

@@ -29,7 +29,7 @@ export default function Projects() {
                     {/* Project 1 (Large 2x2) */}
                     {/* Project 1: Fully Autonomous ESP32 Robotic Vehicle (2x1) */}
                     <motion.a
-                        href="https://github.com/theoitssurabaya/Fully-Autonomous-ESP32-Robotic-Vehicle"
+                        href="https://github.com/theoitssurabaya/Bird-Shooter-Game-ESP32"
                         target="_blank"
                         className="bento-card bento-item-1"
                         initial={{ opacity: 0, y: 50 }}
@@ -37,14 +37,14 @@ export default function Projects() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        <img src="assets/fully-autonomous-esp32-robotic-vehicle.jpeg" alt="Fully Autonomous ESP32 Robotic Vehicle" className="bento-bg" style={{ objectPosition: "center 65%" }} />
+                        <img src="assets/bird-shooter-esp32.jpeg" alt="Bird Shooter ESP32" className="bento-bg" style={{ objectPosition: "center center" }} />
                         <div className="bento-overlay"></div>
                         <div className="bento-content">
                             <div className="bento-text">
                                 <h3>{t.proj1.title}</h3>
                                 <p>{t.proj1.desc}</p>
                                 <div className="tech-stack">
-                                    <span className="tech-tag">C++</span><span className="tech-tag">ESP32</span><span className="tech-tag">Robotics</span>
+                                    <span className="tech-tag">C++</span><span className="tech-tag">Hardware</span><span className="tech-tag">ESP32</span>
                                 </div>
                             </div>
                         </div>
@@ -119,9 +119,9 @@ export default function Projects() {
                         </div>
                     </motion.a>
 
-                    {/* Project 5: Bird Shooter ESP32 (1x2) */}
+                    {/* Project 5: PERISAI (1x2) */}
                     <motion.a
-                        href="https://github.com/theoitssurabaya/Bird-Shooter-Game-ESP32"
+                        href="https://github.com/theoitssurabaya/PERISAI"
                         target="_blank"
                         className="bento-card bento-item-5"
                         initial={{ opacity: 0, y: 50 }}
@@ -129,14 +129,14 @@ export default function Projects() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.5 }}
                     >
-                        <img src="assets/bird-shooter-esp32.jpeg" alt="Bird Shooter ESP32" className="bento-bg" />
+                        <img src="assets/PERISAI.png" alt="PERISAI" className="bento-bg" />
                         <div className="bento-overlay"></div>
                         <div className="bento-content">
                             <div className="bento-text">
                                 <h3>{t.proj6.title}</h3>
                                 <p>{t.proj6.desc}</p>
                                 <div className="tech-stack">
-                                    <span className="tech-tag">C++</span><span className="tech-tag">Hardware</span><span className="tech-tag">ESP32</span>
+                                    <span className="tech-tag">React</span><span className="tech-tag">Flask</span><span className="tech-tag">Deep Learning</span>
                                 </div>
                             </div>
                         </div>
@@ -160,6 +160,29 @@ export default function Projects() {
                                 <p>{t.proj5.desc}</p>
                                 <div className="tech-stack">
                                     <span className="tech-tag">Dart/Flutter</span><span className="tech-tag">ESP32</span><span className="tech-tag">IoT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.a>
+
+                    {/* Project 7: Bird Shooter ESP32 (2x1) */}
+                    <motion.a
+                        href="https://github.com/theoitssurabaya/Fully-Autonomous-ESP32-Robotic-Vehicle"
+                        target="_blank"
+                        className="bento-card bento-item-7"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                        <img src="assets/fully-autonomous-esp32-robotic-vehicle.jpeg" alt="Fully Autonomous ESP32 Robotic Vehicle" className="bento-bg" style={{ objectPosition: "center 60%" }} />
+                        <div className="bento-overlay"></div>
+                        <div className="bento-content">
+                            <div className="bento-text">
+                                <h3>{t.proj7.title}</h3>
+                                <p>{t.proj7.desc}</p>
+                                <div className="tech-stack">
+                                    <span className="tech-tag">C++</span><span className="tech-tag">ESP32</span><span className="tech-tag">Robotics</span>
                                 </div>
                             </div>
                         </div>

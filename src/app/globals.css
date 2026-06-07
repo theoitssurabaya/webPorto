@@ -1302,6 +1302,11 @@ nav {
     grid-row: span 1;
 }
 
+.bento-item-7 {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
 .bento-card {
     position: relative;
     border-radius: 20px;
@@ -1437,7 +1442,8 @@ nav {
 }
 
 .bento-item-4 .bento-text p,
-.bento-item-6 .bento-text p {
+.bento-item-6 .bento-text p,
+.bento-item-7 .bento-text p {
     -webkit-line-clamp: 4;
 }
 
@@ -1701,7 +1707,8 @@ nav {
 
     .bento-item-1,
     .bento-item-2,
-    .bento-item-5 {
+    .bento-item-5,
+    .bento-item-7 {
         grid-column: span 2;
     }
 
@@ -1879,7 +1886,8 @@ nav {
     .bento-item-3,
     .bento-item-4,
     .bento-item-5,
-    .bento-item-6 {
+    .bento-item-6,
+    .bento-item-7 {
         grid-column: span 1 !important;
         grid-row: span 1 !important;
     }
