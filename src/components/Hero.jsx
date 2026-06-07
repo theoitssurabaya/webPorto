@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
-import Tilt from "react-parallax-tilt";
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -37,30 +36,41 @@ export default function Hero() {
         </div>
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-            <div className="hero-layout">
-                {/* Left Side: Content */}
+            <div className="text-center">
                 <motion.div 
-                    className="hero-content-left" 
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    className="hero-center-img-wrapper"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 2.8, ease: "easeOut" }}
                 >
-                    <h1 className="hero-title" style={{ color: 'var(--text-main)', textAlign: 'left' }}>
+                    <img 
+                        src="assets/foto-diri-clean.png" 
+                        alt="Theo Pinem" 
+                        className="hero-center-img" 
+                    />
+                </motion.div>
+                
+                <motion.div 
+                    initial={{ y: 30 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.8, delay: 3.0, ease: "easeOut" }}
+                    style={{ position: "relative", zIndex: 10 }}
+                >
+                    <h1 className="hero-title">
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
                         <span style={{ color: 'var(--c-blue)' }}>{t.title.split(' ').slice(-1)}</span>
                     </h1>
-                    <p className="subtitle hero-subtitle" style={{ minHeight: "60px", textAlign: 'left', margin: '0 0 40px 0' }}>
+                    <p className="subtitle hero-subtitle" style={{ minHeight: "60px", margin: "0 auto 40px auto", textAlign: "center" }}>
                         <span>{typewriterText}</span><span className="typewriter-cursor">|</span>
                     </p>
-                    <div className="btn-group justify-start">
+                    <div className="btn-group justify-center">
                         <a href="#projects" className="btn-primary">{t.btnExplore}</a>
                         <a href="CV_Theo Kawalisa Pinem.pdf" download className="btn-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                             {t.btnCV}
                         </a>
                     </div>
-                    <div className="social-links justify-start mt-4">
+                    <div className="social-links justify-center mt-4">
                         <a href="https://github.com/theoitssurabaya" target="_blank" className="social-icon glass-icon" aria-label="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         </a>
@@ -75,36 +85,6 @@ export default function Hero() {
                         </a>
                     </div>
                 </motion.div>
-
-                {/* Right Side: Image */}
-                <div className="hero-img-right">
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 3.0, ease: "easeOut" }}
-                        style={{ display: "flex", justifyContent: "center" }}
-                    >
-                        <Tilt 
-                            tiltMaxAngleX={15} 
-                            tiltMaxAngleY={15} 
-                            perspective={1000} 
-                            transitionSpeed={1000} 
-                            scale={1.05} 
-                            glareEnable={true} 
-                            glareMaxOpacity={0.45} 
-                            glareColor="#ffffff"
-                            glarePosition="all"
-                            glareBorderRadius="50%"
-                            className="hero-profile-frame"
-                        >
-                            <img 
-                                src="assets/foto-diri-nobg.png" 
-                                alt="Theo Pinem" 
-                                className="hero-profile-img" 
-                            />
-                        </Tilt>
-                    </motion.div>
-                </div>
             </div>
         </div>
     </section>
