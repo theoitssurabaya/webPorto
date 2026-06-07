@@ -56,7 +56,18 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 3.0, ease: "easeOut" }}
                     style={{ position: "relative", zIndex: 10 }}
                 >
-                    <h1 className="hero-title">
+                    <div style={{
+                        position: "absolute",
+                        top: "-20px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "120%",
+                        height: "200px",
+                        background: "radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0) 70%)",
+                        zIndex: -1,
+                        pointerEvents: "none"
+                    }}></div>
+                    <h1 className="hero-title" style={{ position: "relative" }}>
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
                         <span style={{ color: 'var(--c-blue)' }}>{t.title.split(' ').slice(-1)}</span>
                     </h1>
@@ -65,7 +76,7 @@ export default function Hero() {
                     </p>
                     <div className="btn-group justify-center">
                         <a href="#projects" className="btn-primary">{t.btnExplore}</a>
-                        <a href="CV_Theo Kawalisa Pinem.pdf" download className="btn-secondary">
+                        <a href="https://its.id/m/CVTheoPinem" target="_blank" rel="noopener noreferrer" className="btn-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                             {t.btnCV}
                         </a>

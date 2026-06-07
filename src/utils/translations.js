@@ -12,7 +12,7 @@ export const translations = {
       title: "Theo Kawalisa Pinem",
       subtitle: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
       btnExplore: "Explore Projects",
-      btnCV: "Download CV"
+      btnCV: "View CV"
     },
     skills: {
       sectionTitle: "Technical Arsenal",
@@ -118,7 +118,7 @@ export const translations = {
       title: "Theo Kawalisa Pinem",
       subtitle: "Mahasiswa Teknik Komputer. Penggiat AI, IoT, dan Robotika.",
       btnExplore: "Jelajahi Proyek",
-      btnCV: "Unduh CV"
+      btnCV: "Lihat CV"
     },
     skills: {
       sectionTitle: "Gudang Teknis",
