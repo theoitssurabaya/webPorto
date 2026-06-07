@@ -71,7 +71,7 @@ export default function Hero() {
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
                         <span style={{ color: 'var(--c-blue)' }}>{t.title.split(' ').slice(-1)}</span>
                     </h1>
-                    <p className="subtitle hero-subtitle" style={{ minHeight: "60px", margin: "0 auto 40px auto", textAlign: "center" }}>
+                    <p className="subtitle hero-subtitle" style={{ minHeight: "60px", margin: "0 auto 20px auto", textAlign: "center" }}>
                         <span>{typewriterText}</span><span className="typewriter-cursor">|</span>
                     </p>
                     <div className="btn-group justify-center">

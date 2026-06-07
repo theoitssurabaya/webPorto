@@ -538,7 +538,7 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 0px;
     padding-bottom: 60px;
     overflow: hidden;
 }
@@ -546,11 +546,11 @@ nav {
 .hero-center-img-wrapper {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: -130px;
+    margin-bottom: -200px;
     z-index: 0;
     pointer-events: none;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 85%);
@@ -1826,6 +1826,14 @@ nav {
         word-wrap: break-word;
     }
 
+    h1.hero-title {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        word-wrap: break-word;
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .text-center h1,
     .text-center h2 {
         text-align: center !important;
         width: 100%;
