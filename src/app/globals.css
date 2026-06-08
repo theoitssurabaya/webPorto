@@ -1287,7 +1287,9 @@ nav {
     display: flex;
     overflow-x: auto;
     gap: 20px;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: -20px; /* Offset the visual space added by padding-top */
     width: 100%;
     scroll-behavior: auto !important;
 }
