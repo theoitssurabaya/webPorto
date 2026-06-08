@@ -1258,53 +1258,37 @@ nav {
     }
 }
 
-/* Bento Gallery Projects */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 250px;
+/* Carousel Projects */
+.projects-carousel {
+    display: flex;
+    overflow-x: auto;
     gap: 20px;
+    padding-bottom: 20px;
     width: 100%;
+    scroll-behavior: auto !important;
 }
 
-.bento-grid:hover .bento-card {
+.projects-carousel:hover .carousel-card {
     opacity: 0.7;
     filter: brightness(0.7);
 }
 
-.bento-item-1 {
-    grid-column: span 2;
-    grid-row: span 1;
+/* Hide Scrollbar for Seamless Infinite Effect */
+.projects-carousel::-webkit-scrollbar {
+    display: none;
+}
+.projects-carousel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    will-change: transform, scroll-position;
+    transform: translateZ(0); /* Hardware acceleration */
 }
 
-.bento-item-2 {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-.bento-item-3 {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-.bento-item-4 {
-    grid-column: span 1;
-    grid-row: span 2;
-}
-
-.bento-item-5 {
-    grid-column: span 1;
-    grid-row: span 2;
-}
-
-.bento-item-6 {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-.bento-item-7 {
-    grid-column: span 4;
-    grid-row: span 1;
+.carousel-card {
+    flex: 0 0 400px;
+    height: 450px;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .bento-card {
@@ -1426,25 +1410,6 @@ nav {
 .bento-card:hover .bento-text p,
 .bento-card:hover .tech-stack {
     opacity: 1;
-}
-
-.bento-item-1 .bento-text p {
-    -webkit-line-clamp: 6;
-}
-
-.bento-item-2 .bento-text p,
-.bento-item-5 .bento-text p {
-    -webkit-line-clamp: 4;
-}
-
-.bento-item-3 .bento-text p {
-    -webkit-line-clamp: 6;
-}
-
-.bento-item-4 .bento-text p,
-.bento-item-6 .bento-text p,
-.bento-item-7 .bento-text p {
-    -webkit-line-clamp: 4;
 }
 
 /* Certifications */
@@ -1700,22 +1665,9 @@ nav {
         left: 7px;
     }
 
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 250px;
-    }
-
-    .bento-item-1,
-    .bento-item-2,
-    .bento-item-5,
-    .bento-item-7 {
-        grid-column: span 2;
-    }
-
-    .bento-item-3,
-    .bento-item-4,
-    .bento-item-6 {
-        grid-column: span 1;
+    .carousel-card {
+        flex: 0 0 350px;
+        height: 400px;
     }
 }
 
@@ -1876,20 +1828,9 @@ nav {
         bottom: calc(100% + 10px);
     }
 
-    .bento-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 300px;
-    }
-
-    .bento-item-1,
-    .bento-item-2,
-    .bento-item-3,
-    .bento-item-4,
-    .bento-item-5,
-    .bento-item-6,
-    .bento-item-7 {
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
+    .carousel-card {
+        flex: 0 0 85vw;
+        height: 380px;
     }
 
     .bento-text p,

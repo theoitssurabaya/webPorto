@@ -1,4 +1,5 @@
 "use client";
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
@@ -6,14 +7,202 @@ import { translations } from "@/utils/translations";
 export default function Projects() {
     const { language } = useLanguage();
     const t = translations[language].projects;
+    const carouselRef = useRef(null);
+
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (!carousel) return;
+
+        // Initialize scroll position to the middle set
+        const setInitialScroll = () => {
+            if (!carouselRef.current || carouselRef.current.children.length < 8) return;
+            const singleSetWidth = carouselRef.current.children[7].offsetLeft - carouselRef.current.children[0].offsetLeft;
+            if (carouselRef.current.scrollLeft === 0) {
+                carouselRef.current.scrollLeft = singleSetWidth;
+                targetScroll = singleSetWidth;
+            }
+        };
+        setTimeout(setInitialScroll, 100);
+
+        let targetScroll = 0;
+        let scrollRemainder = 0;
+        let isHovered = false;
+        let isWheeling = false;
+        let isNativeScrolling = false;
+        let wheelTimeout;
+        let animationFrameId;
+
+        const updateScroll = () => {
+            if (!carouselRef.current) return;
+
+            const currentScroll = carouselRef.current.scrollLeft;
+            const diff = targetScroll - currentScroll;
+
+            // 1. Auto-scroll logic
+            if (!isHovered && !isWheeling && !isNativeScrolling) {
+                carouselRef.current.scrollLeft += 1;
+                targetScroll = carouselRef.current.scrollLeft;
+                scrollRemainder = 0;
+            } 
+            // 2. JS Lerp logic (ONLY when using vertical mouse wheel)
+            else if (isWheeling) {
+                if (Math.abs(diff) > 0.5) {
+                    const step = diff * 0.08 + scrollRemainder;
+                    const intStep = Math.trunc(step);
+                    scrollRemainder = step - intStep;
+
+                    if (intStep !== 0) {
+                        carouselRef.current.scrollLeft += intStep;
+                    }
+                }
+            } 
+            // 3. Native tracking (Trackpad swipe / Touch swipe)
+            else {
+                scrollRemainder = 0;
+                targetScroll = currentScroll; // Keep target perfectly in sync with native scroll
+            }
+
+            animationFrameId = requestAnimationFrame(updateScroll);
+        };
+
+        // Start the loop
+        animationFrameId = requestAnimationFrame(updateScroll);
+
+        const handleWheel = (e) => {
+            // Trackpad horizontal swipe
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                isNativeScrolling = true;
+                clearTimeout(wheelTimeout);
+                wheelTimeout = setTimeout(() => {
+                    isNativeScrolling = false;
+                }, 100);
+                // Do NOT call e.preventDefault(). Let native trackpad do its magic!
+                return;
+            }
+
+            // Mouse vertical wheel -> map to horizontal scroll
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                isWheeling = true;
+                clearTimeout(wheelTimeout);
+                wheelTimeout = setTimeout(() => {
+                    isWheeling = false;
+                }, 100);
+
+                // Multiplier increased to 3.5 for comfortable mouse scrolling
+                targetScroll += e.deltaY * 3.5;
+            }
+        };
+
+        const handleScroll = () => {
+            if (!carousel || carousel.children.length < 8) return;
+            const singleSetWidth = carousel.children[7].offsetLeft - carousel.children[0].offsetLeft;
+
+            if (carousel.scrollLeft <= 0) {
+                carousel.scrollLeft += singleSetWidth;
+                targetScroll += singleSetWidth;
+            } else if (carousel.scrollLeft >= singleSetWidth * 2) {
+                carousel.scrollLeft -= singleSetWidth;
+                targetScroll -= singleSetWidth;
+            }
+        };
+
+        const handleMouseEnter = () => isHovered = true;
+        const handleMouseLeave = () => {
+            isHovered = false;
+            targetScroll = carousel.scrollLeft;
+            scrollRemainder = 0;
+        };
+
+        const handleTouchStart = () => isHovered = true;
+        const handleTouchEnd = () => {
+            isHovered = false;
+            targetScroll = carousel.scrollLeft;
+        };
+
+        carousel.addEventListener("wheel", handleWheel, { passive: false });
+        carousel.addEventListener("scroll", handleScroll, { passive: true });
+        carousel.addEventListener("mouseenter", handleMouseEnter);
+        carousel.addEventListener("mouseleave", handleMouseLeave);
+        carousel.addEventListener("touchstart", handleTouchStart, { passive: true });
+        carousel.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+        return () => {
+            carousel.removeEventListener("wheel", handleWheel);
+            carousel.removeEventListener("scroll", handleScroll);
+            carousel.removeEventListener("mouseenter", handleMouseEnter);
+            carousel.removeEventListener("mouseleave", handleMouseLeave);
+            carousel.removeEventListener("touchstart", handleTouchStart);
+            carousel.removeEventListener("touchend", handleTouchEnd);
+            cancelAnimationFrame(animationFrameId);
+            clearTimeout(wheelTimeout);
+        };
+    }, []);
+
+    const projectList = [
+        {
+            key: "proj1",
+            link: "https://github.com/theoitssurabaya/Bird-Shooter-Game-ESP32",
+            img: "assets/bird-shooter-esp32.jpeg",
+            alt: "Bird Shooter ESP32",
+            objPos: "center center",
+            tags: ["C++", "Hardware", "ESP32"]
+        },
+        {
+            key: "proj2",
+            link: "https://github.com/theoitssurabaya/PZEM-AnomalyDetector",
+            img: "assets/pzem-anomaly-detector.jpeg",
+            alt: "PZEM Anomaly Detector",
+            tags: ["C++", "ML", "ESP32"]
+        },
+        {
+            key: "proj4",
+            link: "https://github.com/theoitssurabaya/Soil-Monitoring-Controlled-Irrigation",
+            img: "assets/smart-irrigation.jpeg",
+            alt: "Smart Irrigation",
+            tags: ["ESP32", "ML", "Raspberry Pi"]
+        },
+        {
+            key: "proj3",
+            link: "https://github.com/theoitssurabaya/distance_target_game_project",
+            img: "assets/distance-target-game.png",
+            alt: "Distance Target Game",
+            objPos: "left center",
+            tags: ["JS", "ESP32", "IoT"]
+        },
+        {
+            key: "proj6",
+            link: "https://github.com/theoitssurabaya/PERISAI",
+            img: "assets/PERISAI.png",
+            alt: "PERISAI",
+            tags: ["React", "Flask", "Deep Learning"]
+        },
+        {
+            key: "proj5",
+            link: "https://github.com/theoitssurabaya/Smart-Dispenser-IoT",
+            img: "assets/smart-dispenser-iot.jpeg",
+            alt: "Smart Dispenser IoT",
+            tags: ["Dart/Flutter", "ESP32", "IoT"]
+        },
+        {
+            key: "proj7",
+            link: "https://github.com/theoitssurabaya/Fully-Autonomous-ESP32-Robotic-Vehicle",
+            img: "assets/fully-autonomous-esp32-robotic-vehicle.jpeg",
+            alt: "Fully Autonomous ESP32 Robotic Vehicle",
+            objPos: "center 60%",
+            tags: ["C++", "ESP32", "Robotics"]
+        }
+    ];
+
+    const extendedList = [...projectList, ...projectList, ...projectList];
 
     return (
         <section id="projects" className="section projects-section relative">
             <div className="hero-bg-shapes">
                 <div className="shape shape-8"></div>
             </div>
-            <div className="container relative" style={{ zIndex: 1 }}>
-                <div className="text-center mb-5">
+            <div className="container relative" style={{ zIndex: 1, maxWidth: "100%", padding: 0 }}>
+                <div className="text-center mb-5" style={{ padding: "0 20px" }}>
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -25,169 +214,45 @@ export default function Projects() {
                     </motion.h2>
                 </div>
 
-                <div className="bento-grid">
-                    {/* Project 1 (Large 2x2) */}
-                    {/* Project 1: Fully Autonomous ESP32 Robotic Vehicle (2x1) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/Bird-Shooter-Game-ESP32"
-                        target="_blank"
-                        className="bento-card bento-item-1"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                    >
-                        <img src="assets/bird-shooter-esp32.jpeg" alt="Bird Shooter ESP32" className="bento-bg" style={{ objectPosition: "center center" }} />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj1.title}</h3>
-                                <p>{t.proj1.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">C++</span><span className="tech-tag">Hardware</span><span className="tech-tag">ESP32</span>
+                <motion.div 
+                    className="projects-carousel" 
+                    ref={carouselRef} 
+                    data-lenis-prevent="true"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    {extendedList.map((project, index) => (
+                        <a
+                            key={`${project.key}-${index}`}
+                            href={project.link}
+                            target="_blank"
+                            className="bento-card carousel-card"
+                        >
+                            <img 
+                                src={project.img} 
+                                alt={project.alt} 
+                                className="bento-bg" 
+                                style={project.objPos ? { objectPosition: project.objPos } : {}} 
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            <div className="bento-overlay"></div>
+                            <div className="bento-content">
+                                <div className="bento-text">
+                                    <h3>{t[project.key].title}</h3>
+                                    <p>{t[project.key].desc}</p>
+                                    <div className="tech-stack">
+                                        {project.tags.map(tag => (
+                                            <span key={tag} className="tech-tag">{tag}</span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.a>
-
-                    {/* Project 2: PZEM Anomaly Detector (2x1) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/PZEM-AnomalyDetector"
-                        target="_blank"
-                        className="bento-card bento-item-2"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        <img src="assets/pzem-anomaly-detector.jpeg" alt="PZEM Anomaly Detector" className="bento-bg" />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj2.title}</h3>
-                                <p>{t.proj2.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">C++</span><span className="tech-tag">ML</span><span className="tech-tag">ESP32</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.a>
-
-                    {/* Project 3: Smart Irrigation (2x1) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/Soil-Monitoring-Controlled-Irrigation"
-                        target="_blank"
-                        className="bento-card bento-item-3"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                    >
-                        <img src="assets/smart-irrigation.jpeg" alt="Smart Irrigation" className="bento-bg" />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj4.title}</h3>
-                                <p>{t.proj4.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">ESP32</span><span className="tech-tag">ML</span><span className="tech-tag">Raspberry Pi</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.a>
-
-                    {/* Project 4: Distance Target Game (1x2) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/distance_target_game_project"
-                        target="_blank"
-                        className="bento-card bento-item-4"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                    >
-                        <img src="assets/distance-target-game.png" alt="Distance Target Game" className="bento-bg" style={{ objectPosition: "left center" }} />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj3.title}</h3>
-                                <p>{t.proj3.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">JS</span><span className="tech-tag">ESP32</span><span className="tech-tag">IoT</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.a>
-
-                    {/* Project 5: PERISAI (1x2) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/PERISAI"
-                        target="_blank"
-                        className="bento-card bento-item-5"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                    >
-                        <img src="assets/PERISAI.png" alt="PERISAI" className="bento-bg" />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj6.title}</h3>
-                                <p>{t.proj6.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">React</span><span className="tech-tag">Flask</span><span className="tech-tag">Deep Learning</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.a>
-
-                    {/* Project 6: Smart Dispenser IoT (2x1) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/Smart-Dispenser-IoT"
-                        target="_blank"
-                        className="bento-card bento-item-6"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                    >
-                        <img src="assets/smart-dispenser-iot.jpeg" alt="Smart Dispenser IoT" className="bento-bg" />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj5.title}</h3>
-                                <p>{t.proj5.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">Dart/Flutter</span><span className="tech-tag">ESP32</span><span className="tech-tag">IoT</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.a>
-
-                    {/* Project 7: Bird Shooter ESP32 (2x1) */}
-                    <motion.a
-                        href="https://github.com/theoitssurabaya/Fully-Autonomous-ESP32-Robotic-Vehicle"
-                        target="_blank"
-                        className="bento-card bento-item-7"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.7 }}
-                    >
-                        <img src="assets/fully-autonomous-esp32-robotic-vehicle.jpeg" alt="Fully Autonomous ESP32 Robotic Vehicle" className="bento-bg" style={{ objectPosition: "center 60%" }} />
-                        <div className="bento-overlay"></div>
-                        <div className="bento-content">
-                            <div className="bento-text">
-                                <h3>{t.proj7.title}</h3>
-                                <p>{t.proj7.desc}</p>
-                                <div className="tech-stack">
-                                    <span className="tech-tag">C++</span><span className="tech-tag">ESP32</span><span className="tech-tag">Robotics</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.a>
-                </div>
+                        </a>
+                    ))}
+                </motion.div>
             </div>
         </section>
     );
