@@ -16,7 +16,7 @@ export const translations = {
     },
     skills: {
       sectionTitle: "Technical Arsenal",
-      title: "Skills & Technologies",
+      title: "Skills & Certifications",
       categories: {
         programming: "Programming Languages",
         hardware: "Hardware & IoT",
@@ -126,7 +126,7 @@ export const translations = {
     },
     skills: {
       sectionTitle: "Gudang Teknis",
-      title: "Keahlian & Teknologi",
+      title: "Keahlian & Sertifikasi",
       categories: {
         programming: "Bahasa Pemrograman",
         hardware: "Perangkat Keras & IoT",

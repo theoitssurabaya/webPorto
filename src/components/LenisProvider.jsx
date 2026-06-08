@@ -19,6 +19,7 @@ export default function LenisProvider({ children }) {
     });
 
     lenisRef.current = lenis;
+    window.lenis = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -29,6 +30,7 @@ export default function LenisProvider({ children }) {
 
     return () => {
       lenis.destroy();
+      delete window.lenis;
     };
   }, []);
 

@@ -63,13 +63,13 @@ export default function Hero() {
                         transform: "translateX(-50%)",
                         width: "120%",
                         height: "200px",
-                        background: "radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0) 70%)",
+                        background: "radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 40%, rgba(255,255,255,0) 70%)",
                         zIndex: -1,
                         pointerEvents: "none"
                     }}></div>
                     <h1 className="hero-title" style={{ position: "relative" }}>
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span style={{ color: 'var(--c-blue)' }}>{t.title.split(' ').slice(-1)}</span>
+                        <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
                     </h1>
                     <p className="subtitle hero-subtitle" style={{ minHeight: "60px", margin: "0 auto 20px auto", textAlign: "center" }}>
                         <span>{typewriterText}</span><span className="typewriter-cursor">|</span>

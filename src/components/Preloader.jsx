@@ -59,7 +59,7 @@ export default function Preloader() {
                                 display: "inline-block", 
                                 width: "12px", 
                                 height: "12px", 
-                                backgroundColor: "var(--accent)", 
+                                backgroundColor: "var(--text-main)", 
                                 borderRadius: "50%" 
                             }}
                         />

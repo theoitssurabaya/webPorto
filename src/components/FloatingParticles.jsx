@@ -27,12 +27,9 @@ const TECH_ICONS = [
 ];
 
 const COLORS = [
-  "rgba(249, 115, 22, 0.4)", // Orange
-  "rgba(236, 72, 153, 0.4)", // Pink
-  "rgba(139, 92, 246, 0.4)", // Violet
-  "rgba(16, 185, 129, 0.4)", // Emerald
-  "rgba(59, 130, 246, 0.4)", // Blue
-  "rgba(239, 68, 68, 0.4)"   // Red
+  "rgba(255, 255, 255, 0.15)", // Light Gray
+  "rgba(200, 200, 200, 0.1)", // Medium Gray
+  "rgba(150, 150, 150, 0.05)", // Dark Gray
 ];
 
 // Konfigurasi partikel acak

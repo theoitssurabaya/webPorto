@@ -41,7 +41,7 @@ export default function Experience() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span style={{ color: 'var(--c-emerald)' }}>{t.title.split(' ').slice(-1)}</span>
+                        <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
                     </motion.h2>
                 </div>
 
@@ -86,7 +86,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Membangun proyek Capstone AI menggunakan framework Deep Learning." : "Building an AI Capstone project using Deep Learning frameworks."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img src="assets/ai-engineer-cohort.png" alt="AI Engineer Cohort" className="timeline-img" />
+                                <img loading="lazy" src="assets/ai-engineer-cohort.png" alt="AI Engineer Cohort" className="timeline-img" />
                             </div>
                         </div>
 
@@ -101,7 +101,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Mengarahkan dan mendampingi program pengembangan mahasiswa untuk mahasiswa baru fakultas." : "Directed and mentored the student development programs for incoming faculty students."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img src="assets/bem-fteic.jpeg" alt="BEM FTEIC" className="timeline-img" />
+                                <img loading="lazy" src="assets/bem-fteic.jpeg" alt="BEM FTEIC" className="timeline-img" />
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Mengoordinasikan pengembangan robotika, IoT, dan sistem cerdas." : "Coordinating development for robotics, IoT, and intelligent systems."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img src="assets/robotics-lab.jpeg" alt="Robotics Lab" className="timeline-img" />
+                                <img loading="lazy" src="assets/robotics-lab.jpeg" alt="Robotics Lab" className="timeline-img" />
                             </div>
                         </div>
 
@@ -131,7 +131,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Mengawasi dan memantau mentor saat mereka mendampingi masing-masing 10 mahasiswa baru." : "Supervised and monitored those mentors while they mentor 10 freshmen each."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img src="assets/inclenation.jpeg" alt="INCLENATION 2025" className="timeline-img" />
+                                <img loading="lazy" src="assets/inclenation.jpeg" alt="INCLENATION 2025" className="timeline-img" />
                             </div>
                         </div>
 
@@ -146,7 +146,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Memfasilitasi dan mendampingi pelatihan sekitar 120 mahasiswa junior." : "Facilitated and assisted in training around 120 juniors."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img src="assets/himatekkom-its.jpeg" alt="HIMATEKKOM ITS" className="timeline-img" />
+                                <img loading="lazy" src="assets/himatekkom-its.jpeg" alt="HIMATEKKOM ITS" className="timeline-img" />
                             </div>
                         </div>
 
@@ -161,107 +161,13 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Berperan sebagai narahubung utama dengan pembina kerohanian ITS bersama tim beranggotakan 7 orang." : "Acted as the key liaison with the ITS spiritual campus advisor with a 7-person team."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img src="assets/pkmbk.jpeg" alt="PKMBK ITS" className="timeline-img" />
+                                <img loading="lazy" src="assets/pkmbk.jpeg" alt="PKMBK ITS" className="timeline-img" />
                             </div>
                         </div>
                     </motion.div>
                 </div>
 
-                <div className="certifications-wrapper mt-5 text-center">
-                    <motion.h3
-                        className="mb-4"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        {language === 'id' ? (
-                            <>Sertifikasi <span style={{ color: 'var(--c-emerald)' }}>Profesional</span></>
-                        ) : (
-                            <>Professional <span style={{ color: 'var(--c-emerald)' }}>Certifications</span></>
-                        )}
-                    </motion.h3>
-                    <div className="cert-grid">
-                        <motion.div
-                            className="cert-wrapper"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                        >
-                            <div className="cert-badge glass-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)</span>
-                            </div>
-                            <img src="assets/Membangun Proyek Deep Learning Tingkat Mahir.jpeg" alt="Certificate" className="cert-popup-img" />
-                        </motion.div>
-                        <motion.div
-                            className="cert-wrapper"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <div className="cert-badge glass-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Belajar Fundamental Deep Learning (Dicoding)</span>
-                            </div>
-                            <img src="assets/Belajar Fundamental Deep Learning.jpeg" alt="Certificate" className="cert-popup-img" />
-                        </motion.div>
-                        <motion.div
-                            className="cert-wrapper"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                            <div className="cert-badge glass-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Belajar Machine Learning untuk Pemula (Dicoding)</span>
-                            </div>
-                            <img src="assets/Belajar Machine Learning untuk Pemula.jpeg" alt="Certificate" className="cert-popup-img" />
-                        </motion.div>
-                        <motion.div
-                            className="cert-wrapper"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                            <div className="cert-badge glass-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Introduction to Software Engineering (RevoU)</span>
-                            </div>
-                            <img src="assets/Introduction to Software Engineering.jpeg" alt="Certificate" className="cert-popup-img" />
-                        </motion.div>
-                        <motion.div
-                            className="cert-wrapper"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
-                        >
-                            <div className="cert-badge glass-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Belajar Dasar Git dengan Github (Dicoding)</span>
-                            </div>
-                            <img src="assets/Belajar Dasar Git dengan Github.jpeg" alt="Certificate" className="cert-popup-img" />
-                        </motion.div>
-                        <motion.div
-                            className="cert-wrapper"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                        >
-                            <div className="cert-badge glass-card">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Memulai Pemrograman dengan Python (Dicoding)</span>
-                            </div>
-                            <img src="assets/Memulai Pemrograman dengan Python.jpeg" alt="Certificate" className="cert-popup-img" />
-                        </motion.div>
-                    </div>
-                </div>
+
             </div>
         </section>
     );

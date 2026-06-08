@@ -22,7 +22,7 @@ export default function Education() {
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
                     {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                    <span style={{ color: 'var(--c-orange)' }}>{t.title.split(' ').slice(-1)}</span>
+                    <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
                 </motion.h2>
             </div>
             
@@ -45,7 +45,7 @@ export default function Education() {
                             <span className="edu-pill">{language === 'id' ? "Peringkat 66 dari 141 siswa jurusan IPA" : "Ranked 66 eligible students of Natural Sciences out of 141"}</span>
                         </div>
                         <div className="timeline-img-wrapper mt-auto">
-                            <img src="assets/sma.jpeg" alt="SMAN 2 Tangerang Selatan" className="timeline-img" style={{ objectPosition: "center 25%" }} />
+                            <img loading="lazy" src="assets/sma.jpeg" alt="SMAN 2 Tangerang Selatan" className="timeline-img" style={{ objectPosition: "center 25%" }} />
                         </div>
                     </div>
                 </motion.div>
@@ -68,7 +68,7 @@ export default function Education() {
                             <span className="edu-pill"><strong>{language === 'id' ? "Keahlian:" : "Skills:"}</strong> {language === 'id' ? "Bahasa Inggris sebagai Bahasa Kedua (ESL)" : "English as a Second Language (ESL)"}</span>
                         </div>
                         <div className="timeline-img-wrapper mt-auto">
-                            <img src="assets/kuliah.jpeg" alt="ITS Campus" className="timeline-img" />
+                            <img loading="lazy" src="assets/kuliah.jpeg" alt="ITS Campus" className="timeline-img" />
                         </div>
                     </div>
                 </motion.div>
