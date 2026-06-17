@@ -87,6 +87,10 @@ export const translations = {
       proj7: {
         title: "Fully Autonomous ESP32 Robotic Vehicle",
         desc: "Autonomous 4WD robot powered by ESP32 that navigates and avoids obstacles in real-time using ultrasonic sensors."
+      },
+      proj8: {
+        title: "Wayfinder",
+        desc: "Smart indoor navigation system using A* pathfinding and NLP to provide flexible, AI-driven routing for complex buildings."
       }
     },
     contact: {
@@ -197,6 +201,10 @@ export const translations = {
       proj7: {
         title: "Kendaraan Robotik Otonom ESP32",
         desc: "Robot 4WD otonom bertenaga ESP32 yang cerdas menavigasi dan menghindari rintangan secara real-time menggunakan sensor ultrasonik."
+      },
+      proj8: {
+        title: "Wayfinder",
+        desc: "Sistem navigasi dalam ruangan pintar menggunakan algoritma A* dan NLP untuk pencarian rute berbasis AI di gedung yang kompleks."
       }
     },
     contact: {

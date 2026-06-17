@@ -15,8 +15,8 @@ export default function Projects() {
 
         // Initialize scroll position to the middle set
         const setInitialScroll = () => {
-            if (!carouselRef.current || carouselRef.current.children.length < 8) return;
-            const singleSetWidth = carouselRef.current.children[7].offsetLeft - carouselRef.current.children[0].offsetLeft;
+            if (!carouselRef.current || carouselRef.current.children.length < 9) return;
+            const singleSetWidth = carouselRef.current.children[8].offsetLeft - carouselRef.current.children[0].offsetLeft;
             if (carouselRef.current.scrollLeft === 0) {
                 carouselRef.current.scrollLeft = singleSetWidth;
                 targetScroll = singleSetWidth;
@@ -95,8 +95,8 @@ export default function Projects() {
         };
 
         const handleScroll = () => {
-            if (!carousel || carousel.children.length < 8) return;
-            const singleSetWidth = carousel.children[7].offsetLeft - carousel.children[0].offsetLeft;
+            if (!carousel || carousel.children.length < 9) return;
+            const singleSetWidth = carousel.children[8].offsetLeft - carousel.children[0].offsetLeft;
 
             if (carousel.scrollLeft <= 0) {
                 carousel.scrollLeft += singleSetWidth;
@@ -191,6 +191,13 @@ export default function Projects() {
             alt: "Fully Autonomous ESP32 Robotic Vehicle",
             objPos: "center 60%",
             tags: ["C++", "ESP32", "Robotics"]
+        },
+        {
+            key: "proj8",
+            link: "https://github.com/theoitssurabaya/Wayfinder",
+            img: "assets/wayfinder.png",
+            alt: "Wayfinder",
+            tags: ["React", "FastAPI", "NLP", "Gemini", "Firebase"]
         }
     ];
 
