@@ -20,7 +20,7 @@ export default function Hero() {
         index++;
         if (index >= t.subtitle.length) clearInterval(interval);
       }, 25);
-    }, 2800); // Wait for preloader splash screen to finish
+    }, 3200); // Wait for preloader splash screen to finish
 
     return () => {
         clearTimeout(timeout);
@@ -41,7 +41,7 @@ export default function Hero() {
                     className="hero-center-img-wrapper"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 2.8, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
                 >
                     <img 
                         src="assets/foto-diri-clean.png" 
@@ -53,7 +53,7 @@ export default function Hero() {
                 <motion.div 
                     initial={{ y: 30 }}
                     animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 3.0, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 3.4, ease: "easeOut" }}
                     style={{ position: "relative", zIndex: 10 }}
                 >
                     <div style={{

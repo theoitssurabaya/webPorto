@@ -6,7 +6,6 @@ import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import StackedSection from "@/components/StackedSection";
 
 export default function Home() {
   return (
@@ -20,29 +19,12 @@ export default function Home() {
       </div>
 
       <main className="stacked-wrapper">
-        <StackedSection zIndex={10}>
-          <Hero />
-        </StackedSection>
-        
-        <StackedSection zIndex={20}>
-          <Skills />
-        </StackedSection>
-        
-        <StackedSection zIndex={30}>
-          <Education />
-        </StackedSection>
-        
-        <StackedSection zIndex={40}>
-          <Experience />
-        </StackedSection>
-        
-        <StackedSection zIndex={50}>
-          <Projects />
-        </StackedSection>
-        
-        <StackedSection zIndex={60}>
-          <Contact />
-        </StackedSection>
+        <Hero />
+        <Skills />
+        <Education />
+        <Experience />
+        <Projects />
+        <Contact />
       </main>
     </>
   );

@@ -36,7 +36,7 @@ export default function Preloader() {
 
         const timer = setTimeout(() => {
             setIndex(index + 1);
-        }, index === 0 ? 800 : 200); // cycle at 200ms
+        }, 400); // 400ms for every language
 
         return () => clearTimeout(timer);
     }, [index]);
