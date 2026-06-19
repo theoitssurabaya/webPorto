@@ -68,8 +68,7 @@ export default function Hero() {
                         pointerEvents: "none"
                     }}></div>
                     <h1 className="hero-title" style={{ position: "relative" }}>
-                        {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
+                        {t.title}
                     </h1>
                     <p className="subtitle hero-subtitle" style={{ minHeight: "60px", margin: "0 auto 20px auto", textAlign: "center" }}>
                         <span>{typewriterText}</span><span className="typewriter-cursor">|</span>

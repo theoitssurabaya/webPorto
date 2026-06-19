@@ -23,8 +23,7 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: 0.1 }}
             >
                 <h2>
-                    {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                    <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
+                    {t.title}
                 </h2>
             </motion.div>
 
@@ -46,7 +45,7 @@ export default function Skills() {
                     className={`tab-btn ${activeTab === 'certifications' ? 'active' : ''}`}
                     onClick={() => setActiveTab('certifications')}
                 >
-                    Professional Certifications
+                    Certifications
                 </button>
             </motion.div>
 

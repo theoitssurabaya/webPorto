@@ -1296,12 +1296,12 @@ nav {
 
 .projects-carousel:hover .carousel-card {
     opacity: 0.5;
-    filter: brightness(0.5) grayscale(100%);
+    filter: brightness(0.5);
 }
 
 .projects-carousel .carousel-card:hover {
     opacity: 1;
-    filter: brightness(1) grayscale(0%);
+    filter: brightness(1);
 }
 
 /* Hide Scrollbar for Seamless Infinite Effect */
@@ -1316,8 +1316,8 @@ nav {
 }
 
 .carousel-card {
-    flex: 0 0 400px;
-    height: 450px;
+    flex: 0 0 450px;
+    height: 520px;
     will-change: transform;
     transform: translateZ(0);
 }
@@ -1346,12 +1346,10 @@ nav {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    filter: grayscale(100%);
     transition: transform 0.7s ease, filter 0.5s ease;
 }
 
 .carousel-card:hover .bento-bg {
-    filter: grayscale(0%);
     transform: scale(1.05);
 }
 
@@ -1360,7 +1358,6 @@ nav {
     inset: 0;
     z-index: 1;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0) 80%);
-    backdrop-filter: blur(2px);
     opacity: 0;
     transition: opacity 0.5s ease;
 }

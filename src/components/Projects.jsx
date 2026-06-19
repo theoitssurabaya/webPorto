@@ -175,6 +175,7 @@ export default function Projects() {
             link: "https://github.com/theoitssurabaya/PERISAI",
             img: "assets/PERISAI.png",
             alt: "PERISAI",
+            objFit: "contain",
             tags: ["React", "Node.js", "FastAPI"]
         },
         {
@@ -197,6 +198,7 @@ export default function Projects() {
             link: "https://github.com/theoitssurabaya/Wayfinder",
             img: "assets/wayfinder.png",
             alt: "Wayfinder",
+            objFit: "contain",
             tags: ["React", "Firebase", "NLP"]
         }
     ];
@@ -216,8 +218,7 @@ export default function Projects() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
+                        {t.title}
                     </motion.h2>
                 </div>
 
@@ -241,7 +242,10 @@ export default function Projects() {
                                 src={project.img} 
                                 alt={project.alt} 
                                 className="bento-bg" 
-                                style={project.objPos ? { objectPosition: project.objPos } : {}} 
+                                style={{
+                                    ...(project.objPos && { objectPosition: project.objPos }),
+                                    ...(project.objFit && { objectFit: project.objFit, backgroundColor: "white" })
+                                }} 
                                 loading="lazy"
                                 decoding="async"
                             />

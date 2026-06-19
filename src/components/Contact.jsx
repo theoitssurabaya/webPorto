@@ -59,8 +59,7 @@ export default function Contact() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
                     <div style={{ textAlign: "center" }}>
                         <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, marginBottom: "16px", color: "var(--text-main)" }}>
-                            {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                            <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
+                            {t.title}
                         </h2>
                         <p style={{ fontSize: "1.1rem", color: "var(--text-dim)", lineHeight: "1.6", fontWeight: 500 }}>
                             {t.emailCardDesc}

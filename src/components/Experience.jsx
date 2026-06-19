@@ -40,8 +40,7 @@ export default function Experience() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-                        <span className="gradient-text">{t.title.split(' ').slice(-1)}</span>
+                        {t.title}
                     </motion.h2>
                 </div>
 
