@@ -146,14 +146,14 @@ export default function Projects() {
             img: "assets/bird-shooter-esp32.jpeg",
             alt: "Bird Shooter ESP32",
             objPos: "center center",
-            tags: ["C++", "Hardware", "ESP32"]
+            tags: ["C++", "Electrical Wiring", "ESP32"]
         },
         {
             key: "proj2",
             link: "https://github.com/theoitssurabaya/PZEM-AnomalyDetector",
             img: "assets/pzem-anomaly-detector.jpeg",
             alt: "PZEM Anomaly Detector",
-            tags: ["C++", "ML", "ESP32"]
+            tags: ["RTOS", "Machine Learning", "Node-RED"]
         },
         {
             key: "proj4",
@@ -168,21 +168,21 @@ export default function Projects() {
             img: "assets/distance-target-game.png",
             alt: "Distance Target Game",
             objPos: "left center",
-            tags: ["JS", "ESP32", "IoT"]
+            tags: ["Node.js", "ESP32", "IoT"]
         },
         {
             key: "proj6",
             link: "https://github.com/theoitssurabaya/PERISAI",
             img: "assets/PERISAI.png",
             alt: "PERISAI",
-            tags: ["React", "Flask", "Deep Learning"]
+            tags: ["React", "Node.js", "FastAPI"]
         },
         {
             key: "proj5",
             link: "https://github.com/theoitssurabaya/Smart-Dispenser-IoT",
             img: "assets/smart-dispenser-iot.jpeg",
             alt: "Smart Dispenser IoT",
-            tags: ["Dart/Flutter", "ESP32", "IoT"]
+            tags: ["Flutter", "ESP32", "IoT"]
         },
         {
             key: "proj7",
@@ -190,14 +190,14 @@ export default function Projects() {
             img: "assets/fully-autonomous-esp32-robotic-vehicle.jpeg",
             alt: "Fully Autonomous ESP32 Robotic Vehicle",
             objPos: "center 60%",
-            tags: ["C++", "ESP32", "Robotics"]
+            tags: ["C++", "ESP32", "Electrical Wiring"]
         },
         {
             key: "proj8",
             link: "https://github.com/theoitssurabaya/Wayfinder",
             img: "assets/wayfinder.png",
             alt: "Wayfinder",
-            tags: ["React", "FastAPI", "NLP", "Gemini", "Firebase"]
+            tags: ["React", "Firebase", "NLP"]
         }
     ];
 
