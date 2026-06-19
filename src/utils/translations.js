@@ -109,7 +109,16 @@ export const translations = {
         submit: "Send Message",
         sending: "Sending...",
         success: "Message sent successfully!",
-        error: "Failed to send message."
+        error: "Failed to send message.",
+        emailLabel: "Email",
+        locationLabel: "Location",
+        phoneLabel: "Phone",
+        terminalWelcome: "Welcome to Theo's Terminal. Type your message below.",
+        terminalPrefix: "guest@theopinem:~$",
+        terminalTitle: "guest@theopinem:~",
+        retryPrompt: "Type 'retry' >",
+        retryError: "Failed to send message. Type 'retry' to try again.",
+        successReset: "Message sent successfully! Terminal will reset shortly."
       }
     }
   },
@@ -223,7 +232,16 @@ export const translations = {
         submit: "Kirim Pesan",
         sending: "Mengirim...",
         success: "Pesan berhasil terkirim!",
-        error: "Gagal mengirim pesan."
+        error: "Gagal mengirim pesan.",
+        emailLabel: "Email",
+        locationLabel: "Lokasi",
+        phoneLabel: "Telepon",
+        terminalWelcome: "Selamat datang di Terminal Theo. Ketik pesan Anda di bawah.",
+        terminalPrefix: "tamu@theopinem:~$",
+        terminalTitle: "tamu@theopinem:~",
+        retryPrompt: "Ketik 'retry' >",
+        retryError: "Gagal mengirim pesan. Ketik 'retry' untuk mencoba lagi.",
+        successReset: "Pesan berhasil terkirim! Terminal akan segera diatur ulang."
       }
     }
   }
