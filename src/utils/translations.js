@@ -118,7 +118,8 @@ export const translations = {
         terminalTitle: "guest@theopinem:~",
         retryPrompt: "Type 'retry' >",
         retryError: "Failed to send message. Type 'retry' to try again.",
-        successReset: "Message sent successfully! Terminal will reset shortly."
+        successReset: "Message sent successfully! Terminal will reset shortly.",
+        invalidEmail: "Invalid email format. Please try again."
       }
     }
   },
@@ -241,7 +242,8 @@ export const translations = {
         terminalTitle: "tamu@theopinem:~",
         retryPrompt: "Ketik 'retry' >",
         retryError: "Gagal mengirim pesan. Ketik 'retry' untuk mencoba lagi.",
-        successReset: "Pesan berhasil terkirim! Terminal akan segera diatur ulang."
+        successReset: "Pesan berhasil terkirim! Terminal akan segera diatur ulang.",
+        invalidEmail: "Format email tidak valid. Silakan coba lagi."
       }
     }
   }

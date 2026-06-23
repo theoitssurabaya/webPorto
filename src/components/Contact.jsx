@@ -54,7 +54,17 @@ export default function Contact() {
     if (step >= prompts.length) return;
 
     const currentPrompt = prompts[step];
-    const newHistory = [...history, { prompt: currentPrompt.text, value: inputValue }];
+
+    if (currentPrompt.key === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(inputValue.trim())) {
+        setHistory([{ system: t.messageBox.invalidEmail }]);
+        setInputValue("");
+        return;
+      }
+    }
+
+    const newHistory = []; // Clear history to only show current prompt
     const newFormData = { ...formData, [currentPrompt.key]: inputValue };
 
     setHistory(newHistory);
