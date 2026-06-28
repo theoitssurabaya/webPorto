@@ -77,7 +77,7 @@ export default function Experience() {
                         <div className={`selector-content ${activeTab === 'exp-1' ? 'active' : ''}`}>
                             <div className="content-header">
                                 <h3>{language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort"}</h3>
-                                <span className="timeline-date">{language === 'id' ? "Feb 2026 — Sekarang" : "Feb 2026 — Present"}</span>
+                                <span className="timeline-date">{language === 'id' ? "Feb 2026 — Juli 2026" : "Feb 2026 — July 2026"}</span>
                             </div>
                             <h4 className="org-name">Coding Camp by DBS Foundation x Dicoding</h4>
                             <ul>
