@@ -8,6 +8,20 @@ export default function Skills() {
   const { language } = useLanguage();
   const t = translations[language].skills;
   const [activeTab, setActiveTab] = useState("technical"); // "technical" or "certifications"
+  const [selectedCert, setSelectedCert] = useState(null);
+
+  const certsList = [
+      { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
+      { img: "assets/skills/Belajar Fundamental Deep Learning.jpeg", title: "Belajar Fundamental Deep Learning (Dicoding)" },
+      { img: "assets/skills/Belajar Machine Learning untuk Pemula.jpeg", title: "Belajar Machine Learning untuk Pemula (Dicoding)" },
+      { img: "assets/skills/Introduction to Software Engineering.jpeg", title: "Introduction to Software Engineering (RevoU)" },
+      { img: "assets/skills/Belajar Dasar Git dengan Github.jpeg", title: "Belajar Dasar Git dengan Github (Dicoding)" },
+      { img: "assets/skills/Memulai Pemrograman dengan Python.jpeg", title: "Memulai Pemrograman dengan Python (Dicoding)" },
+      { img: "assets/skills/Belajar Dasar AI.jpg", title: "Belajar Dasar AI (Dicoding)" },
+      { img: "assets/skills/Introduction to Financial Literacy.jpg", title: "Introduction to Financial Literacy" },
+      { img: "assets/skills/Memulai Dasar Pemrograman untuk Menjadi Pengembangan Software.jpg", title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software (Dicoding)" },
+      { img: "assets/skills/Pengenalan ke Logika Pemrograman (Programming Logic 101).jpg", title: "Pengenalan ke Logika Pemrograman (Programming Logic 101) (Dicoding)" }
+  ];
 
   return (
     <section id="skills" className="section skills-section relative">
@@ -114,42 +128,47 @@ export default function Skills() {
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.4 }}
                     >
-                        <div className="cert-card-new">
-                            <img src="assets/Membangun Proyek Deep Learning Tingkat Mahir.jpeg" alt="Certificate" loading="lazy" />
-                            <div className="cert-overlay-new">
-                                <span>Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)</span>
+                        {certsList.map((cert, index) => (
+                            <div 
+                                key={index}
+                                className="cert-card-new" 
+                                onClick={() => setSelectedCert(cert.img)} 
+                                style={{ cursor: "pointer" }}
+                            >
+                                <img src={cert.img} alt="Certificate" loading="lazy" />
+                                <div className="cert-overlay-new">
+                                    <span>{cert.title}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="cert-card-new">
-                            <img src="assets/Belajar Fundamental Deep Learning.jpeg" alt="Certificate" loading="lazy" />
-                            <div className="cert-overlay-new">
-                                <span>Belajar Fundamental Deep Learning (Dicoding)</span>
-                            </div>
-                        </div>
-                        <div className="cert-card-new">
-                            <img src="assets/Belajar Machine Learning untuk Pemula.jpeg" alt="Certificate" loading="lazy" />
-                            <div className="cert-overlay-new">
-                                <span>Belajar Machine Learning untuk Pemula (Dicoding)</span>
-                            </div>
-                        </div>
-                        <div className="cert-card-new">
-                            <img src="assets/Introduction to Software Engineering.jpeg" alt="Certificate" loading="lazy" />
-                            <div className="cert-overlay-new">
-                                <span>Introduction to Software Engineering (RevoU)</span>
-                            </div>
-                        </div>
-                        <div className="cert-card-new">
-                            <img src="assets/Belajar Dasar Git dengan Github.jpeg" alt="Certificate" loading="lazy" />
-                            <div className="cert-overlay-new">
-                                <span>Belajar Dasar Git dengan Github (Dicoding)</span>
-                            </div>
-                        </div>
-                        <div className="cert-card-new">
-                            <img src="assets/Memulai Pemrograman dengan Python.jpeg" alt="Certificate" loading="lazy" />
-                            <div className="cert-overlay-new">
-                                <span>Memulai Pemrograman dengan Python (Dicoding)</span>
-                            </div>
-                        </div>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {selectedCert && (
+                    <motion.div 
+                        className="cert-modal-backdrop"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedCert(null)}
+                        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
+                    >
+                        <motion.img 
+                            src={selectedCert} 
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
+                            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: '10px' }}
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                        <button 
+                            onClick={() => setSelectedCert(null)}
+                            style={{ position: 'absolute', top: '20px', right: '20px', background: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', fontSize: '20px', cursor: 'pointer', color: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                        >
+                            ×
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>

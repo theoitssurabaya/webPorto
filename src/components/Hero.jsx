@@ -44,7 +44,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
                 >
                     <img 
-                        src="assets/foto-diri-clean.png" 
+                        src="assets/hero/foto-diri-clean.png" 
                         alt="Theo Pinem" 
                         className="hero-center-img" 
                     />

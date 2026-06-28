@@ -85,7 +85,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Membangun proyek Capstone AI menggunakan framework Deep Learning." : "Building an AI Capstone project using Deep Learning frameworks."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img loading="lazy" src="assets/ai-engineer-cohort.png" alt="AI Engineer Cohort" className="timeline-img" />
+                                <img loading="lazy" src="assets/experience/ai-engineer-cohort.png" alt="AI Engineer Cohort" className="timeline-img" />
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Mengarahkan dan mendampingi program pengembangan mahasiswa untuk mahasiswa baru fakultas." : "Directed and mentored the student development programs for incoming faculty students."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img loading="lazy" src="assets/bem-fteic.jpeg" alt="BEM FTEIC" className="timeline-img" />
+                                <img loading="lazy" src="assets/experience/bem-fteic.jpeg" alt="BEM FTEIC" className="timeline-img" />
                             </div>
                         </div>
 
@@ -115,7 +115,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Mengoordinasikan pengembangan robotika, IoT, dan sistem cerdas." : "Coordinating development for robotics, IoT, and intelligent systems."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img loading="lazy" src="assets/robotics-lab.jpeg" alt="Robotics Lab" className="timeline-img" />
+                                <img loading="lazy" src="assets/experience/robotics-lab.jpeg" alt="Robotics Lab" className="timeline-img" />
                             </div>
                         </div>
 
@@ -130,7 +130,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Mengawasi dan memantau mentor saat mereka mendampingi masing-masing 10 mahasiswa baru." : "Supervised and monitored those mentors while they mentor 10 freshmen each."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img loading="lazy" src="assets/inclenation.jpeg" alt="INCLENATION 2025" className="timeline-img" />
+                                <img loading="lazy" src="assets/experience/inclenation.jpeg" alt="INCLENATION 2025" className="timeline-img" />
                             </div>
                         </div>
 
@@ -145,7 +145,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Memfasilitasi dan mendampingi pelatihan sekitar 120 mahasiswa junior." : "Facilitated and assisted in training around 120 juniors."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img loading="lazy" src="assets/himatekkom-its.jpeg" alt="HIMATEKKOM ITS" className="timeline-img" />
+                                <img loading="lazy" src="assets/experience/himatekkom-its.jpeg" alt="HIMATEKKOM ITS" className="timeline-img" />
                             </div>
                         </div>
 
@@ -160,7 +160,7 @@ export default function Experience() {
                                 <li>{language === 'id' ? "Berperan sebagai narahubung utama dengan pembina kerohanian ITS bersama tim beranggotakan 7 orang." : "Acted as the key liaison with the ITS spiritual campus advisor with a 7-person team."}</li>
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
-                                <img loading="lazy" src="assets/pkmbk.jpeg" alt="PKMBK ITS" className="timeline-img" />
+                                <img loading="lazy" src="assets/experience/pkmbk.jpeg" alt="PKMBK ITS" className="timeline-img" />
                             </div>
                         </div>
                     </motion.div>

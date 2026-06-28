@@ -143,7 +143,7 @@ export default function Projects() {
         {
             key: "proj1",
             link: "https://github.com/theoitssurabaya/Bird-Shooter-Game-ESP32",
-            img: "assets/bird-shooter-esp32.jpeg",
+            img: "assets/projects/bird-shooter-esp32.jpeg",
             alt: "Bird Shooter ESP32",
             objPos: "center center",
             tags: ["C++", "Electrical Wiring", "ESP32"]
@@ -151,21 +151,21 @@ export default function Projects() {
         {
             key: "proj2",
             link: "https://github.com/theoitssurabaya/PZEM-AnomalyDetector",
-            img: "assets/pzem-anomaly-detector.jpeg",
+            img: "assets/projects/pzem-anomaly-detector.jpeg",
             alt: "PZEM Anomaly Detector",
             tags: ["RTOS", "Machine Learning", "Node-RED"]
         },
         {
             key: "proj4",
             link: "https://github.com/theoitssurabaya/Soil-Monitoring-Controlled-Irrigation",
-            img: "assets/smart-irrigation.jpeg",
+            img: "assets/projects/smart-irrigation.jpeg",
             alt: "Smart Irrigation",
             tags: ["ESP32", "ML", "Raspberry Pi"]
         },
         {
             key: "proj3",
             link: "https://github.com/theoitssurabaya/distance_target_game_project",
-            img: "assets/distance-target-game.png",
+            img: "assets/projects/distance-target-game.png",
             alt: "Distance Target Game",
             objPos: "left center",
             tags: ["Node.js", "ESP32", "IoT"]
@@ -173,7 +173,7 @@ export default function Projects() {
         {
             key: "proj6",
             link: "https://github.com/theoitssurabaya/PERISAI",
-            img: "assets/PERISAI.png",
+            img: "assets/projects/PERISAI.png",
             alt: "PERISAI",
             objFit: "contain",
             tags: ["React", "Node.js", "FastAPI"]
@@ -181,14 +181,14 @@ export default function Projects() {
         {
             key: "proj5",
             link: "https://github.com/theoitssurabaya/Smart-Dispenser-IoT",
-            img: "assets/smart-dispenser-iot.jpeg",
+            img: "assets/projects/smart-dispenser-iot.jpeg",
             alt: "Smart Dispenser IoT",
             tags: ["Flutter", "ESP32", "IoT"]
         },
         {
             key: "proj7",
             link: "https://github.com/theoitssurabaya/Fully-Autonomous-ESP32-Robotic-Vehicle",
-            img: "assets/fully-autonomous-esp32-robotic-vehicle.jpeg",
+            img: "assets/projects/fully-autonomous-esp32-robotic-vehicle.jpeg",
             alt: "Fully Autonomous ESP32 Robotic Vehicle",
             objPos: "center 60%",
             tags: ["C++", "ESP32", "Electrical Wiring"]
@@ -196,7 +196,7 @@ export default function Projects() {
         {
             key: "proj8",
             link: "https://github.com/theoitssurabaya/Wayfinder",
-            img: "assets/wayfinder.png",
+            img: "assets/projects/wayfinder.png",
             alt: "Wayfinder",
             objFit: "contain",
             tags: ["React", "Firebase", "NLP"]
