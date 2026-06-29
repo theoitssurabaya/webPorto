@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
 
@@ -136,7 +137,7 @@ export default function Skills() {
                                 onClick={() => setSelectedCert(cert.img)} 
                                 style={{ cursor: "pointer" }}
                             >
-                                <img src={cert.img} alt="Certificate" loading="lazy" />
+                                <Image width={600} height={400} src={"/" + cert.img} alt="Certificate" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div className="cert-overlay-new">
                                     <span>{cert.title}</span>
                                 </div>
@@ -157,7 +158,7 @@ export default function Skills() {
                         style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
                     >
                         <motion.img 
-                            src={selectedCert} 
+                            src={"/" + selectedCert} 
                             initial={{ scale: 0.8 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.8 }}

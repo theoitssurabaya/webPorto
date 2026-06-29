@@ -37,7 +37,7 @@ export const translations = {
     },
     experience: {
       sectionTitle: "Professional Journey",
-      title: "Work Experience",
+      title: "Experiences",
       exp1: "AI Engineer Cohort",
       org1: "Digital Talent Scholarship",
       desc1: "Intensive training in Machine Learning, Deep Learning, and Computer Vision. Completed capstone project in object detection.",
@@ -165,7 +165,7 @@ export const translations = {
     },
     experience: {
       sectionTitle: "Perjalanan Profesional",
-      title: "Pengalaman Kerja",
+      title: "Pengalaman",
       exp1: "AI Engineer Cohort",
       org1: "Digital Talent Scholarship",
       desc1: "Pelatihan intensif dalam Machine Learning, Deep Learning, dan Computer Vision. Menyelesaikan proyek akhir deteksi objek.",

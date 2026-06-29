@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 
 export default function Sandbox() {
   const [activeDemo, setActiveDemo] = useState(0);
@@ -14,7 +15,7 @@ export default function Sandbox() {
         <button onClick={() => setActiveDemo(3)} style={{ padding: "8px 16px", background: activeDemo === 3 ? "#fff" : "#222", color: activeDemo === 3 ? "#000" : "#fff", borderRadius: "8px" }}>3. 3D Zoom</button>
         <button onClick={() => setActiveDemo(4)} style={{ padding: "8px 16px", background: activeDemo === 4 ? "#fff" : "#222", color: activeDemo === 4 ? "#000" : "#fff", borderRadius: "8px" }}>4. Smooth Wipe</button>
         <button onClick={() => setActiveDemo(5)} style={{ padding: "8px 16px", background: activeDemo === 5 ? "#fff" : "#222", color: activeDemo === 5 ? "#000" : "#fff", borderRadius: "8px" }}>5. Blur Reveal</button>
-        <a href="/" style={{ padding: "8px 16px", background: "red", color: "#fff", borderRadius: "8px", textDecoration: "none" }}>Back</a>
+        <Link href="/" style={{ padding: "8px 16px", background: "red", color: "#fff", borderRadius: "8px", textDecoration: "none" }}>Back</Link>
       </div>
 
       {activeDemo === 0 && (
@@ -48,19 +49,20 @@ function DemoSmoothWipe() {
   );
 }
 
+const FadeIn = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(10px)", y: 50 }}
+      whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 function DemoBlurReveal() {
-  const FadeIn = ({ children }) => {
-    return (
-      <motion.div
-        initial={{ opacity: 0, filter: "blur(10px)", y: 50 }}
-        whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {children}
-      </motion.div>
-    );
-  };
 
   return (
     <div style={{ background: "#050505" }}>

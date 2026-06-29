@@ -10,6 +10,7 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     const storedLang = localStorage.getItem('portoLang');
     if (storedLang) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguage(storedLang);
     }
   }, []);

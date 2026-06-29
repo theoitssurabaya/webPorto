@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
 
@@ -13,6 +14,7 @@ export default function Hero() {
   useEffect(() => {
     let index = 0;
     let interval;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTypewriterText("");
     const timeout = setTimeout(() => {
       interval = setInterval(() => {
@@ -43,10 +45,12 @@ export default function Hero() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
                 >
-                    <img 
-                        src="assets/hero/foto-diri-clean.png" 
+                    <Image 
+                        src="/assets/hero/foto-diri-clean.png" 
                         alt="Theo Pinem" 
                         className="hero-center-img" 
+                        fill
+                        priority
                     />
                 </motion.div>
                 

@@ -60,6 +60,7 @@ export default function FloatingParticles() {
   useEffect(() => {
     // Kurangi jumlah partikel di mobile agar performa tetap baik
     const isMobile = window.innerWidth <= 768;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setParticles(generateParticles(isMobile ? 6 : 14));
   }, []);
 

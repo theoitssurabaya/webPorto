@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
 
@@ -246,16 +247,16 @@ export default function Projects() {
                             target="_blank"
                             className="bento-card carousel-card"
                         >
-                            <img 
-                                src={project.img} 
+                            <Image 
+                                src={"/" + project.img} 
                                 alt={project.alt} 
                                 className="bento-bg" 
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
                                 style={{
                                     ...(project.objPos && { objectPosition: project.objPos }),
                                     ...(project.objFit && { objectFit: project.objFit, backgroundColor: "white" })
                                 }} 
-                                loading="lazy"
-                                decoding="async"
                             />
                             <div className="bento-overlay"></div>
                             <div className="bento-content">
