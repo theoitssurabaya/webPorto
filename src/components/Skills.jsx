@@ -14,13 +14,14 @@ export default function Skills() {
       { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
       { img: "assets/skills/Belajar Fundamental Deep Learning.jpeg", title: "Belajar Fundamental Deep Learning (Dicoding)" },
       { img: "assets/skills/Belajar Machine Learning untuk Pemula.jpeg", title: "Belajar Machine Learning untuk Pemula (Dicoding)" },
-      { img: "assets/skills/Introduction to Software Engineering.jpeg", title: "Introduction to Software Engineering (RevoU)" },
-      { img: "assets/skills/Belajar Dasar Git dengan Github.jpeg", title: "Belajar Dasar Git dengan Github (Dicoding)" },
       { img: "assets/skills/Memulai Pemrograman dengan Python.jpeg", title: "Memulai Pemrograman dengan Python (Dicoding)" },
       { img: "assets/skills/Belajar Dasar AI.jpg", title: "Belajar Dasar AI (Dicoding)" },
-      { img: "assets/skills/Introduction to Financial Literacy.jpg", title: "Introduction to Financial Literacy" },
+      { img: "assets/skills/Belajar Dasar Git dengan Github.jpeg", title: "Belajar Dasar Git dengan Github (Dicoding)" },
+      { img: "assets/skills/Pengenalan ke Logika Pemrograman (Programming Logic 101).jpg", title: "Pengenalan ke Logika Pemrograman (Programming Logic 101) (Dicoding)" },
       { img: "assets/skills/Memulai Dasar Pemrograman untuk Menjadi Pengembangan Software.jpg", title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software (Dicoding)" },
-      { img: "assets/skills/Pengenalan ke Logika Pemrograman (Programming Logic 101).jpg", title: "Pengenalan ke Logika Pemrograman (Programming Logic 101) (Dicoding)" }
+      { img: "assets/skills/Introduction to Software Engineering.jpeg", title: "Introduction to Software Engineering (RevoU)" },
+      { img: "assets/skills/Introduction to Financial Literacy.jpg", title: "Introduction to Financial Literacy (Dicoding)" },
+      { img: "assets/skills/LKMM-TD.jpg", title: "Latihan Keterampilan Manajemen Mahasiswa Tingkat Dasar (HIMATEKKOM ITS)" }
   ];
 
   return (

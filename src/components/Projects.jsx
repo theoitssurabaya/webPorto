@@ -15,8 +15,8 @@ export default function Projects() {
 
         // Initialize scroll position to the middle set
         const setInitialScroll = () => {
-            if (!carouselRef.current || carouselRef.current.children.length < 9) return;
-            const singleSetWidth = carouselRef.current.children[8].offsetLeft - carouselRef.current.children[0].offsetLeft;
+            if (!carouselRef.current || carouselRef.current.children.length < 10) return;
+            const singleSetWidth = carouselRef.current.children[9].offsetLeft - carouselRef.current.children[0].offsetLeft;
             if (carouselRef.current.scrollLeft === 0) {
                 carouselRef.current.scrollLeft = singleSetWidth;
                 targetScroll = singleSetWidth;
@@ -95,8 +95,8 @@ export default function Projects() {
         };
 
         const handleScroll = () => {
-            if (!carousel || carousel.children.length < 9) return;
-            const singleSetWidth = carousel.children[8].offsetLeft - carousel.children[0].offsetLeft;
+            if (!carousel || carousel.children.length < 10) return;
+            const singleSetWidth = carousel.children[9].offsetLeft - carousel.children[0].offsetLeft;
 
             if (carousel.scrollLeft <= 0) {
                 carousel.scrollLeft += singleSetWidth;
@@ -200,6 +200,14 @@ export default function Projects() {
             alt: "Wayfinder",
             objFit: "contain",
             tags: ["React", "Firebase", "NLP"]
+        },
+        {
+            key: "proj9",
+            link: "https://github.com/theoitssurabaya/AwasDitabrak",
+            img: "assets/projects/awasditabrak.png",
+            alt: "Awas Ditabrak",
+            objFit: "cover",
+            tags: ["Python", "Pygame", "Game"]
         }
     ];
 

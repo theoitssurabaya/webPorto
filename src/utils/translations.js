@@ -91,6 +91,10 @@ export const translations = {
       proj8: {
         title: "Wayfinder",
         desc: "Smart indoor navigation system using A* pathfinding and NLP to provide flexible, AI-driven routing for complex buildings."
+      },
+      proj9: {
+        title: "Awas Ditabrak",
+        desc: "A fast-paced 2D lane-avoidance game built with Python and Pygame. Features dynamic difficulty scaling, smooth animations, and a shield power-up system."
       }
     },
     contact: {
@@ -215,6 +219,10 @@ export const translations = {
       proj8: {
         title: "Wayfinder",
         desc: "Sistem navigasi dalam ruangan pintar menggunakan algoritma A* dan NLP untuk pencarian rute berbasis AI di gedung yang kompleks."
+      },
+      proj9: {
+        title: "Awas Ditabrak",
+        desc: "Game hindari jalur 2D bertempo cepat yang dibangun dengan Python dan Pygame. Menampilkan peningkatan kesulitan dinamis, animasi halus, dan sistem power-up perisai."
       }
     },
     contact: {
