@@ -159,7 +159,7 @@ export default function Projects() {
         {
             key: "proj4",
             link: "https://github.com/theoitssurabaya/Soil-Monitoring-Controlled-Irrigation",
-            img: "assets/projects/smart-irrigation.jpeg",
+            img: "assets/projects/smart-irrigation.png",
             alt: "Smart Irrigation",
             tags: ["ESP32", "ML", "Raspberry Pi"]
         },
@@ -174,7 +174,7 @@ export default function Projects() {
         {
             key: "proj6",
             link: "https://github.com/theoitssurabaya/PERISAI",
-            img: "assets/projects/PERISAI.png",
+            img: "assets/projects/PERISAI-transparent2.png",
             alt: "PERISAI",
             objFit: "contain",
             tags: ["React", "Node.js", "FastAPI"]
@@ -197,7 +197,7 @@ export default function Projects() {
         {
             key: "proj8",
             link: "https://github.com/theoitssurabaya/Wayfinder",
-            img: "assets/projects/wayfinder.png",
+            img: "assets/projects/wayfinder-transparent2.png",
             alt: "Wayfinder",
             objFit: "contain",
             tags: ["React", "Firebase", "NLP"]
@@ -246,6 +246,9 @@ export default function Projects() {
                             href={project.link}
                             target="_blank"
                             className="bento-card carousel-card"
+                            style={{
+                                ...(project.objFit === "contain" && { background: "transparent", borderColor: "transparent", boxShadow: "none" })
+                            }}
                         >
                             <Image 
                                 src={"/" + project.img} 
@@ -255,7 +258,7 @@ export default function Projects() {
                                 sizes="(max-width: 768px) 100vw, 33vw"
                                 style={{
                                     ...(project.objPos && { objectPosition: project.objPos }),
-                                    ...(project.objFit && { objectFit: project.objFit, backgroundColor: "white" })
+                                    ...(project.objFit && { objectFit: project.objFit })
                                 }} 
                             />
                             <div className="bento-overlay"></div>

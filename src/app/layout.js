@@ -11,6 +11,7 @@ export const viewport = {
 };
 
 export const metadata = {
+  metadataBase: new URL("https://theoitssurabaya.github.io"),
   title: "Portfolio | Theo Kawalisa Pinem",
   description: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
   openGraph: {
