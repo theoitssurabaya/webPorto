@@ -1118,8 +1118,6 @@ nav {
 .selector-tabs-container {
     flex: 0 0 320px;
     position: relative;
-    padding-left: 20px;
-    border-left: 2px solid rgba(255, 255, 255, 0.05);
 }
 
 .selector-tab-indicator {
@@ -1133,12 +1131,37 @@ nav {
 }
 
 .selector-tabs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    direction: rtl;
+    padding-left: 10px;
+}
+
+.selector-tabs::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+.selector-tabs::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.selector-tabs::-webkit-scrollbar-thumb {
+    background: rgba(var(--c-section-rgb), 0.3);
+    border-radius: 10px;
+}
+.selector-tabs::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--c-section-rgb), 0.5);
 }
 
 .selector-tab {
+    direction: ltr;
     background: transparent;
     border: none;
     text-align: left;
@@ -1149,6 +1172,9 @@ nav {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .selector-tab:hover {
@@ -1295,6 +1321,8 @@ nav {
     }
 
     .selector-tabs {
+        position: static;
+        direction: ltr;
         flex-direction: column;
         overflow: hidden;
         display: none;

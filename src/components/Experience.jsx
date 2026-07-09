@@ -9,10 +9,11 @@ export default function Experience() {
     const { language } = useLanguage();
     const t = translations[language].experience;
 
-    const [activeTab, setActiveTab] = useState("exp-1");
+    const [activeTab, setActiveTab] = useState("exp-0");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const tabs = [
+        { id: "exp-0", title: language === 'id' ? "Magang Business Development" : "Business Development Intern", subtitle: "Protergo Cyber Security" },
         { id: "exp-1", title: language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort", subtitle: "DBS x Dicoding Coding Camp 2026" },
         { id: "exp-2", title: language === 'id' ? "Kepala Biro Pengembangan" : "Head of Development Bureau", subtitle: "BEM FTEIC" },
         { id: "exp-3", title: language === 'id' ? "Asisten Laboratorium" : "Laboratory Assistant", subtitle: "Robotics Lab (ITS)" },
@@ -75,6 +76,21 @@ export default function Experience() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
+                        <div className={`selector-content ${activeTab === 'exp-0' ? 'active' : ''}`}>
+                            <div className="content-header">
+                                <h3>{language === 'id' ? "Magang Business Development" : "Business Development Intern"}</h3>
+                                <span className="timeline-date">{language === 'id' ? "Jun 2026 — Sekarang" : "Jun 2026 — Present"}</span>
+                            </div>
+                            <h4 className="org-name">Protergo Cyber Security</h4>
+                            <ul>
+                                <li>{language === 'id' ? "Merancang sandbox SCADA terdistribusi menggunakan OpenPLC dan mikrokontroler." : "Architecting a distributed SCADA sandbox using OpenPLC and microcontrollers."}</li>
+                                <li>{language === 'id' ? "Berkolaborasi dengan tim untuk menyediakan infrastruktur uji penetrasi." : "Collaborating with cybersecurity teams to provide infrastructure for penetration testing."}</li>
+                            </ul>
+                            <div className="timeline-img-wrapper mt-4">
+                                <Image width={800} height={500} src="/assets/experience/protergo.jpeg" alt="Protergo Cyber Security" className="timeline-img" />
+                            </div>
+                        </div>
+
                         <div className={`selector-content ${activeTab === 'exp-1' ? 'active' : ''}`}>
                             <div className="content-header">
                                 <h3>{language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort"}</h3>
