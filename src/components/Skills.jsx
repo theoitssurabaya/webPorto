@@ -10,6 +10,7 @@ export default function Skills() {
   const t = translations[language].skills;
   const [activeTab, setActiveTab] = useState("technical"); // "technical" or "certifications"
   const [selectedCert, setSelectedCert] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const certsList = [
       { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
@@ -24,6 +25,11 @@ export default function Skills() {
       { img: "assets/skills/Introduction to Financial Literacy.jpg", title: "Introduction to Financial Literacy (Dicoding)" },
       { img: "assets/skills/LKMM-TD.jpg", title: "Latihan Keterampilan Manajemen Mahasiswa Tingkat Dasar (HIMATEKKOM ITS)" }
   ];
+
+  const indexOfLastCert = currentPage * 6;
+  const indexOfFirstCert = indexOfLastCert - 6;
+  const currentCerts = certsList.slice(indexOfFirstCert, indexOfLastCert);
+  const totalPages = Math.ceil(certsList.length / 6);
 
   return (
     <section id="skills" className="section skills-section relative">
@@ -124,25 +130,51 @@ export default function Skills() {
                 {activeTab === 'certifications' && (
                     <motion.div 
                         key="certifications"
-                        className="cert-grid-new"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.4 }}
+                        style={{ width: "100%" }}
                     >
-                        {certsList.map((cert, index) => (
-                            <div 
-                                key={index}
-                                className="cert-card-new" 
-                                onClick={() => setSelectedCert(cert.img)} 
-                                style={{ cursor: "pointer" }}
-                            >
-                                <Image width={600} height={400} src={"/" + cert.img} alt="Certificate" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                <div className="cert-overlay-new">
-                                    <span>{cert.title}</span>
+                        <div className="cert-grid-new">
+                            {currentCerts.map((cert, index) => (
+                                <div 
+                                    key={index}
+                                    className="cert-card-new" 
+                                    onClick={() => setSelectedCert(cert.img)} 
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    <Image width={600} height={400} src={"/" + cert.img} alt="Certificate" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <div className="cert-overlay-new">
+                                        <span>{cert.title}</span>
+                                    </div>
                                 </div>
+                            ))}
+                        </div>
+                        
+                        {totalPages > 1 && (
+                            <div className="pagination" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '30px' }}>
+                                {Array.from({ length: totalPages }, (_, i) => (
+                                    <button 
+                                        key={i} 
+                                        onClick={() => setCurrentPage(i + 1)}
+                                        style={{
+                                            width: '40px', 
+                                            height: '40px', 
+                                            borderRadius: '50%', 
+                                            border: 'none', 
+                                            background: currentPage === i + 1 ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255,255,255,0.1)',
+                                            color: currentPage === i + 1 ? '#000' : 'white',
+                                            fontWeight: 'bold',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s'
+                                        }}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                ))}
                             </div>
-                        ))}
+                        )}
                     </motion.div>
                 )}
             </AnimatePresence>
