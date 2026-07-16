@@ -220,7 +220,8 @@ export default function Projects() {
                 <div className="shape shape-8"></div>
             </div>
             <div className="container relative" style={{ zIndex: 1, maxWidth: "100%", padding: 0 }}>
-                <div className="text-center mb-5" style={{ padding: "0 20px" }}>
+                <div className="text-center mb-5" style={{ padding: "0 20px", position: "relative" }}>
+                    <div className="pixel-sword" style={{ position: 'absolute', top: '5px', left: '20%', zIndex: 15 }}></div>
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

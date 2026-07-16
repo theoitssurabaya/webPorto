@@ -130,7 +130,8 @@ export default function Contact() {
                 
                 {/* Contact Info (Left Side) */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-                    <div style={{ textAlign: "center" }}>
+                    <div style={{ textAlign: "center", position: "relative" }}>
+                        <div className="pixel-envelope" style={{ position: 'absolute', top: '0', right: '15%', zIndex: 15 }}></div>
                         <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, marginBottom: "16px", color: "var(--text-main)" }}>
                             {t.title}
                         </h2>

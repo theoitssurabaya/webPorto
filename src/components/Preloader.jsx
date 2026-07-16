@@ -71,6 +71,7 @@ export default function Preloader() {
                                 transition={{ duration: 0.2, ease: "easeOut" }}
                                 style={{ 
                                     margin: 0, 
+                                    fontFamily: greetings[index] === "こんにちは" ? "'DotGothic16', sans-serif" : "var(--font-heading)",
                                     fontSize: "clamp(2.5rem, 5vw, 4rem)",
                                     fontWeight: "500",
                                     color: "var(--text-main)",

@@ -35,8 +35,8 @@ export default function Experience() {
                 <div className="shape shape-7"></div>
             </div>
             <div className="container relative" style={{ zIndex: 1 }}>
-                <div className="text-center mb-5">
-
+                <div className="text-center mb-5" style={{ position: 'relative' }}>
+                    <div className="pixel-coin" style={{ position: 'absolute', top: '10px', right: '20%', zIndex: 15 }}></div>
                     <motion.h2
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}

@@ -39,8 +39,10 @@ export default function Hero() {
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className="text-center">
+                <div className="pixel-heart" style={{ position: 'absolute', top: '20%', right: '15%', zIndex: 15 }}></div>
+                <div className="pixel-star" style={{ position: 'absolute', top: '30%', left: '15%', zIndex: 15 }}></div>
                 <motion.div 
-                    className="hero-center-img-wrapper"
+                    className="hero-center-img-wrapper tooltip-container"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
@@ -76,7 +78,7 @@ export default function Hero() {
                         {t.title}
                     </h1>
                     <p className="subtitle hero-subtitle" style={{ minHeight: "60px", margin: "0 auto 20px auto", textAlign: "center" }}>
-                        <span>{typewriterText}</span><span className="typewriter-cursor">|</span>
+                        <span>{typewriterText}</span><span className="typewriter-cursor">█</span>
                     </p>
                     <div className="btn-group justify-center">
                         <a href="#projects" className="btn-primary">{t.btnExplore}</a>

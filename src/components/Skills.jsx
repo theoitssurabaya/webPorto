@@ -43,7 +43,9 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
+                style={{ position: 'relative', display: 'inline-block' }}
             >
+                <div className="pixel-floppy" style={{ position: 'absolute', top: '-10px', right: '-30px', zIndex: 15 }}></div>
                 <h2>
                     {t.title}
                 </h2>
