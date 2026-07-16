@@ -14,12 +14,13 @@ export default function Experience() {
 
     const tabs = [
         { id: "exp-0", title: language === 'id' ? "Magang Business Development" : "Business Development Intern", subtitle: "Protergo Cyber Security" },
-        { id: "exp-1", title: language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort", subtitle: "DBS x Dicoding Coding Camp 2026" },
         { id: "exp-2", title: language === 'id' ? "Kepala Biro Pengembangan" : "Head of Development Bureau", subtitle: "BEM FTEIC" },
         { id: "exp-3", title: language === 'id' ? "Asisten Laboratorium" : "Laboratory Assistant", subtitle: "Robotics Lab (ITS)" },
-        { id: "exp-4", title: language === 'id' ? "Staf Ahli Mentor" : "Expert Staff of Mentor", subtitle: "INCLENATION 2025" },
-        { id: "exp-5", title: language === 'id' ? "Staf Pengembangan SDM" : "Staff of Student Resource Development", subtitle: "HIMATEKKOM ITS" },
+        { id: "exp-1", title: language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort", subtitle: "DBS x Dicoding Coding Camp 2026" },
+        { id: "exp-7", title: language === 'id' ? "Asisten Dosen" : "Assistant Lecturer", subtitle: "Institut Teknologi Sepuluh Nopember" },
         { id: "exp-6", title: language === 'id' ? "Panitia Pengarah" : "Steering Committee", subtitle: "PKMBK ITS" },
+        { id: "exp-5", title: language === 'id' ? "Staf Pengembangan SDM" : "Staff of Student Resource Development", subtitle: "HIMATEKKOM ITS" },
+        { id: "exp-4", title: language === 'id' ? "Staf Ahli Mentor" : "Expert Staff of Mentor", subtitle: "INCLENATION 2025" },
     ];
 
     const handleTabClick = (id) => {
@@ -178,6 +179,21 @@ export default function Experience() {
                             </ul>
                             <div className="timeline-img-wrapper mt-4">
                                 <Image width={800} height={500} src="/assets/experience/pkmbk.jpeg" alt="PKMBK ITS" className="timeline-img" />
+                            </div>
+                        </div>
+
+                        <div className={`selector-content ${activeTab === 'exp-7' ? 'active' : ''}`}>
+                            <div className="content-header">
+                                <h3>{language === 'id' ? "Asisten Dosen Pengantar Robotika" : "Assistant Lecturer of Introduction to Robotics"}</h3>
+                                <span className="timeline-date">{language === 'id' ? "Feb 2026 — Jun 2026" : "Feb 2026 — June 2026"}</span>
+                            </div>
+                            <h4 className="org-name">Institut Teknologi Sepuluh Nopember (ITS)</h4>
+                            <ul>
+                                <li>{language === 'id' ? "Mengajar prinsip robotika dan simulasi 3D Webots kepada 100+ mahasiswa." : "Taught core robotics principles and hands-on Webots 3D simulation to 100+ students."}</li>
+                                <li>{language === 'id' ? "Mengevaluasi kinerja mahasiswa dalam ujian untuk menjaga standar akademik." : "Assessed student performance in examinations to maintain academic standards."}</li>
+                            </ul>
+                            <div className="timeline-img-wrapper mt-4">
+                                <Image width={800} height={500} src="/assets/experience/introRoboticsAssistant.jpeg" alt="Assistant Lecturer" className="timeline-img" />
                             </div>
                         </div>
                     </motion.div>
