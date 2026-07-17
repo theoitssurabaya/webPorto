@@ -39,8 +39,8 @@ export default function Hero() {
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className="text-center">
-                <div className="pixel-heart" style={{ position: 'absolute', top: '20%', right: '15%', zIndex: 15 }}></div>
-                <div className="pixel-star" style={{ position: 'absolute', top: '30%', left: '15%', zIndex: 15 }}></div>
+                <div className="pixel-heart" style={{ position: 'absolute', top: '20%', right: '5%', zIndex: 15 }}></div>
+                <div className="pixel-star" style={{ position: 'absolute', top: '30%', left: '5%', zIndex: 15 }}></div>
                 <motion.div 
                     className="hero-center-img-wrapper tooltip-container"
                     initial={{ opacity: 0, scale: 0.8 }}

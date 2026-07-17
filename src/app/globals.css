@@ -48,6 +48,10 @@ html {
     border-radius: 0 !important;
 }
 
+button, input, textarea, select {
+    font-family: inherit;
+}
+
 img {
     image-rendering: pixelated;
 }
@@ -282,7 +286,7 @@ h3 {
     color: var(--text-main);
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 15px;
@@ -432,7 +436,7 @@ h3 {
     border: 2px solid var(--text-main);
     padding: 8px 16px;
     border-radius: 0 !important;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-main);
     display: inline-block;
@@ -529,7 +533,7 @@ nav {
 .nav-links a {
     color: var(--text-dim);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 500;
     transition: all 0.3s ease;
     padding: 8px 16px;
@@ -806,7 +810,7 @@ nav {
 
 .skill-category p {
     color: var(--text-dim);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 .skill-pills-container {
@@ -819,7 +823,7 @@ nav {
 
 .skill-pill-sm {
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: 1.1rem;
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 20px;
@@ -853,7 +857,7 @@ nav {
     padding: 10px 24px;
     border-radius: 30px;
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -937,7 +941,7 @@ nav {
     padding: 10px 16px;
     background: rgba(var(--c-section-rgb), 0.05);
     border-radius: 12px;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: var(--text-main);
     line-height: 1.4;
     border: 1px solid rgba(var(--c-section-rgb), 0.15);
@@ -1075,7 +1079,7 @@ nav {
     background: rgba(var(--c-section-rgb), 0.1);
     color: var(--accent);
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     border-radius: 20px;
     margin-bottom: 12px;
     font-family: var(--font-heading);
@@ -1096,7 +1100,7 @@ nav {
 
 .timeline-content p {
     color: var(--text-main);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 .timeline-content ul {
@@ -1108,7 +1112,7 @@ nav {
     position: relative;
     padding-left: 20px;
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--text-main);
 }
 
@@ -1241,7 +1245,7 @@ nav {
 }
 
 .selector-tab .tab-subtitle {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     opacity: 0.8;
 }
 
@@ -1300,7 +1304,7 @@ nav {
     margin-bottom: 12px;
     color: var(--text-main);
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 .selector-content ul li::before {
@@ -1518,7 +1522,7 @@ nav {
 .bento-text p {
     color: var(--text-dim);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     margin-bottom: 15px;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -1536,7 +1540,7 @@ nav {
 
 .bento-card .tech-tag {
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: 1.1rem;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 6px;
@@ -1619,7 +1623,7 @@ nav {
 .cert-overlay-new span {
     color: #fff;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     text-align: left;
     transform: translateY(10px);
     transition: transform 0.3s ease;
@@ -1773,7 +1777,7 @@ nav {
     text-align: center;
     margin-top: 60px;
     color: var(--text-dim);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 
@@ -2089,7 +2093,7 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     color: #888;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 

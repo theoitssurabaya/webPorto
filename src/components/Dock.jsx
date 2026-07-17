@@ -66,7 +66,7 @@ function DockItem({ item, mouseX, isMobile }) {
               backgroundColor: 'rgba(0,0,0,0.8)',
               padding: '6px 12px',
               borderRadius: '8px',
-              fontSize: '12px',
+              fontSize: '16px',
               fontWeight: 500,
               color: '#fff',
               border: '1px solid #1f2937',

@@ -100,8 +100,9 @@ export default function Navbar() {
                       borderRadius: '9999px',
                       backgroundColor: 'rgba(0, 0, 0, 0.05)',
                       color: 'var(--text-main)',
-                      fontSize: '12px',
+                      fontSize: '16px',
                       fontWeight: 800,
+                      fontFamily: 'var(--font-body)',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease'
                   }}
