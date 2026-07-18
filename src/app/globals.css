@@ -37,7 +37,8 @@ html {
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
-    font-size: 20px; /* Base 20px to make pixel font legible globally */
+    font-size: 20px;
+    /* Base 20px to make pixel font legible globally */
 }
 
 * {
@@ -48,7 +49,10 @@ html {
     border-radius: 0 !important;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
     font-family: inherit;
 }
 
@@ -385,7 +389,8 @@ h3 {
 }
 
 .section {
-    padding: 100px 0;
+    padding: 140px 0;
+    margin-bottom: 40px;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -393,6 +398,20 @@ h3 {
     flex-direction: column;
     position: relative;
 }
+
+.section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 10%;
+    width: 80%;
+    height: 4px;
+    background-image: linear-gradient(to right, var(--text-dim) 50%, transparent 50%);
+    background-size: 20px 4px;
+    background-repeat: repeat-x;
+    opacity: 0.3;
+}
+
 
 .split-layout {
     display: grid;
@@ -494,30 +513,35 @@ nav {
 }
 
 @keyframes glitch {
-  0% {
-    transform: translate(0);
-    text-shadow: none;
-  }
-  20% {
-    transform: translate(-2px, 1px);
-    text-shadow: 2px 0 red, -2px 0 blue;
-  }
-  40% {
-    transform: translate(-1px, -1px);
-    text-shadow: 1px 0 red, -1px 0 blue;
-  }
-  60% {
-    transform: translate(2px, 1px);
-    text-shadow: -2px 0 red, 2px 0 blue;
-  }
-  80% {
-    transform: translate(1px, -1px);
-    text-shadow: -1px 0 red, 1px 0 blue;
-  }
-  100% {
-    transform: translate(0);
-    text-shadow: none;
-  }
+    0% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+
+    20% {
+        transform: translate(-2px, 1px);
+        text-shadow: 2px 0 red, -2px 0 blue;
+    }
+
+    40% {
+        transform: translate(-1px, -1px);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+
+    60% {
+        transform: translate(2px, 1px);
+        text-shadow: -2px 0 red, 2px 0 blue;
+    }
+
+    80% {
+        transform: translate(1px, -1px);
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+
+    100% {
+        transform: translate(0);
+        text-shadow: none;
+    }
 }
 
 .logo span {
@@ -573,7 +597,8 @@ nav {
     text-decoration: none;
     font-weight: 600;
     font-family: var(--font-heading);
-    transition: none; /* instant transition */
+    transition: none;
+    /* instant transition */
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -2167,7 +2192,7 @@ nav {
     width: 10px;
     height: 10px;
     background: #ff3366;
-    box-shadow: 
+    box-shadow:
         -10px -10px 0 #ff3366, 10px -10px 0 #ff3366,
         -20px 0 0 #ff3366, -10px 0 0 #ff3366, 10px 0 0 #ff3366, 20px 0 0 #ff3366,
         -20px 10px 0 #ff3366, -10px 10px 0 #ff3366, 0 10px 0 #ff3366, 10px 10px 0 #ff3366, 20px 10px 0 #ff3366,
@@ -2177,16 +2202,24 @@ nav {
 }
 
 @keyframes float-heart {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .pixel-star {
     width: 10px;
     height: 10px;
     background: #ffcc00;
-    box-shadow: 
+    box-shadow:
         0 -20px 0 #ffcc00,
         -10px -10px 0 #ffcc00, 10px -10px 0 #ffcc00,
         -20px 0 0 #ffcc00, -10px 0 0 #ffcc00, 10px 0 0 #ffcc00, 20px 0 0 #ffcc00,
@@ -2196,15 +2229,20 @@ nav {
 }
 
 @keyframes float-star {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 .pixel-coin {
     width: 10px;
     height: 10px;
     background: transparent;
-    box-shadow: 
+    box-shadow:
         -10px -20px 0 gold, 0 -20px 0 gold, 10px -20px 0 gold,
         -20px -10px 0 gold, 20px -10px 0 gold,
         -20px 0 0 gold, -10px 0 0 #fff, 0 0 0 #fff, 10px 0 0 #fff, 20px 0 0 gold,
@@ -2214,9 +2252,17 @@ nav {
 }
 
 @keyframes float-coin {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .pixel-sword {
@@ -2231,9 +2277,17 @@ nav {
 }
 
 @keyframes float-sword {
-    0% { transform: translateY(0) rotate(45deg); }
-    50% { transform: translateY(-8px) rotate(45deg); }
-    100% { transform: translateY(0) rotate(45deg); }
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(45deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(45deg);
+    }
 }
 
 .pixel-envelope {
@@ -2248,8 +2302,13 @@ nav {
 }
 
 @keyframes float-env {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
 }
 
 .pixel-book {
@@ -2265,9 +2324,17 @@ nav {
 }
 
 @keyframes float-book {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .pixel-floppy {
@@ -2283,8 +2350,15 @@ nav {
 }
 
 @keyframes float-floppy {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-}
+    0% {
+        transform: translateY(0);
+    }
 
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
