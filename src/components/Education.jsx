@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
-
+import { getEducationData } from "@/data/portfolio";
 export default function Education() {
     const { language } = useLanguage();
     const t = translations[language].education;
@@ -27,51 +27,34 @@ export default function Education() {
                 </div>
 
                 <div className="timeline horizontal-timeline">
-                    <motion.div
-                        className="timeline-item"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        <div className="timeline-dot"></div>
-                        <div className="timeline-content glass-card">
-                            <div className="timeline-date">{language === 'id' ? "Jul 2020 – Mei 2023" : "Jul 2020 – May 2023"}</div>
-                            <h3>{language === 'id' ? "Ijazah SMA (Ilmu Alam)" : "High School Diploma (Science)"}</h3>
-                            <h4 className="org-name">SMAN 2 Kota Tangerang Selatan</h4>
-                            <div className="edu-details" style={{ textAlign: "center", flexGrow: 1, marginTop: "15px", display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                                <span className="edu-pill"><strong>{language === 'id' ? "Nilai:" : "Grade:"}</strong> 88</span>
-                                <span className="edu-pill"><strong>{language === 'id' ? "Aktivitas:" : "Activities:"}</strong> {language === 'id' ? "Klub Bulu Tangkis." : "Attended Badminton Club."}</span>
-                                <span className="edu-pill">{language === 'id' ? "Peringkat 66 dari 141 siswa jurusan IPA" : "Ranked 66 eligible students of Natural Sciences out of 141"}</span>
+                    {getEducationData(language).map((edu, index) => (
+                        <motion.div
+                            key={edu.id}
+                            className="timeline-item"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+                        >
+                            <div className="timeline-dot"></div>
+                            <div className="timeline-content glass-card">
+                                <div className="timeline-date">{edu.date}</div>
+                                <h3>{edu.title}</h3>
+                                <h4 className="org-name">{edu.orgName}</h4>
+                                <div className="edu-details" style={{ textAlign: "center", flexGrow: 1, marginTop: "15px", display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
+                                    {edu.pills.map((pill, i) => (
+                                        <span key={i} className="edu-pill">
+                                            {pill.label && <strong>{pill.label} </strong>}
+                                            {pill.value}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="timeline-img-wrapper mt-auto">
+                                    <Image width={800} height={500} src={edu.image} alt={edu.orgName} className="timeline-img" style={edu.imgStyle} />
+                                </div>
                             </div>
-                            <div className="timeline-img-wrapper mt-auto">
-                                <Image width={800} height={500} src="/assets/education/sma.jpeg" alt="SMAN 2 Tangerang Selatan" className="timeline-img" style={{ objectPosition: "center 25%" }} />
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        className="timeline-item"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    >
-                        <div className="timeline-dot"></div>
-                        <div className="timeline-content glass-card">
-                            <div className="timeline-date">{language === 'id' ? "Agu 2023 – Agu 2027 (Perkiraan)" : "Aug 2023 – Aug 2027 (Expected)"}</div>
-                            <h3>{language === 'id' ? "Sarjana Teknik Komputer" : "Bachelor of Computer Engineering"}</h3>
-                            <h4 className="org-name">Institut Teknologi Sepuluh Nopember</h4>
-                            <div className="edu-details" style={{ textAlign: "center", flexGrow: 1, marginTop: "15px", display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                                <span className="edu-pill"><strong>{language === 'id' ? "IPK:" : "Grade:"}</strong> 3.51/4.00</span>
-                                <span className="edu-pill"><strong>TEFL:</strong> 537</span>
-                                <span className="edu-pill"><strong>{language === 'id' ? "Keahlian:" : "Skills:"}</strong> {language === 'id' ? "Bahasa Inggris sebagai Bahasa Kedua (ESL)" : "English as a Second Language (ESL)"}</span>
-                            </div>
-                            <div className="timeline-img-wrapper mt-auto">
-                                <Image width={800} height={500} src="/assets/education/kuliah.jpeg" alt="ITS Campus" className="timeline-img" />
-                            </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

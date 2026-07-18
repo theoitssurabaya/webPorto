@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
-
+import { certsList } from "@/data/portfolio";
 export default function Skills() {
   const { language } = useLanguage();
   const t = translations[language].skills;
@@ -12,19 +12,6 @@ export default function Skills() {
   const [selectedCert, setSelectedCert] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const certsList = [
-      { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
-      { img: "assets/skills/Belajar Fundamental Deep Learning.jpeg", title: "Belajar Fundamental Deep Learning (Dicoding)" },
-      { img: "assets/skills/Belajar Machine Learning untuk Pemula.jpeg", title: "Belajar Machine Learning untuk Pemula (Dicoding)" },
-      { img: "assets/skills/Memulai Pemrograman dengan Python.jpeg", title: "Memulai Pemrograman dengan Python (Dicoding)" },
-      { img: "assets/skills/Belajar Dasar AI.jpg", title: "Belajar Dasar AI (Dicoding)" },
-      { img: "assets/skills/Belajar Dasar Git dengan Github.jpeg", title: "Belajar Dasar Git dengan Github (Dicoding)" },
-      { img: "assets/skills/Pengenalan ke Logika Pemrograman (Programming Logic 101).jpg", title: "Pengenalan ke Logika Pemrograman (Programming Logic 101) (Dicoding)" },
-      { img: "assets/skills/Memulai Dasar Pemrograman untuk Menjadi Pengembangan Software.jpg", title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software (Dicoding)" },
-      { img: "assets/skills/Introduction to Software Engineering.jpeg", title: "Introduction to Software Engineering (RevoU)" },
-      { img: "assets/skills/Introduction to Financial Literacy.jpg", title: "Introduction to Financial Literacy (Dicoding)" },
-      { img: "assets/skills/LKMM-TD.jpg", title: "Latihan Keterampilan Manajemen Mahasiswa Tingkat Dasar (HIMATEKKOM ITS)" }
-  ];
 
   const indexOfLastCert = currentPage * 6;
   const indexOfFirstCert = indexOfLastCert - 6;

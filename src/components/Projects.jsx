@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
-
+import { projectList } from "@/data/portfolio";
 export default function Projects() {
     const { language } = useLanguage();
     const t = translations[language].projects;
@@ -139,78 +139,6 @@ export default function Projects() {
             clearTimeout(wheelTimeout);
         };
     }, []);
-
-    const projectList = [
-        {
-            key: "proj1",
-            link: "https://github.com/theoitssurabaya/Bird-Shooter-Game-ESP32",
-            img: "assets/projects/bird-shooter-esp32.jpeg",
-            alt: "Bird Shooter ESP32",
-            objPos: "center center",
-            tags: ["C++", "Electrical Wiring", "ESP32"]
-        },
-        {
-            key: "proj2",
-            link: "https://github.com/theoitssurabaya/PZEM-AnomalyDetector",
-            img: "assets/projects/pzem-anomaly-detector.jpeg",
-            alt: "PZEM Anomaly Detector",
-            tags: ["RTOS", "Machine Learning", "Node-RED"]
-        },
-        {
-            key: "proj4",
-            link: "https://github.com/theoitssurabaya/Soil-Monitoring-Controlled-Irrigation",
-            img: "assets/projects/smart-irrigation.png",
-            alt: "Smart Irrigation",
-            tags: ["ESP32", "ML", "Raspberry Pi"]
-        },
-        {
-            key: "proj3",
-            link: "https://github.com/theoitssurabaya/distance_target_game_project",
-            img: "assets/projects/distance-target-game.png",
-            alt: "Distance Target Game",
-            objPos: "left center",
-            tags: ["Node.js", "ESP32", "IoT"]
-        },
-        {
-            key: "proj6",
-            link: "https://github.com/theoitssurabaya/PERISAI",
-            img: "assets/projects/PERISAI-transparent2.png",
-            alt: "PERISAI",
-            objFit: "contain",
-            tags: ["React", "Node.js", "FastAPI"]
-        },
-        {
-            key: "proj5",
-            link: "https://github.com/theoitssurabaya/Smart-Dispenser-IoT",
-            img: "assets/projects/smart-dispenser-iot.jpeg",
-            alt: "Smart Dispenser IoT",
-            tags: ["Flutter", "ESP32", "IoT"]
-        },
-        {
-            key: "proj7",
-            link: "https://github.com/theoitssurabaya/Fully-Autonomous-ESP32-Robotic-Vehicle",
-            img: "assets/projects/fully-autonomous-esp32-robotic-vehicle.jpeg",
-            alt: "Fully Autonomous ESP32 Robotic Vehicle",
-            objPos: "center 60%",
-            tags: ["C++", "ESP32", "Electrical Wiring"]
-        },
-        {
-            key: "proj8",
-            link: "https://github.com/theoitssurabaya/Wayfinder",
-            img: "assets/projects/wayfinder-transparent2.png",
-            alt: "Wayfinder",
-            objFit: "contain",
-            tags: ["React", "Firebase", "NLP"]
-        },
-        {
-            key: "proj9",
-            link: "https://github.com/theoitssurabaya/AwasDitabrak",
-            img: "assets/projects/awasditabrak.png",
-            alt: "Awas Ditabrak",
-            objFit: "cover",
-            tags: ["Python", "Pygame", "Game"]
-        }
-    ];
 
     const extendedList = [...projectList, ...projectList, ...projectList];
 
