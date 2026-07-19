@@ -186,12 +186,7 @@ export default function Skills() {
                             style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: '10px' }}
                             onClick={(e) => e.stopPropagation()}
                         />
-                        <button 
-                            onClick={() => setSelectedCert(null)}
-                            style={{ position: 'absolute', top: '20px', right: '20px', background: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', fontSize: '20px', cursor: 'pointer', color: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                        >
-                            ×
-                        </button>
+
                     </motion.div>
                 )}
             </AnimatePresence>
