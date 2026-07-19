@@ -199,6 +199,7 @@ export const projectList = [
 ];
 
 export const certsList = [
+    { img: "assets/skills/Pengembangan Generative AI berbasis LLM.png", title: "Pengembangan Generative AI berbasis LLM (Dicoding)" },
     { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
     { img: "assets/skills/Belajar Fundamental Deep Learning.jpeg", title: "Belajar Fundamental Deep Learning (Dicoding)" },
     { img: "assets/skills/Belajar Machine Learning untuk Pemula.jpeg", title: "Belajar Machine Learning untuk Pemula (Dicoding)" },
