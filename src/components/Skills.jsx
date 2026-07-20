@@ -139,6 +139,10 @@ export default function Skills() {
                                     </div>
                                 </div>
                             ))}
+                            {/* Fill empty spots to keep grid height consistent */}
+                            {Array.from({ length: Math.max(0, 6 - currentCerts.length) }).map((_, idx) => (
+                                <div key={`empty-${idx}`} style={{ visibility: 'hidden', aspectRatio: '4/3' }}></div>
+                            ))}
                         </div>
                         
                         {totalPages > 1 && (
