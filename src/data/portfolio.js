@@ -199,6 +199,7 @@ export const projectList = [
 ];
 
 export const certsList = [
+    { img: "assets/skills/English for Business Communication.jpg", title: "English for Business Communication (USG Education)", objPos: "center 25%" },
     { img: "assets/skills/Pengembangan Generative AI berbasis LLM.png", title: "Pengembangan Generative AI berbasis LLM (Dicoding)" },
     { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
     { img: "assets/skills/Belajar Fundamental Deep Learning.jpeg", title: "Belajar Fundamental Deep Learning (Dicoding)" },

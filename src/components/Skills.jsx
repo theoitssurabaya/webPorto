@@ -133,7 +133,7 @@ export default function Skills() {
                                     onClick={() => setSelectedCert(cert.img)} 
                                     style={{ cursor: "pointer" }}
                                 >
-                                    <Image width={600} height={400} src={"/" + cert.img} alt="Certificate" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <Image width={600} height={400} src={"/" + cert.img} alt="Certificate" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: cert.objPos || 'center' }} />
                                     <div className="cert-overlay-new">
                                         <span>{cert.title}</span>
                                     </div>
