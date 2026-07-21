@@ -32,6 +32,7 @@ export default function Projects() {
         let isNativeScrolling = false;
         let wheelTimeout;
         let animationFrameId;
+        let isIntersecting = false;
 
         const updateScroll = () => {
             if (!carouselRef.current) return;
@@ -63,11 +64,22 @@ export default function Projects() {
                 targetScroll = currentScroll; // Keep target perfectly in sync with native scroll
             }
 
-            animationFrameId = requestAnimationFrame(updateScroll);
+            if (isIntersecting) {
+                animationFrameId = requestAnimationFrame(updateScroll);
+            }
         };
 
-        // Start the loop
-        animationFrameId = requestAnimationFrame(updateScroll);
+        const observer = new IntersectionObserver(([entry]) => {
+            const wasIntersecting = isIntersecting;
+            isIntersecting = entry.isIntersecting;
+            if (isIntersecting && !wasIntersecting) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = requestAnimationFrame(updateScroll);
+            } else if (!isIntersecting) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        }, { threshold: 0.05 });
+        observer.observe(carousel);
 
         const handleWheel = (e) => {
             // Trackpad horizontal swipe
@@ -137,6 +149,7 @@ export default function Projects() {
             carousel.removeEventListener("touchend", handleTouchEnd);
             cancelAnimationFrame(animationFrameId);
             clearTimeout(wheelTimeout);
+            observer.disconnect();
         };
     }, []);
 
