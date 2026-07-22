@@ -80,7 +80,7 @@ export default function Experience() {
                                     {exp.points.map((pt, i) => <li key={i}>{pt}</li>)}
                                 </ul>
                                 <div className="timeline-img-wrapper mt-4">
-                                    <Image width={800} height={500} src={exp.image} alt={exp.orgName} className="timeline-img" />
+                                    <Image width={800} height={500} src={exp.image} alt={exp.orgName} className="timeline-img" unoptimized />
                                 </div>
                             </div>
                         ))}

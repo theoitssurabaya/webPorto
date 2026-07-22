@@ -57,7 +57,7 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengajar prinsip robotika dan simulasi 3D Webots kepada 100+ mahasiswa." : "Taught core robotics principles and hands-on Webots 3D simulation to 100+ students.",
             language === 'id' ? "Mengevaluasi kinerja mahasiswa dalam ujian untuk menjaga standar akademik." : "Assessed student performance in examinations to maintain academic standards."
         ],
-        image: "/assets/experience/introRoboticsAssistant.jpeg"
+        image: "/assets/experience/introRoboticsAssistant.jpeg?v=1"
     },
     {
         id: "exp-6",
