@@ -1,12 +1,12 @@
 export const getExperienceData = (language) => [
     {
         id: "exp-0",
-        tabTitle: language === 'id' ? "Magang Business Development" : "Business Development Intern",
+        tabTitle: language === 'id' ? "Magang Business Development" : "Business Development Intern (OT Security Engineer)",
         tabSubtitle: "Protergo Cyber Security",
         date: language === 'id' ? "Jun 2026 — Sekarang" : "Jun 2026 — Present",
         orgName: "Protergo Cyber Security",
         points: [
-            language === 'id' ? "Merancang sandbox SCADA terdistribusi menggunakan OpenPLC dan mikrokontroler." : "Architecting a distributed SCADA sandbox using OpenPLC and microcontrollers.",
+            language === 'id' ? "Merancang sandbox SCADA terdistribusi menggunakan OpenPLC dan mikrokontroler." : "Architecting a distributed SCADA sandbox using PLC and microcontrollers.",
             language === 'id' ? "Berkolaborasi dengan tim untuk menyediakan infrastruktur uji penetrasi." : "Collaborating with cybersecurity teams to provide infrastructure for penetration testing."
         ],
         image: "/assets/experience/protergo.jpeg"
