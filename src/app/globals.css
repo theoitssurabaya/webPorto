@@ -168,38 +168,7 @@ body::before {
     transition: transform 0.2s ease-out;
 }
 
-/* CRT TV Screen Overlay (Scanlines, Vignette, and Flicker) */
-body::after {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background:
-        radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.6) 130%),
-        linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 50%),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.05));
-    z-index: 9999;
-    background-size: 100% 100%, 100% 5px, 6px 100%;
-    pointer-events: none;
-    animation: crt-flicker 0.15s infinite;
-}
-
-@keyframes crt-flicker {
-    0% {
-        opacity: 0.97;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.98;
-    }
-}
+/* CRT TV Screen Overlay Removed to improve visibility */
 
 .alt-bg {
     background-color: rgba(10, 10, 10, 0.85);
