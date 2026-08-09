@@ -13,10 +13,10 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL("https://theoitssurabaya.github.io"),
   title: "Portfolio | Theo Kawalisa Pinem",
-  description: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
+  description: "Computer Engineering student experienced in full-stack IoT, edge AI, and SCADA. Proven leader in deploying hardware-to-cloud pipelines and scalable networks.",
   openGraph: {
     title: "Portfolio | Theo Kawalisa Pinem",
-    description: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
+    description: "Computer Engineering student experienced in full-stack IoT, edge AI, and SCADA. Proven leader in deploying hardware-to-cloud pipelines and scalable networks.",
     url: "https://theoitssurabaya.github.io",
     siteName: "Theo's Portfolio",
     images: [
@@ -33,7 +33,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Portfolio | Theo Kawalisa Pinem",
-    description: "Computer Engineering Undergraduate. AI, IoT, and Robotics Enthusiast.",
+    description: "Computer Engineering student experienced in full-stack IoT, edge AI, and SCADA. Proven leader in deploying hardware-to-cloud pipelines and scalable networks.",
     images: ["/assets/profile.jpeg"],
   },
 };

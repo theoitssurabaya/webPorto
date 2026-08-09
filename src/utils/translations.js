@@ -10,7 +10,7 @@ export const translations = {
     },
     hero: {
       title: "Theo Kawalisa Pinem",
-      subtitle: "Computer Engineering Undergraduate. Internet of Things and Artificial Intelligence Enthusiast.",
+      subtitle: "Computer Engineering student experienced in full-stack IoT, edge AI, and SCADA. Proven leader in deploying hardware-to-cloud pipelines and scalable networks.",
       btnExplore: "Explore Projects",
       btnCV: "View CV"
     },
@@ -138,7 +138,7 @@ export const translations = {
     },
     hero: {
       title: "Theo Kawalisa Pinem",
-      subtitle: "Mahasiswa Teknik Komputer. Penggiat Internet of Things dan Artificial Intelligence.",
+      subtitle: "Mahasiswa Teknik Komputer berpengalaman di full-stack IoT, edge AI, dan SCADA. Pemimpin dalam penerapan pipeline hardware-ke-cloud dan jaringan berskala besar.",
       btnExplore: "Jelajahi Proyek",
       btnCV: "Lihat CV"
     },

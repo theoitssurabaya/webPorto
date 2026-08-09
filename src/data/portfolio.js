@@ -1,7 +1,7 @@
 export const getExperienceData = (language) => [
     {
         id: "exp-0",
-        tabTitle: language === 'id' ? "Magang Business Development" : "Business Development Intern (OT Security Engineer)",
+        tabTitle: language === 'id' ? "Magang Business Development" : "Business Development Intern (OT Engineer)",
         tabSubtitle: "Protergo Cyber Security",
         date: language === 'id' ? "Jun 2026 — Sekarang" : "Jun 2026 — Present",
         orgName: "Protergo Cyber Security",
@@ -199,6 +199,9 @@ export const projectList = [
 ];
 
 export const certsList = [
+    { img: "assets/skills/Introduction to IoT and Digital Transformation.jpeg", title: "Introduction to IoT and Digital Transformation (Cisco Networking Academy)" },
+    { img: "assets/skills/Networking Basics.jpeg", title: "Networking Basics (Cisco Networking Academy)" },
+    { img: "assets/skills/Operating Systems Basics.jpeg", title: "Operating Systems Basics (Cisco Networking Academy)" },
     { img: "assets/skills/English for Business Communication.jpg", title: "English for Business Communication (USG Education)", objPos: "center 25%" },
     { img: "assets/skills/Pengembangan Generative AI berbasis LLM.png", title: "Pengembangan Generative AI berbasis LLM (Dicoding)" },
     { img: "assets/skills/Membangun Proyek Deep Learning Tingkat Mahir.jpeg", title: "Membangun Proyek Deep Learning Tingkat Mahir (Dicoding)" },
