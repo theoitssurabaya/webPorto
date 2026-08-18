@@ -82,7 +82,7 @@ export default function Hero() {
                         </p>
                         <div className="btn-group justify-center">
                             <a href="#projects" className="btn-primary">{t.btnExplore}</a>
-                            <a href="https://its.id/m/CVTheoPinem" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                            <a href="https://docs.google.com/document/d/1P2Ba_mgJQDykI40ddohtI2BP3aMW-UyPyubR9Fgw4RM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-secondary">
                                 {t.btnCV}
                             </a>
                         </div>
