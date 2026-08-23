@@ -117,7 +117,7 @@ export const getEducationData = (language) => [
         title: language === 'id' ? "Sarjana Teknik Komputer" : "Bachelor of Computer Engineering",
         orgName: "Institut Teknologi Sepuluh Nopember",
         pills: [
-            { label: language === 'id' ? "IPK:" : "Grade:", value: "3.51/4.00" },
+            { label: language === 'id' ? "IPK:" : "Grade:", value: "3.57/4.00" },
             { label: "TEFL:", value: "537" },
             { label: language === 'id' ? "Keahlian:" : "Skills:", value: language === 'id' ? "Bahasa Inggris sebagai Bahasa Kedua (ESL)" : "English as a Second Language (ESL)" }
         ],
@@ -195,6 +195,13 @@ export const projectList = [
         alt: "Awas Ditabrak",
         objFit: "cover",
         tags: ["Python", "Pygame", "Game"]
+    },
+    {
+        key: "proj10",
+        link: "https://github.com/theoitssurabaya/Mini-SCADA-System",
+        img: "assets/projects/miniSCADAsystem.jpeg",
+        alt: "Mini SCADA System",
+        tags: ["SCADA", "PLC", "Modbus"]
     }
 ];
 

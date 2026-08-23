@@ -95,6 +95,10 @@ export const translations = {
       proj9: {
         title: "Awas Ditabrak",
         desc: "A fast-paced 2D lane-avoidance game built with Python and Pygame. Features dynamic difficulty scaling, smooth animations, and a shield power-up system."
+      },
+      proj10: {
+        title: "Mini SCADA System",
+        desc: "A localized Supervisory Control and Data Acquisition system utilizing a PLC architecture for industrial monitoring and control."
       }
     },
     contact: {
@@ -223,6 +227,10 @@ export const translations = {
       proj9: {
         title: "Awas Ditabrak",
         desc: "Game hindari jalur 2D bertempo cepat yang dibangun dengan Python dan Pygame. Menampilkan peningkatan kesulitan dinamis, animasi halus, dan sistem power-up perisai."
+      },
+      proj10: {
+        title: "Sistem Mini SCADA",
+        desc: "Sistem Supervisory Control and Data Acquisition terpusat menggunakan arsitektur PLC untuk pemantauan dan kontrol industri."
       }
     },
     contact: {
