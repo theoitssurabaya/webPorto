@@ -92,9 +92,9 @@ export default function Skills() {
                                 <span className="skill-pill-sm">ESP32</span>
                                 <span className="skill-pill-sm">ESP-IDF</span>
                                 <span className="skill-pill-sm">Raspberry Pi</span>
-                                <span className="skill-pill-sm">Sensor Integration</span>
-                                <span className="skill-pill-sm">Smart Systems</span>
-                                <span className="skill-pill-sm">C++</span>
+                                <span className="skill-pill-sm">PLC & SCADA</span>
+                                <span className="skill-pill-sm">Modbus / MQTT</span>
+                                <span className="skill-pill-sm">C / C++</span>
                                 <span className="skill-pill-sm">MicroPython</span>
                                 <span className="skill-pill-sm">Electrical Wiring</span>
                             </div>
@@ -106,11 +106,13 @@ export default function Skills() {
                             <h3>{t.categories.programming}</h3>
                             <div className="skill-pills-container">
                                 <span className="skill-pill-sm">Python</span>
-                                <span className="skill-pill-sm">JavaScript</span>
+                                <span className="skill-pill-sm">JavaScript / TypeScript</span>
+                                <span className="skill-pill-sm">React / Next.js</span>
+                                <span className="skill-pill-sm">Node.js / FastAPI</span>
                                 <span className="skill-pill-sm">Dart (Flutter)</span>
-                                <span className="skill-pill-sm">System Architecture</span>
-                                <span className="skill-pill-sm">Pygame</span>
+                                <span className="skill-pill-sm">Firebase</span>
                                 <span className="skill-pill-sm">RESTful APIs</span>
+                                <span className="skill-pill-sm">Git & GitHub</span>
                             </div>
                         </div>
                     </motion.div>

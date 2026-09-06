@@ -1,17 +1,5 @@
 export const getExperienceData = (language) => [
     {
-        id: "exp-0",
-        tabTitle: language === 'id' ? "Magang Business Development" : "Business Development Intern (OT Engineer)",
-        tabSubtitle: "Protergo Cyber Security",
-        date: language === 'id' ? "Jun 2026 — Agu 2026" : "Jun 2026 — Aug 2026",
-        orgName: "Protergo Cyber Security",
-        points: [
-            language === 'id' ? "Merancang sandbox SCADA terdistribusi menggunakan OpenPLC dan mikrokontroler." : "Architected a distributed SCADA sandbox using PLC and microcontrollers.",
-            language === 'id' ? "Berkolaborasi dengan tim untuk menyediakan infrastruktur uji penetrasi." : "Collaborated with cybersecurity teams to provide infrastructure for penetration testing."
-        ],
-        image: "/assets/experience/protergo.jpeg"
-    },
-    {
         id: "exp-2",
         tabTitle: language === 'id' ? "Kepala Biro Pengembangan" : "Head of Development Bureau",
         tabSubtitle: "BEM FTEIC",
@@ -34,6 +22,18 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengoordinasikan pengembangan robotika, IoT, dan sistem cerdas." : "Coordinating development for robotics, IoT, and intelligent systems."
         ],
         image: "/assets/experience/robotics-lab.jpeg"
+    },
+    {
+        id: "exp-0",
+        tabTitle: language === 'id' ? "Magang Business Development" : "Business Development Intern (OT Engineer)",
+        tabSubtitle: "Protergo Cyber Security",
+        date: language === 'id' ? "Jun 2026 — Agu 2026" : "Jun 2026 — Aug 2026",
+        orgName: "Protergo Cyber Security",
+        points: [
+            language === 'id' ? "Merancang sandbox SCADA terdistribusi menggunakan OpenPLC dan mikrokontroler." : "Architected a distributed SCADA sandbox using PLC and microcontrollers.",
+            language === 'id' ? "Berkolaborasi dengan tim untuk menyediakan infrastruktur uji penetrasi." : "Collaborated with cybersecurity teams to provide infrastructure for penetration testing."
+        ],
+        image: "/assets/experience/protergo.jpeg"
     },
     {
         id: "exp-1",
