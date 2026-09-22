@@ -49,7 +49,7 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-7",
-        tabTitle: language === 'id' ? "Asisten Dosen" : "Assistant Lecturer",
+        tabTitle: language === 'id' ? "Asisten Dosen Pengantar Robotika" : "Assistant Lecturer of Introduction to Robotics",
         tabSubtitle: "Institut Teknologi Sepuluh Nopember",
         date: language === 'id' ? "Feb 2026 — Jun 2026" : "Feb 2026 — June 2026",
         orgName: "Institut Teknologi Sepuluh Nopember (ITS)",
