@@ -4,6 +4,7 @@ import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BackgroundGifs from "@/components/BackgroundGifs";
+import FadeUp from "@/components/FadeUp";
 
 // Lazy load below-the-fold components for performance
 const Skills = dynamic(() => import("@/components/Skills"));
@@ -25,12 +26,13 @@ export default function Home() {
 
       <main className="stacked-wrapper">
         <Hero />
-        <Skills />
-        <Education />
-        <Experience />
-        <Projects />
-        <Contact />
+        <FadeUp delay={0.2}><Skills /></FadeUp>
+        <FadeUp delay={0.2}><Education /></FadeUp>
+        <FadeUp delay={0.2}><Experience /></FadeUp>
+        <FadeUp delay={0.2}><Projects /></FadeUp>
+        <FadeUp delay={0.2}><Contact /></FadeUp>
       </main>
     </>
   );
 }
+

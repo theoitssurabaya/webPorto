@@ -2,6 +2,7 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
+import Cursor from "@/components/Cursor";
 
 export const viewport = {
   width: 'device-width',
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <LanguageProvider>
+          <Cursor />
           <Toaster position="bottom-right" theme="dark" richColors />
           <LenisProvider>
               {children}
@@ -57,3 +59,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

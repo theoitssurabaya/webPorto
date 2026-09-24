@@ -420,34 +420,51 @@ h3 {
 
 /* Glassmorphism Utilities */
 .glass-card {
-    background: var(--bg-alt);
-    border: 2px solid var(--text-main);
-    border-radius: 0 !important;
-    box-shadow: 4px 4px 0px var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
 }
 
 .glass-badge {
-    background: var(--bg-alt);
-    border: 2px solid var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 8px 16px;
-    border-radius: 0 !important;
+    border-radius: 8px !important;
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-main);
     display: inline-block;
     margin-bottom: 20px;
-    box-shadow: 2px 2px 0px var(--text-main);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .glass-icon {
-    background: var(--bg-alt);
-    border: 2px solid var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 !important;
-    box-shadow: 2px 2px 0px var(--text-main);
-    transition: none;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.glass-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Navigation */
@@ -566,28 +583,29 @@ nav {
 
 .btn-primary,
 .btn-secondary {
-    background: var(--bg-alt);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--text-main);
     padding: 14px 30px;
-    border-radius: 0 !important;
+    border-radius: 8px !important;
     text-decoration: none;
     font-weight: 600;
     font-family: var(--font-heading);
-    transition: none;
-    /* instant transition */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    border: 2px solid var(--text-main);
-    box-shadow: 4px 4px 0px var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
-    transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0px var(--text-main);
-    background: var(--text-main);
-    color: var(--bg-alt);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-main);
 }
 
 .social-links {
@@ -599,18 +617,23 @@ nav {
     width: 48px;
     height: 48px;
     color: var(--text-main);
-    background: var(--bg-alt);
-    border: 2px solid var(--text-main);
-    box-shadow: 4px 4px 0px var(--text-main);
-    transition: none;
-    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
+    border-radius: 8px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icon:hover {
-    color: var(--bg-alt);
-    transform: translate(4px, 4px);
-    background: var(--text-main);
-    box-shadow: 0px 0px 0px var(--text-main);
+    color: var(--text-main);
+    transform: translateY(-4px) scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Hero Section */
