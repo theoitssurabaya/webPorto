@@ -1,5 +1,17 @@
 export const getExperienceData = (language) => [
     {
+        id: "exp-8",
+        tabTitle: language === 'id' ? "Asisten Praktikum Pemrograman Dasar" : "Basic Programming Practicum Assistant",
+        tabSubtitle: "B300 Multimedia & IoT Lab",
+        date: language === 'id' ? "Sep 2026 — Sekarang" : "Sep 2026 — Present",
+        orgName: "B300 Multimedia and Internet of Things Laboratory",
+        points: [
+            language === 'id' ? "Membimbing mahasiswa mengenai konsep dasar pemrograman melalui latihan praktik mingguan." : "Mentoring students in core programming concepts through weekly hands-on exercises.",
+            language === 'id' ? "Mengevaluasi tugas dan membimbing mahasiswa dalam pengembangan proyek akhir mereka." : "Evaluating assignments and guiding students through the development of their final projects."
+        ],
+        image: "/assets/experience/basic_practicum_assistant.jpg"
+    },
+    {
         id: "exp-2",
         tabTitle: language === 'id' ? "Kepala Biro Pengembangan" : "Head of Development Bureau",
         tabSubtitle: "BEM FTEIC",
@@ -33,7 +45,8 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Merancang sandbox SCADA terdistribusi menggunakan OpenPLC dan mikrokontroler." : "Architected a distributed SCADA sandbox using PLC and microcontrollers.",
             language === 'id' ? "Berkolaborasi dengan tim untuk menyediakan infrastruktur uji penetrasi." : "Collaborated with cybersecurity teams to provide infrastructure for penetration testing."
         ],
-        image: "/assets/experience/protergo.jpeg"
+        image: "/assets/experience/protergo.jpeg",
+        imgStyle: { objectPosition: "center 70%" }
     },
     {
         id: "exp-1",
