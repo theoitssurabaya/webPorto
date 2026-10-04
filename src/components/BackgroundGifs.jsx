@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const GIFS = [
@@ -33,17 +32,20 @@ const GIFS = [
 ];
 
 export default function BackgroundGifs() {
-  const [frame, setFrame] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFrame((f) => (f === 0 ? 1 : 0));
-    }, 600); // GIF animation speed
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", overflow: "hidden", pointerEvents: "none", zIndex: -1 }}>
+      <style>
+        {`
+          @keyframes frame1 {
+            0%, 49.99% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+          }
+          @keyframes frame2 {
+            0%, 49.99% { opacity: 0; }
+            50%, 100% { opacity: 1; }
+          }
+        `}
+      </style>
       {GIFS.map((gif) => (
         <motion.div
           key={gif.id}
@@ -67,7 +69,8 @@ export default function BackgroundGifs() {
           }}
         >
           <svg viewBox={`0 0 ${gif.width} ${gif.height}`} fill="white" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
-            <path d={gif.frames[frame % gif.frames.length]} />
+            <path d={gif.frames[0]} style={{ animation: "frame1 1.2s infinite" }} />
+            <path d={gif.frames[1]} style={{ animation: "frame2 1.2s infinite" }} />
           </svg>
         </motion.div>
       ))}

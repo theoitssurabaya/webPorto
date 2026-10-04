@@ -1826,10 +1826,24 @@ nav {
 }
 
 @media (max-width: 768px) {
+    html {
+        font-size: 16px; /* Better base scale for mobile */
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .section {
+        padding: 40px 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .hero-layout {
         flex-direction: column-reverse;
         text-align: center;
-        gap: 30px;
+        gap: 20px;
     }
 
     .hero-content-left {
@@ -1847,6 +1861,8 @@ nav {
 
     .nav-container {
         position: relative;
+        width: 100%;
+        padding: 10px 15px;
     }
 
     .nav-links {
@@ -1858,10 +1874,10 @@ nav {
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid var(--glass-border);
-        border-radius: 24px;
+        border-radius: 16px;
         flex-direction: column;
-        padding: 20px;
-        margin-top: 15px;
+        padding: 15px;
+        margin-top: 10px;
         box-shadow: var(--glass-shadow);
         display: none;
     }
@@ -1884,69 +1900,110 @@ nav {
     }
 
     .nav-links a {
-        margin: 10px 0;
+        margin: 8px 0;
         width: 100%;
         text-align: center;
+        padding: 12px 10px; /* Larger touch target */
+        font-size: 1.1rem;
     }
 
     .mobile-menu-btn {
         display: block;
+        padding: 5px;
     }
 
     .horizontal-timeline {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .horizontal-timeline::before {
         top: 0;
         bottom: 0;
-        left: 24px;
+        left: 16px;
         width: 2px;
-        height: auto;
+        height: 100%;
     }
 
     .horizontal-timeline .timeline-item {
-        padding-left: 70px;
+        padding-left: 45px;
         padding-top: 0;
         margin-bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .horizontal-timeline .timeline-dot {
-        left: 16px;
+        left: 7px;
         top: 0;
         transform: none;
     }
 
     .horizontal-timeline .timeline-content {
         text-align: left;
+        padding: 20px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .timeline-date {
+        white-space: normal !important;
+        word-wrap: break-word;
+        height: auto;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.3rem;
     }
 
     .horizontal-timeline .edu-details {
         align-items: flex-start !important;
         text-align: left !important;
-    }
-
-    .section {
-        padding: 60px 0;
         width: 100%;
+    }
+    
+    .edu-pill {
+        width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
+        display: block;
+        white-space: normal !important;
+        overflow-wrap: break-word;
+        height: auto;
+    }
+    
+    .pixel-book, .pixel-star, .pixel-heart, .pixel-coin, .pixel-sword, .pixel-envelope, .pixel-floppy {
+        display: none !important;
     }
 
     .section-title {
-        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        margin-bottom: 20px;
     }
 
     h2 {
-        font-size: clamp(1.6rem, 5vw, 2.5rem);
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
         word-wrap: break-word;
+        margin-bottom: 20px;
     }
 
     h1.hero-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
+        font-size: clamp(2.2rem, 11vw, 3.5rem);
         word-wrap: break-word;
         text-align: center !important;
         width: 100%;
+        line-height: 1.1;
+    }
+
+    .subtitle, .hero-subtitle {
+        font-size: 1.1rem !important;
+        padding: 0 10px;
+        line-height: 1.5;
     }
 
     .text-center h1,
@@ -1956,17 +2013,18 @@ nav {
     }
 
     .hero-center-img-wrapper {
-        margin-bottom: -80px;
-        /* Less negative margin on smaller screens */
+        margin-bottom: -20px;
+        height: 60vh;
     }
 
     .contact-box {
-        padding: 40px 20px;
+        padding: 30px 15px;
     }
 
     .cert-grid {
         flex-direction: column;
         align-items: stretch;
+        gap: 15px;
     }
 
     .cert-wrapper {
@@ -1976,18 +2034,34 @@ nav {
     .cert-badge {
         width: 100%;
         justify-content: flex-start;
+        padding: 12px 15px;
     }
 
     .cert-popup-img {
-        width: 90vw;
+        width: 95vw;
         height: auto;
-        max-width: 320px;
+        max-width: none;
         bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .carousel-card {
-        flex: 0 0 85vw;
-        height: 380px;
+        flex: 0 0 90vw;
+        height: 420px;
+    }
+
+    .bento-card {
+        padding: 20px;
+    }
+
+    .bento-text h3 {
+        font-size: 1.4rem;
+    }
+
+    .bento-text p {
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .bento-text p,
@@ -2001,41 +2075,64 @@ nav {
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .skill-category {
+        padding: 25px 15px;
     }
 
     .cert-grid-new {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .btn-group {
         flex-direction: column;
         width: 100%;
+        gap: 12px;
+        padding: 0 15px;
     }
 
     .btn-primary,
     .btn-secondary {
         width: 100%;
         justify-content: center;
+        padding: 16px 20px;
+        font-size: 1.1rem;
     }
 
     .social-links {
-        margin-top: 15px;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
     }
 
     .contact-bento-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .contact-card {
-        padding: 30px;
+        padding: 25px 20px;
+    }
+
+    .contact-card h3 {
+        font-size: 1.5rem;
     }
 
     .social-bento {
         grid-template-rows: auto;
+        gap: 15px;
     }
 
     .social-card {
-        padding: 20px 25px;
+        padding: 15px 20px;
+        font-size: 1.1rem;
     }
 }
 

@@ -2,7 +2,6 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
-import Cursor from "@/components/Cursor";
 import { Pixelify_Sans, VT323 } from "next/font/google";
 
 const pixelify = Pixelify_Sans({ 
@@ -57,7 +56,6 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`scroll-smooth ${pixelify.variable} ${vt323.variable}`}>
       <body>
         <LanguageProvider>
-          <Cursor />
           <Toaster position="bottom-right" theme="dark" richColors />
           <LenisProvider>
               {children}
