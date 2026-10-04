@@ -21,7 +21,7 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengawasi dan memimpin tim yang terdiri dari 8 staf." : "Supervising and leading a team consisting of 8 staff members.",
             language === 'id' ? "Mengarahkan dan mendampingi program pengembangan mahasiswa untuk mahasiswa baru fakultas." : "Directed and mentored the student development programs for incoming faculty students."
         ],
-        image: "/assets/experience/bem-fteic.jpeg"
+        image: "/assets/experience/bem-fteic.JPG"
     },
     {
         id: "exp-3",
