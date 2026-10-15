@@ -1,5 +1,17 @@
 export const getExperienceData = (language) => [
     {
+        id: "exp-9",
+        tabTitle: language === 'id' ? "Magang Human Capital Development" : "Human Capital Development Intern",
+        tabSubtitle: "PLN Nusantara Power Services",
+        date: language === 'id' ? "Okt 2026 — Sekarang" : "Oct 2026 — Present",
+        orgName: "PLN Nusantara Power Services",
+        points: [
+            language === 'id' ? "Mengembangkan aplikasi CRUD berbasis web untuk pengelolaan sertifikasi karyawan." : "Developing a web-based CRUD application for employee certification management.",
+            language === 'id' ? "Menerapkan pelacakan otomatis dan peringatan kedaluwarsa berkala pada dasbor terpusat untuk efisiensi operasional." : "Implementing automated tracking and expiration alerts within a centralized digital dashboard to boost operational efficiency."
+        ],
+        image: "/assets/experience/pln-placeholder.jpg"
+    },
+    {
         id: "exp-8",
         tabTitle: language === 'id' ? "Asisten Praktikum Pemrograman Dasar" : "Basic Programming Practicum Assistant",
         tabSubtitle: "B300 Multimedia & IoT Lab",

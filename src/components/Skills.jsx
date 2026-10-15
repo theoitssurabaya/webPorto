@@ -77,10 +77,10 @@ export default function Skills() {
                             <h3>{t.categories.ai}</h3>
                             <div className="skill-pills-container">
                                 <span className="skill-pill-sm">Deep Learning</span>
-                                <span className="skill-pill-sm">Neural Networks</span>
                                 <span className="skill-pill-sm">Computer Vision</span>
                                 <span className="skill-pill-sm">TensorFlow</span>
                                 <span className="skill-pill-sm">Scikit-Learn</span>
+                                <span className="skill-pill-sm">PyTorch</span>
                             </div>
                         </div>
                         <div className="skill-category glass-card">
@@ -93,9 +93,9 @@ export default function Skills() {
                                 <span className="skill-pill-sm">ESP-IDF</span>
                                 <span className="skill-pill-sm">Raspberry Pi</span>
                                 <span className="skill-pill-sm">PLC & SCADA</span>
+                                <span className="skill-pill-sm">Sensors & Actuators</span>
                                 <span className="skill-pill-sm">Modbus / MQTT</span>
                                 <span className="skill-pill-sm">C / C++</span>
-                                <span className="skill-pill-sm">MicroPython</span>
                                 <span className="skill-pill-sm">Electrical Wiring</span>
                             </div>
                         </div>
