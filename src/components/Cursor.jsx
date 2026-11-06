@@ -1,10 +1,18 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+
+const subscribe = (callback) => {
+  window.addEventListener("resize", callback);
+  return () => window.removeEventListener("resize", callback);
+};
+
+const getSnapshot = () => window.innerWidth <= 768;
+const getServerSnapshot = () => true;
 
 export default function Cursor() {
   const [isPointer, setIsPointer] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
+  const isMobile = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -14,7 +22,7 @@ export default function Cursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
+    if (isMobile) return;
     
     const moveCursor = (e) => {
       cursorX.set(e.clientX - 6);
@@ -40,7 +48,7 @@ export default function Cursor() {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isMobile]);
 
   if (isMobile) {
       return null;

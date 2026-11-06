@@ -9,7 +9,7 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengembangkan aplikasi CRUD berbasis web untuk pengelolaan sertifikasi karyawan." : "Developing a web-based CRUD application for employee certification management.",
             language === 'id' ? "Menerapkan pelacakan otomatis dan peringatan kedaluwarsa berkala pada dasbor terpusat untuk efisiensi operasional." : "Implementing automated tracking and expiration alerts within a centralized digital dashboard to boost operational efficiency."
         ],
-        image: "/assets/experience/pln-placeholder.jpg"
+        image: "/assets/experience/pln.jpeg"
     },
     {
         id: "exp-8",

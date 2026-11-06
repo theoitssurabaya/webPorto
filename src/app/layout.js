@@ -53,8 +53,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`scroll-smooth ${pixelify.variable} ${vt323.variable}`}>
-      <body>
+    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${pixelify.variable} ${vt323.variable}`}>
+      <body suppressHydrationWarning>
         <LanguageProvider>
           <Toaster position="bottom-right" theme="dark" richColors />
           <LenisProvider>
