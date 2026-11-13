@@ -1,7 +1,7 @@
 export const getExperienceData = (language) => [
     {
         id: "exp-9",
-        tabTitle: language === 'id' ? "Magang Human Capital Development" : "Human Capital Development Intern",
+        tabTitle: language === 'id' ? "Magang Human Capital Development (Full-Stack Web Developer)" : "Human Capital Development Intern (Full-Stack Web Developer)",
         tabSubtitle: "PLN Nusantara Power Services",
         date: language === 'id' ? "Okt 2026 — Sekarang" : "Oct 2026 — Present",
         orgName: "PLN Nusantara Power Services",
