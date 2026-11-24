@@ -9,7 +9,21 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengembangkan aplikasi CRUD berbasis web untuk pengelolaan sertifikasi karyawan." : "Developing a web-based CRUD application for employee certification management.",
             language === 'id' ? "Menerapkan pelacakan otomatis dan peringatan kedaluwarsa berkala pada dasbor terpusat untuk efisiensi operasional." : "Implementing automated tracking and expiration alerts within a centralized digital dashboard to boost operational efficiency."
         ],
-        image: "/assets/experience/pln.jpeg"
+        image: "/assets/experience/pln.jpeg",
+        imgStyle: { objectPosition: "center 42%" }
+    },
+    {
+        id: "exp-10",
+        tabTitle: language === 'id' ? "Asisten Praktikum Sistem Tertanam" : "Embedded Systems Practicum Assistant",
+        tabSubtitle: "B401 Robotics & Intelligent Systems Lab",
+        date: language === 'id' ? "Okt 2026 — Sekarang" : "Oct 2026 — Present",
+        orgName: "B401 Robotics and Intelligent Systems Laboratory",
+        points: [
+            language === 'id' ? "Membimbing mahasiswa dalam pemrograman mikrokontroler dan antarmuka perangkat keras." : "Mentoring students in microcontroller programming and hardware interfacing.",
+            language === 'id' ? "Mendampingi sesi praktik langsung serta debugging rangkaian sensor dan aktuator." : "Assisting hands-on lab sessions and debugging sensor and actuator circuits."
+        ],
+        image: "/assets/experience/embedded-systems-practicum.jpg",
+        imgStyle: { objectPosition: "center 55%" }
     },
     {
         id: "exp-8",
@@ -61,6 +75,19 @@ export const getExperienceData = (language) => [
         imgStyle: { objectPosition: "center 70%" }
     },
     {
+        id: "exp-11",
+        tabTitle: language === 'id' ? "Koordinator Asisten Praktikum Workshop Telematika" : "Coordinator, Telematics Workshop Practicum Assistant",
+        tabSubtitle: "B401 Robotics & Intelligent Systems Lab",
+        date: language === 'id' ? "Mar 2026 — Jun 2026" : "Mar 2026 — June 2026",
+        orgName: "B401 Robotics and Intelligent Systems Laboratory",
+        points: [
+            language === 'id' ? "Memimpin program praktikum untuk 70 peserta dan mengelola tim beranggotakan 11 staf." : "Led a practicum program of 70 participants and managed a team of 11 staff.",
+            language === 'id' ? "Mengarahkan pelatihan teknis penyolderan, perakitan rangkaian, desain PCB, dan prototyping CAD." : "Directed technical training in soldering, circuit assembly, PCB design, and CAD prototyping."
+        ],
+        image: "/assets/experience/telematics-workshop.jpeg",
+        imgStyle: { objectPosition: "center 58%" }
+    },
+    {
         id: "exp-1",
         tabTitle: language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort",
         tabSubtitle: "DBS x Dicoding Coding Camp 2026",
@@ -83,6 +110,19 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengevaluasi kinerja mahasiswa dalam ujian untuk menjaga standar akademik." : "Assessed student performance in examinations to maintain academic standards."
         ],
         image: "/assets/experience/introRoboticsAssistant.jpeg"
+    },
+    {
+        id: "exp-12",
+        tabTitle: language === 'id' ? "Asisten Praktikum Rangkaian Digital" : "Digital Circuit Practicum Assistant",
+        tabSubtitle: "B401 Robotics & Intelligent Systems Lab",
+        date: language === 'id' ? "Sep 2025 — Jun 2026" : "Sep 2025 — June 2026",
+        orgName: "B401 Robotics and Intelligent Systems Laboratory",
+        points: [
+            language === 'id' ? "Mengajar elektronika digital dan desain logika kepada sekitar 60 peserta." : "Taught digital electronics and logic design to approximately 60 participants.",
+            language === 'id' ? "Membimbing tim proyek akhir dalam perakitan dan pengujian rangkaian logika digital." : "Mentored final project teams in assembling and testing digital logic circuits."
+        ],
+        image: "/assets/experience/digital-circuit-practicum.jpeg",
+        imgStyle: { objectPosition: "center 40%" }
     },
     {
         id: "exp-6",
