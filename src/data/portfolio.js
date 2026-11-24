@@ -6,8 +6,8 @@ export const getExperienceData = (language) => [
         date: language === 'id' ? "Okt 2026 — Sekarang" : "Oct 2026 — Present",
         orgName: "PLN Nusantara Power Services",
         points: [
-            language === 'id' ? "Mengembangkan aplikasi CRUD berbasis web untuk pengelolaan sertifikasi karyawan." : "Developing a web-based CRUD application for employee certification management.",
-            language === 'id' ? "Menerapkan pelacakan otomatis dan peringatan kedaluwarsa berkala pada dasbor terpusat untuk efisiensi operasional." : "Implementing automated tracking and expiration alerts within a centralized digital dashboard to boost operational efficiency."
+            language === 'id' ? "Mengembangkan portal web full-stack untuk pemantauan sertifikasi dan reservasi ruangan berbasis RBAC." : "Engineered a full-stack portal for certification monitoring and room reservations with RBAC.",
+            language === 'id' ? "Membangun matriks pemesanan real-time, peringatan kedaluwarsa otomatis, dan dasbor terpusat." : "Built a real-time booking matrix, automated expiration alerts, and a centralized dashboard."
         ],
         image: "/assets/experience/pln.jpeg",
         imgStyle: { objectPosition: "center 42%" }
