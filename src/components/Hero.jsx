@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
+import { toast } from "sonner";
 
 export default function Hero() {
     const { language } = useLanguage();
@@ -29,6 +30,27 @@ export default function Hero() {
             if (interval) clearInterval(interval);
         };
     }, [t.subtitle]);
+
+    const handleEmailClick = (e) => {
+        e.preventDefault();
+        if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText("theopinem05@gmail.com")
+                .then(() => {
+                    toast.success(language === "id" ? "Email disalin: theopinem05@gmail.com" : "Email copied: theopinem05@gmail.com");
+                })
+                .catch(() => {});
+        }
+
+        const contactEl = document.getElementById("contact");
+        if (contactEl) {
+            const target = contactEl.closest(".stacked-section") || contactEl;
+            if (window.lenis) {
+                window.lenis.scrollTo(target);
+            } else {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
 
     return (
         <section id="hero" className="section hero-section">
@@ -93,7 +115,7 @@ export default function Hero() {
                             <a href="https://www.linkedin.com/in/theopinem/" target="_blank" className="social-icon glass-icon" aria-label="LinkedIn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                             </a>
-                            <a href="mailto:theopinem05@gmail.com" className="social-icon glass-icon email-link" aria-label="Email">
+                            <a href="#contact" onClick={handleEmailClick} className="social-icon glass-icon email-link" aria-label="Email">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             </a>
                             <a href="https://www.instagram.com/pinemtheo/" target="_blank" className="social-icon glass-icon" aria-label="Instagram">
