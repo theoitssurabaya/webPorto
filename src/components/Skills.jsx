@@ -32,7 +32,7 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 style={{ position: 'relative', display: 'inline-block' }}
             >
-                <div className="pixel-floppy" style={{ position: 'absolute', top: '-10px', right: '-30px', zIndex: 15 }}></div>
+                <div className="pixel-floppy" style={{ display: 'none' }}></div>
                 <h2>
                     {t.title}
                 </h2>
@@ -50,13 +50,13 @@ export default function Skills() {
                     className={`tab-btn ${activeTab === 'technical' ? 'active' : ''}`}
                     onClick={() => setActiveTab('technical')}
                 >
-                    Technical Skills
+                    {language === 'id' ? 'Keahlian Teknis' : 'Technical Skills'}
                 </button>
                 <button 
                     className={`tab-btn ${activeTab === 'certifications' ? 'active' : ''}`}
                     onClick={() => setActiveTab('certifications')}
                 >
-                    Certifications
+                    {language === 'id' ? 'Sertifikasi' : 'Certifications'}
                 </button>
             </motion.div>
 
@@ -154,15 +154,17 @@ export default function Skills() {
                                         key={i} 
                                         onClick={() => setCurrentPage(i + 1)}
                                         style={{
-                                            width: '40px', 
-                                            height: '40px', 
-                                            borderRadius: '50%', 
-                                            border: 'none', 
-                                            background: currentPage === i + 1 ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255,255,255,0.1)',
-                                            color: currentPage === i + 1 ? '#000' : 'white',
-                                            fontWeight: 'bold',
+                                            width: '38px', 
+                                            height: '38px', 
+                                            borderRadius: '8px', 
+                                            border: currentPage === i + 1 ? '1px solid #fafafa' : '1px solid #262626', 
+                                            background: currentPage === i + 1 ? '#fafafa' : '#141414',
+                                            color: currentPage === i + 1 ? '#0a0a0a' : '#a1a1aa',
+                                            fontWeight: 600,
+                                            fontFamily: 'var(--font-mono), monospace',
+                                            fontSize: '0.85rem',
                                             cursor: 'pointer',
-                                            transition: 'all 0.3s'
+                                            transition: 'background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease'
                                         }}
                                     >
                                         {i + 1}

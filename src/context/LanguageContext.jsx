@@ -1,15 +1,21 @@
 "use client";
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en'); // default 'en'
+function getCookie(name) {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? decodeURIComponent(match[2]) : null;
+}
 
-  // Persist language in localStorage if available
+export const LanguageProvider = ({ children }) => {
+  const [language, setLanguage] = useState("en");
+
   useEffect(() => {
-    const storedLang = localStorage.getItem('portoLang');
-    if (storedLang) {
+    const cookieLang = getCookie("portoLang");
+    const storedLang = cookieLang || localStorage.getItem("portoLang");
+    if (storedLang === "id" || storedLang === "en") {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguage(storedLang);
     }
@@ -17,7 +23,10 @@ export const LanguageProvider = ({ children }) => {
 
   const toggleLanguage = (lang) => {
     setLanguage(lang);
-    localStorage.setItem('portoLang', lang);
+    document.cookie = `portoLang=${encodeURIComponent(lang)}; path=/; max-age=31536000; SameSite=Lax`;
+    try {
+      localStorage.setItem("portoLang", lang);
+    } catch {}
   };
 
   return (

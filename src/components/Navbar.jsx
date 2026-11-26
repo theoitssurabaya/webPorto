@@ -90,24 +90,31 @@ export default function Navbar() {
           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginLeft: '10px' }}>
               <button 
                   onClick={() => toggleLanguage(language === 'en' ? 'id' : 'en')}
+                  aria-label="Toggle Language"
                   style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '6px',
                       padding: '6px 12px',
-                      border: '1px solid rgba(0, 0, 0, 0.1)',
-                      borderRadius: '9999px',
-                      backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                      border: '1px solid #262626',
+                      borderRadius: '8px',
+                      backgroundColor: '#141414',
                       color: 'var(--text-main)',
-                      fontSize: '16px',
-                      fontWeight: 800,
-                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.82rem',
+                      fontWeight: 600,
+                      fontFamily: 'var(--font-mono), monospace',
                       cursor: 'pointer',
-                      transition: 'all 0.2s ease'
+                      transition: 'background-color 0.2s ease, border-color 0.2s ease'
                   }}
-                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
-                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.05)'}
+                  onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = '#1f1f1f';
+                      e.currentTarget.style.borderColor = '#404040';
+                  }}
+                  onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = '#141414';
+                      e.currentTarget.style.borderColor = '#262626';
+                  }}
               >
                   <Globe size={14} style={{ opacity: 0.8 }} />
                   <span>{language.toUpperCase()}</span>

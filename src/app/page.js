@@ -1,9 +1,7 @@
 import dynamic from 'next/dynamic';
 
-import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import BackgroundGifs from "@/components/BackgroundGifs";
 import FadeUp from "@/components/FadeUp";
 
 // Lazy load below-the-fold components for performance
@@ -16,21 +14,15 @@ const Contact = dynamic(() => import("@/components/Contact"));
 export default function Home() {
   return (
     <>
-      <Preloader />
       <Navbar />
-
-      {/* Overlay global: partikel melayang (di belakang konten) */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none' }}>
-        <BackgroundGifs />
-      </div>
 
       <main className="stacked-wrapper">
         <Hero />
-        <FadeUp delay={0.2}><Skills /></FadeUp>
-        <FadeUp delay={0.2}><Education /></FadeUp>
-        <FadeUp delay={0.2}><Experience /></FadeUp>
-        <FadeUp delay={0.2}><Projects /></FadeUp>
-        <FadeUp delay={0.2}><Contact /></FadeUp>
+        <FadeUp delay={0.1}><Skills /></FadeUp>
+        <FadeUp delay={0.1}><Education /></FadeUp>
+        <FadeUp delay={0.1}><Experience /></FadeUp>
+        <FadeUp delay={0.1}><Projects /></FadeUp>
+        <FadeUp delay={0.1}><Contact /></FadeUp>
       </main>
     </>
   );

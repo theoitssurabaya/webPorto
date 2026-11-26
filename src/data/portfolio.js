@@ -29,7 +29,7 @@ export const getExperienceData = (language) => [
         id: "exp-8",
         tabTitle: language === 'id' ? "Asisten Praktikum Pemrograman Dasar" : "Basic Programming Practicum Assistant",
         tabSubtitle: "B300 Multimedia & IoT Lab",
-        date: language === 'id' ? "Sep 2026 — Sekarang" : "Sep 2026 — Present",
+        date: language === 'id' ? "Sep 2026 — Nov 2026" : "Sep 2026 — Nov 2026",
         orgName: "B300 Multimedia and Internet of Things Laboratory",
         points: [
             language === 'id' ? "Membimbing mahasiswa mengenai konsep dasar pemrograman melalui latihan praktik mingguan." : "Mentoring students in core programming concepts through weekly hands-on exercises.",
@@ -41,7 +41,7 @@ export const getExperienceData = (language) => [
         id: "exp-2",
         tabTitle: language === 'id' ? "Kepala Biro Pengembangan" : "Head of Development Bureau",
         tabSubtitle: "BEM FTEIC",
-        date: language === 'id' ? "Feb 2026 — Sekarang" : "Feb 2026 — Present",
+        date: language === 'id' ? "Feb 2026 — Des 2026" : "Feb 2026 — Dec 2026",
         orgName: "BEM FTEIC",
         points: [
             language === 'id' ? "Mengawasi dan memimpin tim yang terdiri dari 8 staf." : "Supervising and leading a team consisting of 8 staff members.",
