@@ -24,6 +24,40 @@ export async function POST(request) {
       );
     }
 
+    const toEmail = process.env.CONTACT_TO_EMAIL || "theopinem05@gmail.com";
+    const resendApiKey = process.env.RESEND_API_KEY;
+
+    if (resendApiKey) {
+      const fromEmail = process.env.RESEND_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
+      const resendRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [toEmail],
+          reply_to: email,
+          subject: `[Portfolio] ${subject}`,
+          text: `From: ${name} <${email}>\n\n${message}`,
+        }),
+        signal: AbortSignal.timeout(8000),
+      });
+
+      if (!resendRes.ok) {
+        const errBody = await resendRes.text();
+        console.error("Resend API error:", resendRes.status, errBody);
+        return NextResponse.json(
+          { error: "Email delivery service error." },
+          { status: 502 }
+        );
+      }
+
+      return NextResponse.json({ ok: true, provider: "resend" });
+    }
+
+    // Fallback if RESEND_API_KEY is not configured yet
     const payload = new FormData();
     payload.append("name", name);
     payload.append("email", email);
@@ -31,21 +65,21 @@ export async function POST(request) {
     payload.append("message", message);
     payload.append("_captcha", "false");
 
-    const response = await fetch("https://formsubmit.co/ajax/theopinem05@gmail.com", {
+    const fallbackRes = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(toEmail)}`, {
       method: "POST",
       headers: { Accept: "application/json" },
       body: payload,
       signal: AbortSignal.timeout(8000),
     });
 
-    if (!response.ok) {
+    if (!fallbackRes.ok) {
       return NextResponse.json(
         { error: "Upstream mail service returned an error." },
         { status: 502 }
       );
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, provider: "formsubmit" });
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(

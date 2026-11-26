@@ -77,31 +77,52 @@ export default function Projects() {
                     ))}
                 </div>
 
-                <div className="projects-grid">
-                    {filteredProjects.map((project, index) => (
+                <div className="projects-masonry">
+                    {filteredProjects.map((project, index) => {
+                        const isSplit = project.objFit === "contain";
+                        return (
                         <motion.button
                             key={project.key}
                             type="button"
                             onClick={() => setSelectedProject(project)}
-                            className="project-card"
+                            className={`project-card ${isSplit ? "project-card--split" : ""}`}
                             style={{ textAlign: "left", cursor: "pointer" }}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
                         >
-                            <div className="project-card-media" style={{ position: "relative", width: "100%", aspectRatio: "16 / 10" }}>
-                                <Image
-                                    src={"/" + project.img}
-                                    alt={project.alt}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    style={{
-                                        objectFit: project.objFit || "cover",
-                                        objectPosition: project.objPos || "center center",
-                                        ...(project.objFit === "contain" && { padding: "18px", background: "#141414" }),
-                                    }}
-                                />
+                            <div className="project-card-media">
+                                {isSplit ? (
+                                    <Image
+                                        src={"/" + project.img}
+                                        alt={project.alt}
+                                        width={300}
+                                        height={560}
+                                        sizes="160px"
+                                        style={{
+                                            width: "100%",
+                                            height: "auto",
+                                            display: "block",
+                                        }}
+                                    />
+                                ) : (
+                                    <Image
+                                        src={"/" + project.img}
+                                        alt={project.alt}
+                                        width={800}
+                                        height={600}
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        style={{
+                                            width: "100%",
+                                            height: "auto",
+                                            maxHeight: "290px",
+                                            objectFit: "cover",
+                                            objectPosition: project.objPos || "center center",
+                                            display: "block",
+                                        }}
+                                    />
+                                )}
                             </div>
                             <div className="project-card-body">
                                 <div className="project-card-header">
@@ -109,7 +130,7 @@ export default function Projects() {
                                     <ArrowUpRight size={18} className="project-card-arrow" />
                                 </div>
                                 <p>{t[project.key].desc}</p>
-                                <div className="tech-stack" style={{ marginTop: "auto", paddingTop: "12px" }}>
+                                <div className="tech-stack" style={{ paddingTop: "8px" }}>
                                     {project.tags.map((tag) => (
                                         <span key={tag} className="tech-tag">
                                             {tag}
@@ -118,7 +139,8 @@ export default function Projects() {
                                 </div>
                             </div>
                         </motion.button>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
 
@@ -133,7 +155,7 @@ export default function Projects() {
                         onClick={() => setSelectedProject(null)}
                     >
                         <motion.div
-                            className="case-study-modal"
+                            className={`case-study-modal ${selectedProject.objFit === "contain" ? "case-study-modal--split" : ""}`}
                             data-lenis-prevent="true"
                             role="dialog"
                             aria-modal="true"
@@ -144,7 +166,10 @@ export default function Projects() {
                             transition={{ duration: 0.2 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <div className="case-study-media" style={{ position: "relative", width: "100%", height: "240px" }}>
+                            <div
+                                className="case-study-media"
+                                style={selectedProject.objFit === "contain" ? { position: "relative" } : { position: "relative", width: "100%", height: "240px" }}
+                            >
                                 <Image
                                     src={"/" + selectedProject.img}
                                     alt={selectedProject.alt}

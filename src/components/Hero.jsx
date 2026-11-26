@@ -69,7 +69,7 @@ export default function Hero() {
                         </p>
 
                         <div className="btn-group justify-center">
-                            <a href="#projects" className="btn-primary">{t.btnExplore}</a>
+                            <a href="#projects" className="btn-secondary">{t.btnExplore}</a>
                             <a
                                 href="https://docs.google.com/document/d/1P2Ba_mgJQDykI40ddohtI2BP3aMW-UyPyubR9Fgw4RM/preview"
                                 target="_blank"
@@ -99,11 +99,43 @@ export default function Hero() {
                             <span className="trust-bar-label">
                                 {language === "id" ? "Pengalaman & Afiliasi" : "Experience & Affiliations"}
                             </span>
-                            <div className="trust-bar-items">
-                                <span className="trust-bar-item">PLN Nusantara Power Services</span>
-                                <span className="trust-bar-item">Protergo Cyber Security</span>
-                                <span className="trust-bar-item">ITS Robotics Lab</span>
-                                <span className="trust-bar-item">DBS × Dicoding</span>
+                            <div className="trust-bar-logos">
+                                <div className="trust-logo-plate" title="PLN Nusantara Power Services">
+                                    <Image
+                                        src="/assets/hero/pln.png"
+                                        alt="PLN Nusantara Power Services"
+                                        width={220}
+                                        height={74}
+                                        className="trust-logo-img"
+                                    />
+                                </div>
+                                <div className="trust-logo-plate" title="Protergo Cyber Security">
+                                    <Image
+                                        src="/assets/hero/protergo.png"
+                                        alt="Protergo Cyber Security"
+                                        width={220}
+                                        height={96}
+                                        className="trust-logo-img"
+                                    />
+                                </div>
+                                <div className="trust-logo-plate" title="B401 Robotics & Intelligent Systems Lab (ITS)">
+                                    <Image
+                                        src="/assets/hero/itsb401roboticslab.png"
+                                        alt="B401 Robotics & Intelligent Systems Lab ITS"
+                                        width={120}
+                                        height={120}
+                                        className="trust-logo-img trust-logo-img--square"
+                                    />
+                                </div>
+                                <div className="trust-logo-plate trust-logo-plate--crop" title="Coding Camp by DBS Foundation">
+                                    <Image
+                                        src="/assets/hero/codingcamp.png"
+                                        alt="Coding Camp powered by DBS Foundation"
+                                        width={200}
+                                        height={200}
+                                        className="trust-logo-img trust-logo-img--wide"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </motion.div>

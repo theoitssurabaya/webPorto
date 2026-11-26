@@ -1,19 +1,21 @@
 export const getExperienceData = (language) => [
     {
         id: "exp-9",
+        category: "work",
         tabTitle: language === 'id' ? "Magang Full-Stack Web Developer" : "Full-Stack Web Developer Intern",
         tabSubtitle: "PLN Nusantara Power Services",
         date: language === 'id' ? "Okt 2026 — Sekarang" : "Oct 2026 — Present",
         orgName: "PLN Nusantara Power Services",
         points: [
-            language === 'id' ? "Mengembangkan portal web full-stack untuk pemantauan sertifikasi dan reservasi ruangan berbasis RBAC." : "Engineered a full-stack portal for certification monitoring and room reservations with RBAC.",
-            language === 'id' ? "Membangun matriks pemesanan real-time, peringatan kedaluwarsa otomatis, dan dasbor terpusat." : "Built a real-time booking matrix, automated expiration alerts, and a centralized dashboard."
+            language === 'id' ? "Mengembangkan portal web full-stack untuk pemantauan sertifikasi dan reservasi ruangan berbasis RBAC." : "Engineering a full-stack portal for certification monitoring and room reservations with RBAC.",
+            language === 'id' ? "Membangun matriks pemesanan real-time, peringatan kedaluwarsa otomatis, dan dasbor terpusat." : "Building a real-time booking matrix, automated expiration alerts, and a centralized dashboard."
         ],
         image: "/assets/experience/pln.jpeg",
         imgStyle: { objectPosition: "center 42%" }
     },
     {
         id: "exp-10",
+        category: "work",
         tabTitle: language === 'id' ? "Asisten Praktikum Sistem Tertanam" : "Embedded Systems Practicum Assistant",
         tabSubtitle: "B401 Robotics & Intelligent Systems Lab",
         date: language === 'id' ? "Okt 2026 — Sekarang" : "Oct 2026 — Present",
@@ -27,30 +29,33 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-8",
+        category: "work",
         tabTitle: language === 'id' ? "Asisten Praktikum Pemrograman Dasar" : "Basic Programming Practicum Assistant",
         tabSubtitle: "B300 Multimedia & IoT Lab",
         date: language === 'id' ? "Sep 2026 — Nov 2026" : "Sep 2026 — Nov 2026",
         orgName: "B300 Multimedia and Internet of Things Laboratory",
         points: [
-            language === 'id' ? "Membimbing mahasiswa mengenai konsep dasar pemrograman melalui latihan praktik mingguan." : "Mentoring students in core programming concepts through weekly hands-on exercises.",
-            language === 'id' ? "Mengevaluasi tugas dan membimbing mahasiswa dalam pengembangan proyek akhir mereka." : "Evaluating assignments and guiding students through the development of their final projects."
+            language === 'id' ? "Membimbing mahasiswa mengenai konsep dasar pemrograman melalui latihan praktik mingguan." : "Mentored students in core programming concepts through weekly hands-on exercises.",
+            language === 'id' ? "Mengevaluasi tugas dan membimbing mahasiswa dalam pengembangan proyek akhir mereka." : "Evaluated assignments and guided students through the development of their final projects."
         ],
         image: "/assets/experience/basic_practicum_assistant.jpg"
     },
     {
         id: "exp-2",
+        category: "leadership",
         tabTitle: language === 'id' ? "Kepala Biro Pengembangan" : "Head of Development Bureau",
         tabSubtitle: "BEM FTEIC",
-        date: language === 'id' ? "Feb 2026 — Des 2026" : "Feb 2026 — Dec 2026",
+        date: language === 'id' ? "Feb 2026 — Nov 2026" : "Feb 2026 — Nov 2026",
         orgName: "BEM FTEIC",
         points: [
-            language === 'id' ? "Mengawasi dan memimpin tim yang terdiri dari 8 staf." : "Supervising and leading a team consisting of 8 staff members.",
+            language === 'id' ? "Mengawasi dan memimpin tim yang terdiri dari 8 staf." : "Supervised and led a team consisting of 8 staff members.",
             language === 'id' ? "Mengarahkan dan mendampingi program pengembangan mahasiswa untuk mahasiswa baru fakultas." : "Directed and mentored the student development programs for incoming faculty students."
         ],
         image: "/assets/experience/bem-fteic.JPG"
     },
     {
         id: "exp-3",
+        category: "work",
         tabTitle: language === 'id' ? "Asisten Laboratorium" : "Laboratory Assistant",
         tabSubtitle: "Robotics Lab (ITS)",
         date: language === 'id' ? "Sep 2025 — Sekarang" : "Sep 2025 — Present",
@@ -63,6 +68,7 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-0",
+        category: "work",
         tabTitle: language === 'id' ? "Magang OT Engineer" : "OT Engineer Intern",
         tabSubtitle: "Protergo Cyber Security",
         date: language === 'id' ? "Jun 2026 — Agu 2026" : "Jun 2026 — Aug 2026",
@@ -76,6 +82,7 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-11",
+        category: "work",
         tabTitle: language === 'id' ? "Koordinator Asisten Praktikum Workshop Telematika" : "Coordinator, Telematics Workshop Practicum Assistant",
         tabSubtitle: "B401 Robotics & Intelligent Systems Lab",
         date: language === 'id' ? "Mar 2026 — Jun 2026" : "Mar 2026 — June 2026",
@@ -89,18 +96,20 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-1",
+        category: "work",
         tabTitle: language === 'id' ? "Peserta AI Engineer" : "AI Engineer Cohort",
         tabSubtitle: "DBS x Dicoding Coding Camp 2026",
         date: language === 'id' ? "Feb 2026 — Juli 2026" : "Feb 2026 — July 2026",
         orgName: "Coding Camp by DBS Foundation x Dicoding",
         points: [
-            language === 'id' ? "Mengembangkan model ML dan Deep Learning melalui pelatihan intensif." : "Developing ML and Deep Learning models via intensive training.",
-            language === 'id' ? "Membangun proyek Capstone AI menggunakan framework Deep Learning." : "Building an AI Capstone project using Deep Learning frameworks."
+            language === 'id' ? "Mengembangkan model ML dan Deep Learning melalui pelatihan intensif." : "Developed ML and Deep Learning models via intensive training.",
+            language === 'id' ? "Membangun proyek Capstone AI menggunakan framework Deep Learning." : "Built an AI Capstone project using Deep Learning frameworks."
         ],
         image: "/assets/experience/ai-engineer-cohort.png"
     },
     {
         id: "exp-7",
+        category: "work",
         tabTitle: language === 'id' ? "Asisten Dosen Pengantar Robotika" : "Assistant Lecturer of Introduction to Robotics",
         tabSubtitle: "Institut Teknologi Sepuluh Nopember",
         date: language === 'id' ? "Feb 2026 — Jun 2026" : "Feb 2026 — June 2026",
@@ -113,6 +122,7 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-12",
+        category: "work",
         tabTitle: language === 'id' ? "Asisten Praktikum Rangkaian Digital" : "Digital Circuit Practicum Assistant",
         tabSubtitle: "B401 Robotics & Intelligent Systems Lab",
         date: language === 'id' ? "Sep 2025 — Jun 2026" : "Sep 2025 — June 2026",
@@ -121,11 +131,12 @@ export const getExperienceData = (language) => [
             language === 'id' ? "Mengajar elektronika digital dan desain logika kepada sekitar 60 peserta." : "Taught digital electronics and logic design to approximately 60 participants.",
             language === 'id' ? "Membimbing tim proyek akhir dalam perakitan dan pengujian rangkaian logika digital." : "Mentored final project teams in assembling and testing digital logic circuits."
         ],
-        image: "/assets/experience/digital-circuit-practicum.jpeg",
+        image: "/assets/experience/digital_circuit.jpeg",
         imgStyle: { objectPosition: "center 40%" }
     },
     {
         id: "exp-6",
+        category: "leadership",
         tabTitle: language === 'id' ? "Panitia Pengarah" : "Steering Committee",
         tabSubtitle: "PKMBK ITS",
         date: language === 'id' ? "Jan 2025 — Feb 2026" : "Jan 2025 — Feb 2026",
@@ -138,6 +149,7 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-5",
+        category: "leadership",
         tabTitle: language === 'id' ? "Staf Pengembangan SDM" : "Staff of Student Resource Development",
         tabSubtitle: "HIMATEKKOM ITS",
         date: language === 'id' ? "Mar 2025 — Des 2025" : "Mar 2025 — Dec 2025",
@@ -150,15 +162,86 @@ export const getExperienceData = (language) => [
     },
     {
         id: "exp-4",
+        category: "leadership",
         tabTitle: language === 'id' ? "Staf Ahli Mentor" : "Expert Staff of Mentor",
         tabSubtitle: "INCLENATION 2025",
         date: language === 'id' ? "Jun 2025 — Agu 2025" : "Jun 2025 — Aug 2025",
         orgName: "BEM FTEIC (INCLENATION 2025)",
         points: [
             language === 'id' ? "Mengarahkan, memimpin, dan membimbing tim mentor beranggotakan 10 orang." : "Directed, led, and taught a 10-person team of mentors.",
-            language === 'id' ? "Mengawasi dan memantau mentor saat mereka mendampingi masing-masing 10 mahasiswa baru." : "Supervised and monitored those mentors while they mentor 10 freshmen each."
+            language === 'id' ? "Mengawasi dan memantau mentor saat mereka mendampingi masing-masing 10 mahasiswa baru." : "Supervised and monitored those mentors while they mentored 10 freshmen each."
         ],
         image: "/assets/experience/inclenation.jpeg"
+    },
+    {
+        id: "exp-13",
+        category: "leadership",
+        tabTitle: language === 'id' ? "Kepala Divisi Keamanan dan Perizinan" : "Head of Security and License",
+        tabSubtitle: "MAGE 11 (ITS)",
+        date: language === 'id' ? "Feb 2025 — Nov 2025" : "Feb 2025 — Nov 2025",
+        orgName: "MAGE (Multimedia and Game Event) 11",
+        points: [
+            language === 'id' ? "Memimpin tim beranggotakan 12 personel dan merancang strategi keamanan publik di lokasi acara." : "Directed a 12-person team and oversaw public safety strategies across event venues.",
+            language === 'id' ? "Mengelola pengurusan izin legal serta mengoordinasikan pengendalian massa secara real-time." : "Managed legal permit acquisition and real-time crowd control operations."
+        ],
+        image: "/assets/experience/mage_11.jpeg",
+        imgStyle: { objectPosition: "center 70%" }
+    },
+    {
+        id: "exp-14",
+        category: "leadership",
+        tabTitle: language === 'id' ? "Staf Ahli Keamanan dan Perizinan" : "Expert Staff of Security and License",
+        tabSubtitle: "ITS Music Festival",
+        date: language === 'id' ? "Feb 2025 — Okt 2025" : "Feb 2025 — Oct 2025",
+        orgName: "ITS Music Festival",
+        points: [
+            language === 'id' ? "Memimpin tim beranggotakan 4 orang serta melatih kepatuhan regulasi, pengendalian massa, dan protokol darurat." : "Led a 4-person team and delivered training on regulatory compliance, crowd control, and emergency protocols.",
+            language === 'id' ? "Mengelola seluruh portofolio perizinan festival dan mengoordinasikan operasi keamanan di lokasi." : "Managed the festival's licensing portfolio and orchestrated on-site security operations."
+        ],
+        image: "/assets/experience/its_musik_festival.jpeg",
+        imgStyle: { objectPosition: "center 55%" }
+    },
+    {
+        id: "exp-15",
+        category: "leadership",
+        tabTitle: language === 'id' ? "Staf Logistik" : "Staff of Logistics",
+        tabSubtitle: "Ini Lho ITS!",
+        date: language === 'id' ? "Jan 2025 — Apr 2025" : "Jan 2025 — Apr 2025",
+        orgName: "Ini Lho ITS!",
+        points: [
+            language === 'id' ? "Mengoordinasikan transportasi, akomodasi, dan logistik operasional untuk panitia serta staf acara." : "Coordinated transportation, accommodation, and operational logistics for event committees and staff.",
+            language === 'id' ? "Merakit, mengkalibrasi, dan mengoperasikan sistem tata suara serta tampilan visual selama acara promosi." : "Assembled, calibrated, and operated sound systems and visual displays during live promotional events."
+        ],
+        image: "/assets/experience/ini_lho_its.jpeg",
+        imgStyle: { objectPosition: "center 68%" }
+    },
+    {
+        id: "exp-16",
+        category: "leadership",
+        tabTitle: language === 'id' ? "Staf Logistik" : "Staff of Logistics",
+        tabSubtitle: "ITS EXPO 2024",
+        date: language === 'id' ? "Mei 2024 — Nov 2024" : "May 2024 — Nov 2024",
+        orgName: "ITS EXPO",
+        points: [
+            language === 'id' ? "Mengelola instalasi dan pembongkaran seluruh infrastruktur fisik serta materi promosi acara." : "Managed installation and teardown of physical event infrastructure and promotional materials.",
+            language === 'id' ? "Mengkalibrasi peralatan audio profesional dan mengoperasikan teknologi presentasi visual selama 7 bulan." : "Calibrated professional sound systems and operated visual presentation technology across a 7-month lifecycle."
+        ],
+        image: "/assets/experience/its_expo.jpeg",
+        imgStyle: { objectPosition: "center 58%" }
+    },
+    {
+        id: "exp-17",
+        category: "leadership",
+        tabTitle: language === 'id' ? "Staf Logistik" : "Staff of Logistics",
+        tabSubtitle: "Moonzher University Week",
+        date: language === 'id' ? "Jan 2024" : "Jan 2024",
+        orgName: "Moonzher University Week",
+        points: [
+            language === 'id' ? "Mengoordinasikan eksekusi fisik, tata letak area, dan instalasi infrastruktur acara kampus berskala besar." : "Coordinated physical execution, space layouts, and infrastructure setup for a large-scale campus event.",
+            language === 'id' ? "Menangani troubleshooting panggung fisik dan mengintegrasikan peralatan multimedia untuk kelancaran acara." : "Troubleshot physical staging requirements and integrated multimedia equipment for seamless execution."
+        ],
+        image: "/assets/experience/moonzher_university_week.jpeg",
+        imgStyle: { objectPosition: "center 65%" }
     }
 ];
 

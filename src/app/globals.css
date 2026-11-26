@@ -2267,18 +2267,82 @@ h1, h2, h3, h4, .logo {
     color: #71717a;
 }
 
-.trust-bar-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 24px;
+.trust-bar-logos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 860px;
 }
 
-.trust-bar-item {
-    font-family: var(--font-heading), sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #a1a1aa;
+.trust-logo-plate {
+    height: 88px;
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #262626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.trust-logo-plate:hover {
+    transform: translateY(-2px);
+    border-color: #525252;
+}
+
+.trust-logo-plate--crop {
+    padding: 0 14px;
+}
+
+.trust-logo-img {
+    max-height: 50px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.trust-logo-img--square {
+    max-height: 74px;
+}
+
+.trust-logo-img--wide {
+    max-height: none;
+    height: 132px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .trust-bar-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .trust-logo-plate {
+        height: 74px;
+        padding: 10px 14px;
+    }
+
+    .trust-logo-plate--crop {
+        padding: 0 10px;
+    }
+
+    .trust-logo-img {
+        max-height: 40px;
+    }
+
+    .trust-logo-img--square {
+        max-height: 60px;
+    }
+
+    .trust-logo-img--wide {
+        height: 108px;
+    }
 }
 
 /* Corporate Contact Form */
@@ -2385,17 +2449,19 @@ h1, h2, h3, h4, .logo {
     }
 }
 
-/* Corporate Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+/* Corporate Projects Masonry */
+.projects-masonry {
+    column-count: 3;
+    column-gap: 20px;
     width: 100%;
 }
 
 .project-card {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    break-inside: avoid;
     border-radius: 10px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -2413,7 +2479,6 @@ h1, h2, h3, h4, .logo {
 .project-card-media {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10;
     background: #141414;
     border-bottom: 1px solid var(--glass-border);
     overflow: hidden;
@@ -2432,7 +2497,6 @@ h1, h2, h3, h4, .logo {
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    flex: 1;
 }
 
 .project-card-header {
@@ -2488,15 +2552,38 @@ h1, h2, h3, h4, .logo {
     line-height: 1.4;
 }
 
+.project-card--split {
+    flex-direction: row;
+    align-items: center;
+}
+
+.project-card--split .project-card-media {
+    flex: 0 0 132px;
+    width: 132px;
+    padding: 12px;
+    border-bottom: none;
+    border-right: 1px solid var(--glass-border);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card--split .project-card-body {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 18px;
+}
+
 @media (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .projects-masonry {
+        column-count: 2;
     }
 }
 
 @media (max-width: 640px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .projects-masonry {
+        column-count: 1;
     }
 }
 
@@ -2521,6 +2608,38 @@ h1, h2, h3, h4, .logo {
     border: 1px solid #262626;
     border-radius: 12px;
     color: var(--text-main);
+}
+
+.case-study-modal--split {
+    display: flex;
+    flex-direction: row;
+    max-width: 820px;
+}
+
+.case-study-modal--split .case-study-media {
+    flex: 0 0 260px;
+    min-height: 360px;
+    border-bottom: none;
+    border-right: 1px solid #262626;
+}
+
+.case-study-modal--split .case-study-body {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 700px) {
+    .case-study-modal--split {
+        flex-direction: column;
+    }
+
+    .case-study-modal--split .case-study-media {
+        flex: none;
+        width: 100%;
+        min-height: 240px;
+        border-right: none;
+        border-bottom: 1px solid #262626;
+    }
 }
 
 .case-study-media {
