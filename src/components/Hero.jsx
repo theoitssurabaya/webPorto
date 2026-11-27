@@ -94,50 +94,6 @@ export default function Hero() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                             </a>
                         </div>
-
-                        <div className="trust-bar">
-                            <span className="trust-bar-label">
-                                {language === "id" ? "Pengalaman & Afiliasi" : "Experience & Affiliations"}
-                            </span>
-                            <div className="trust-bar-logos">
-                                <div className="trust-logo-plate" title="PLN Nusantara Power Services">
-                                    <Image
-                                        src="/assets/hero/pln.png"
-                                        alt="PLN Nusantara Power Services"
-                                        width={220}
-                                        height={74}
-                                        className="trust-logo-img"
-                                    />
-                                </div>
-                                <div className="trust-logo-plate" title="Protergo Cyber Security">
-                                    <Image
-                                        src="/assets/hero/protergo.png"
-                                        alt="Protergo Cyber Security"
-                                        width={220}
-                                        height={96}
-                                        className="trust-logo-img"
-                                    />
-                                </div>
-                                <div className="trust-logo-plate" title="B401 Robotics & Intelligent Systems Lab (ITS)">
-                                    <Image
-                                        src="/assets/hero/itsb401roboticslab.png"
-                                        alt="B401 Robotics & Intelligent Systems Lab ITS"
-                                        width={120}
-                                        height={120}
-                                        className="trust-logo-img trust-logo-img--square"
-                                    />
-                                </div>
-                                <div className="trust-logo-plate trust-logo-plate--crop" title="Coding Camp by DBS Foundation">
-                                    <Image
-                                        src="/assets/hero/codingcamp.png"
-                                        alt="Coding Camp powered by DBS Foundation"
-                                        width={200}
-                                        height={200}
-                                        className="trust-logo-img trust-logo-img--wide"
-                                    />
-                                </div>
-                            </div>
-                        </div>
                     </motion.div>
                 </div>
             </div>

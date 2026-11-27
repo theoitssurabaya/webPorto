@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Affiliations from "@/components/Affiliations";
 import FadeUp from "@/components/FadeUp";
 
 // Lazy load below-the-fold components for performance
@@ -18,6 +19,7 @@ export default function Home() {
 
       <main className="stacked-wrapper">
         <Hero />
+        <Affiliations />
         <FadeUp delay={0.1}><Skills /></FadeUp>
         <FadeUp delay={0.1}><Education /></FadeUp>
         <FadeUp delay={0.1}><Experience /></FadeUp>
