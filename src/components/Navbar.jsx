@@ -89,6 +89,7 @@ export default function Navbar() {
           <a href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={(e) => handleNavClick(e, "contact")}>{t.contact}</a>
           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginLeft: '10px' }}>
               <button 
+                  type="button"
                   onClick={() => toggleLanguage(language === 'en' ? 'id' : 'en')}
                   aria-label="Toggle Language"
                   style={{
@@ -121,9 +122,16 @@ export default function Navbar() {
               </button>
           </div>
         </div>
-        <div className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button
+          type="button"
+          className="mobile-menu-btn"
+          aria-label={language === 'id' ? 'Buka menu navigasi' : 'Toggle navigation menu'}
+          aria-expanded={isMobileMenuOpen}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </div>
+        </button>
       </div>
     </nav>
   );

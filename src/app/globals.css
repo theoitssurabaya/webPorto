@@ -2270,15 +2270,15 @@ h1, h2, h3, h4, .logo {
 .trust-bar-logos {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+    gap: 16px;
     width: 100%;
-    max-width: 860px;
+    max-width: 960px;
 }
 
 .trust-logo-plate {
-    height: 88px;
+    height: 108px;
     width: 100%;
-    padding: 12px 18px;
+    padding: 14px 20px;
     border-radius: 10px;
     background: #ffffff;
     border: 1px solid #262626;
@@ -2299,7 +2299,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .trust-logo-img {
-    max-height: 50px;
+    max-height: 68px;
     max-width: 100%;
     width: auto;
     height: auto;
@@ -2308,23 +2308,23 @@ h1, h2, h3, h4, .logo {
 }
 
 .trust-logo-img--square {
-    max-height: 74px;
+    max-height: 92px;
 }
 
 .trust-logo-img--wide {
     max-height: none;
-    height: 132px;
+    height: 168px;
     width: auto;
 }
 
 @media (max-width: 768px) {
     .trust-bar-logos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 12px;
     }
 
     .trust-logo-plate {
-        height: 74px;
+        height: 86px;
         padding: 10px 14px;
     }
 
@@ -2333,15 +2333,15 @@ h1, h2, h3, h4, .logo {
     }
 
     .trust-logo-img {
-        max-height: 40px;
+        max-height: 52px;
     }
 
     .trust-logo-img--square {
-        max-height: 60px;
+        max-height: 74px;
     }
 
     .trust-logo-img--wide {
-        height: 108px;
+        height: 132px;
     }
 }
 

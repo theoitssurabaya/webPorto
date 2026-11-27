@@ -29,14 +29,16 @@ export const viewport = {
   userScalable: false,
 };
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://theopinem.vercel.app";
+
 export const metadata = {
-  metadataBase: new URL("https://theoitssurabaya.github.io"),
+  metadataBase: new URL(siteUrl),
   title: "Portfolio | Theo Kawalisa Pinem",
   description: "Computer Engineering student experienced in full-stack IoT, edge AI, and SCADA. Proven leader in deploying hardware-to-cloud pipelines and scalable networks.",
   openGraph: {
     title: "Portfolio | Theo Kawalisa Pinem",
     description: "Computer Engineering student experienced in full-stack IoT, edge AI, and SCADA. Proven leader in deploying hardware-to-cloud pipelines and scalable networks.",
-    url: "https://theoitssurabaya.github.io",
+    url: siteUrl,
     siteName: "Theo's Portfolio",
     images: [
       {
@@ -61,7 +63,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Theo Kawalisa Pinem",
-  url: "https://theoitssurabaya.github.io",
+  url: siteUrl,
   email: "mailto:theopinem05@gmail.com",
   jobTitle: "Computer Engineering Student & Full-Stack IoT / OT Engineer",
   alumniOf: {
@@ -88,6 +90,12 @@ export default function RootLayout({ children }) {
             __html: `
               (function() {
                 try {
+                  window.addEventListener('unhandledrejection', function(e) {
+                    if (e && e.reason && e.reason.stack && e.reason.stack.indexOf('chrome-extension://') !== -1) {
+                      e.preventDefault();
+                      e.stopImmediatePropagation();
+                    }
+                  }, true);
                   new MutationObserver(function(mutations) {
                     for (var i = 0; i < mutations.length; i++) {
                       var m = mutations[i];

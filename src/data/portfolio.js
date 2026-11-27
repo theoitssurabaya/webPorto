@@ -205,9 +205,9 @@ export const getExperienceData = (language) => [
         id: "exp-15",
         category: "leadership",
         tabTitle: language === 'id' ? "Staf Logistik" : "Staff of Logistics",
-        tabSubtitle: "Ini Lho ITS!",
+        tabSubtitle: "Ini Lho ITS! Tangerang Raya",
         date: language === 'id' ? "Jan 2025 — Apr 2025" : "Jan 2025 — Apr 2025",
-        orgName: "Ini Lho ITS!",
+        orgName: "Ini Lho ITS! Tangerang Raya",
         points: [
             language === 'id' ? "Mengoordinasikan transportasi, akomodasi, dan logistik operasional untuk panitia serta staf acara." : "Coordinated transportation, accommodation, and operational logistics for event committees and staff.",
             language === 'id' ? "Merakit, mengkalibrasi, dan mengoperasikan sistem tata suara serta tampilan visual selama acara promosi." : "Assembled, calibrated, and operated sound systems and visual displays during live promotional events."
