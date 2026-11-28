@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Affiliations from "@/components/Affiliations";
 import FadeUp from "@/components/FadeUp";
+import ScrollAssist from "@/components/ScrollAssist";
 
 // Lazy load below-the-fold components for performance
 const Skills = dynamic(() => import("@/components/Skills"));
@@ -15,6 +16,7 @@ const Contact = dynamic(() => import("@/components/Contact"));
 export default function Home() {
   return (
     <>
+      <ScrollAssist />
       <Navbar />
 
       <main className="stacked-wrapper">

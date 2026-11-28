@@ -67,12 +67,41 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) throw new Error("Failed to send");
+      const data = await res.json().catch(() => ({}));
 
-      toast.success(t.messageBox.success);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch {
-      toast.error(t.messageBox.error);
+      if (res.ok && data.ok) {
+        toast.success(t.messageBox.success);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        return;
+      }
+
+      if (data.fallbackClient) {
+        const payload = new FormData();
+        payload.append("name", name.trim());
+        payload.append("email", email.trim());
+        payload.append("_subject", subject.trim());
+        payload.append("message", message.trim());
+        payload.append("_captcha", "false");
+
+        const fsRes = await fetch("https://formsubmit.co/ajax/theopinem05@gmail.com", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: payload,
+        });
+
+        const fsData = await fsRes.json().catch(() => ({}));
+        if (!fsRes.ok || fsData.success === "false" || fsData.success === false) {
+          throw new Error(fsData.message || t.messageBox.error);
+        }
+
+        toast.success(t.messageBox.success);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        return;
+      }
+
+      throw new Error(data.error || t.messageBox.error);
+    } catch (err) {
+      toast.error(err?.message || t.messageBox.error);
     } finally {
       setIsSending(false);
     }

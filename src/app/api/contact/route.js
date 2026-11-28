@@ -27,59 +27,38 @@ export async function POST(request) {
     const toEmail = process.env.CONTACT_TO_EMAIL || "theopinem05@gmail.com";
     const resendApiKey = process.env.RESEND_API_KEY;
 
-    if (resendApiKey) {
-      const fromEmail = process.env.RESEND_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
-      const resendRes = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: fromEmail,
-          to: [toEmail],
-          reply_to: email,
-          subject: `[Portfolio] ${subject}`,
-          text: `From: ${name} <${email}>\n\n${message}`,
-        }),
-        signal: AbortSignal.timeout(8000),
-      });
-
-      if (!resendRes.ok) {
-        const errBody = await resendRes.text();
-        console.error("Resend API error:", resendRes.status, errBody);
-        return NextResponse.json(
-          { error: "Email delivery service error." },
-          { status: 502 }
-        );
-      }
-
-      return NextResponse.json({ ok: true, provider: "resend" });
+    if (!resendApiKey) {
+      // FormSubmit blocks server-side datacenter requests; let client handle fallback
+      return NextResponse.json({ ok: false, fallbackClient: true });
     }
 
-    // Fallback if RESEND_API_KEY is not configured yet
-    const payload = new FormData();
-    payload.append("name", name);
-    payload.append("email", email);
-    payload.append("_subject", subject);
-    payload.append("message", message);
-    payload.append("_captcha", "false");
-
-    const fallbackRes = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(toEmail)}`, {
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
+    const resendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { Accept: "application/json" },
-      body: payload,
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [toEmail],
+        reply_to: email,
+        subject: `[Portfolio] ${subject}`,
+        text: `From: ${name} <${email}>\n\n${message}`,
+      }),
       signal: AbortSignal.timeout(8000),
     });
 
-    if (!fallbackRes.ok) {
+    if (!resendRes.ok) {
+      const errBody = await resendRes.text();
+      console.error("Resend API error:", resendRes.status, errBody);
       return NextResponse.json(
-        { error: "Upstream mail service returned an error." },
+        { error: "Email delivery service error." },
         { status: 502 }
       );
     }
 
-    return NextResponse.json({ ok: true, provider: "formsubmit" });
+    return NextResponse.json({ ok: true, provider: "resend" });
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(

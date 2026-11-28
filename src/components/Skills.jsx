@@ -1,22 +1,62 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { BookOpen, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
 import { certsList } from "@/data/portfolio";
+
+function parseCertMeta(rawTitle) {
+  const match = rawTitle.match(/^(.*)\(([^)]+)\)\s*$/);
+  if (match) {
+    return { name: match[1].trim(), issuer: match[2].trim() };
+  }
+  return { name: rawTitle, issuer: "Certification" };
+}
+
 export default function Skills() {
   const { language } = useLanguage();
   const t = translations[language].skills;
-  const [activeTab, setActiveTab] = useState("technical"); // "technical" or "certifications"
+  const [activeTab, setActiveTab] = useState("technical");
+  const [certIndex, setCertIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [selectedCert, setSelectedCert] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
 
+  const totalCerts = certsList.length;
+  const currentCert = certsList[certIndex] || certsList[0];
+  const { name: certName, issuer: certIssuer } = parseCertMeta(currentCert.title);
 
-  const indexOfLastCert = currentPage * 6;
-  const indexOfFirstCert = indexOfLastCert - 6;
-  const currentCerts = certsList.slice(indexOfFirstCert, indexOfLastCert);
-  const totalPages = Math.ceil(certsList.length / 6);
+  const handlePrevCert = useCallback(() => {
+    setCertIndex((prev) => (prev - 1 + totalCerts) % totalCerts);
+  }, [totalCerts]);
+
+  const handleNextCert = useCallback(() => {
+    setCertIndex((prev) => (prev + 1) % totalCerts);
+  }, [totalCerts]);
+
+  useEffect(() => {
+    if (activeTab !== "certifications" || isPaused || selectedCert || totalCerts <= 1) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setCertIndex((prev) => (prev + 1) % totalCerts);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [activeTab, isPaused, selectedCert, totalCerts]);
+
+  useEffect(() => {
+    if (!selectedCert) return;
+    window.lenis?.stop();
+    const handleKey = (e) => {
+      if (e.key === "Escape") setSelectedCert(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      window.lenis?.start();
+    };
+  }, [selectedCert]);
 
   return (
     <section id="skills" className="section skills-section relative">
@@ -32,7 +72,6 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 style={{ position: 'relative', display: 'inline-block' }}
             >
-                <div className="pixel-floppy" style={{ display: 'none' }}></div>
                 <h2>
                     {t.title}
                 </h2>
@@ -124,54 +163,122 @@ export default function Skills() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
-                        style={{ width: "100%" }}
+                        transition={{ duration: 0.35 }}
+                        className="cert-album-wrapper"
                     >
-                        <div className="cert-grid-new">
-                            {currentCerts.map((cert, index) => (
-                                <div 
-                                    key={index}
-                                    className="cert-card-new" 
-                                    onClick={() => setSelectedCert(cert.img)} 
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    <Image width={600} height={400} src={"/" + cert.img} alt="Certificate" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: cert.objPos || 'center' }} />
-                                    <div className="cert-overlay-new">
-                                        <span>{cert.title}</span>
+                        <div
+                            className="cert-album"
+                            onMouseEnter={() => setIsPaused(true)}
+                            onMouseLeave={() => setIsPaused(false)}
+                            onClick={handleNextCert}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                                if (e.key === "ArrowRight" || e.key === "Enter" || e.key === " ") {
+                                    e.preventDefault();
+                                    handleNextCert();
+                                } else if (e.key === "ArrowLeft") {
+                                    e.preventDefault();
+                                    handlePrevCert();
+                                }
+                            }}
+                            aria-label={language === "id" ? "Balik halaman sertifikat" : "Turn certificate page"}
+                        >
+                            {/* Book Spine */}
+                            <div className="cert-album-spine" aria-hidden="true">
+                                <span className="cert-spine-dot"></span>
+                                <span className="cert-spine-dot"></span>
+                                <span className="cert-spine-dot"></span>
+                            </div>
+
+                            <div className="cert-album-content">
+                                <div className="cert-album-topbar">
+                                    <span className="cert-album-issuer">
+                                        <BookOpen size={15} />
+                                        <span>{certIssuer}</span>
+                                    </span>
+                                    <span className="cert-album-page">
+                                        {language === "id"
+                                            ? `HALAMAN ${certIndex + 1} DARI ${totalCerts}`
+                                            : `PAGE ${certIndex + 1} OF ${totalCerts}`}
+                                    </span>
+                                </div>
+
+                                <div className="cert-album-stage">
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={certIndex}
+                                            className="cert-album-frame"
+                                            initial={{ opacity: 0, rotateY: -12, scale: 0.98 }}
+                                            animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+                                            exit={{ opacity: 0, rotateY: 12, scale: 0.98 }}
+                                            transition={{ duration: 0.3, ease: "easeOut" }}
+                                        >
+                                            <Image
+                                                src={"/" + currentCert.img}
+                                                alt={currentCert.title}
+                                                fill
+                                                sizes="(max-width: 768px) 92vw, 720px"
+                                                style={{ objectFit: "contain" }}
+                                            />
+                                        </motion.div>
+                                    </AnimatePresence>
+                                </div>
+
+                                <div className="cert-album-bottombar">
+                                    <span className="cert-album-title">{certName}</span>
+                                    <div className="cert-album-hint-group">
+                                        <span className="cert-album-hint">
+                                            {language === "id" ? "Klik halaman untuk balik →" : "Click page to flip →"}
+                                        </span>
+                                        <button
+                                            type="button"
+                                            className="cert-zoom-btn"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedCert(currentCert);
+                                            }}
+                                            aria-label={language === "id" ? "Perbesar sertifikat" : "Zoom certificate"}
+                                            title={language === "id" ? "Perbesar sertifikat" : "Zoom certificate"}
+                                        >
+                                            <Maximize2 size={14} />
+                                        </button>
                                     </div>
                                 </div>
-                            ))}
-                            {/* Fill empty spots to keep grid height consistent */}
-                            {Array.from({ length: Math.max(0, 6 - currentCerts.length) }).map((_, idx) => (
-                                <div key={`empty-${idx}`} style={{ visibility: 'hidden', aspectRatio: '4/3' }}></div>
-                            ))}
+                            </div>
                         </div>
-                        
-                        {totalPages > 1 && (
-                            <div className="pagination" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '30px' }}>
-                                {Array.from({ length: totalPages }, (_, i) => (
-                                    <button 
-                                        key={i} 
-                                        onClick={() => setCurrentPage(i + 1)}
-                                        style={{
-                                            width: '38px', 
-                                            height: '38px', 
-                                            borderRadius: '8px', 
-                                            border: currentPage === i + 1 ? '1px solid #fafafa' : '1px solid #262626', 
-                                            background: currentPage === i + 1 ? '#fafafa' : '#141414',
-                                            color: currentPage === i + 1 ? '#0a0a0a' : '#a1a1aa',
-                                            fontWeight: 600,
-                                            fontFamily: 'var(--font-mono), monospace',
-                                            fontSize: '0.85rem',
-                                            cursor: 'pointer',
-                                            transition: 'background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease'
-                                        }}
-                                    >
-                                        {i + 1}
-                                    </button>
+
+                        <div className="cert-album-controls">
+                            <button
+                                type="button"
+                                className="cert-control-btn"
+                                onClick={handlePrevCert}
+                            >
+                                <ChevronLeft size={15} />
+                                <span>{language === "id" ? "Sebelumnya" : "Previous"}</span>
+                            </button>
+
+                            <div className="deck-dots">
+                                {certsList.map((cert, idx) => (
+                                    <button
+                                        key={cert.img}
+                                        type="button"
+                                        className={`deck-dot ${idx === certIndex ? "active" : ""}`}
+                                        onClick={() => setCertIndex(idx)}
+                                        aria-label={`Page ${idx + 1}: ${cert.title}`}
+                                    />
                                 ))}
                             </div>
-                        )}
+
+                            <button
+                                type="button"
+                                className="cert-control-btn"
+                                onClick={handleNextCert}
+                            >
+                                <span>{language === "id" ? "Berikutnya" : "Next"}</span>
+                                <ChevronRight size={15} />
+                            </button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -180,21 +287,30 @@ export default function Skills() {
                 {selectedCert && (
                     <motion.div 
                         className="cert-modal-backdrop"
+                        data-lenis-prevent="true"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setSelectedCert(null)}
-                        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
+                        style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px' }}
                     >
-                        <motion.img 
-                            src={"/" + selectedCert} 
-                            initial={{ scale: 0.8 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.8 }}
-                            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: '10px' }}
-                            onClick={(e) => e.stopPropagation()}
-                        />
-
+                        <div style={{ position: 'relative', width: '100%', maxWidth: '900px', height: '80vh' }} onClick={(e) => e.stopPropagation()}>
+                            <Image
+                                src={"/" + selectedCert.img}
+                                alt={selectedCert.title}
+                                fill
+                                sizes="900px"
+                                style={{ objectFit: 'contain' }}
+                            />
+                            <button
+                                type="button"
+                                className="case-study-close"
+                                onClick={() => setSelectedCert(null)}
+                                aria-label="Close"
+                            >
+                                <X size={18} />
+                            </button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
