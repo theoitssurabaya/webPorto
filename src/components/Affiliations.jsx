@@ -8,35 +8,37 @@ const AFFILIATIONS = [
     name: "PLN Nusantara Power Services",
     roleEn: "Full-Stack Web Developer Intern",
     roleId: "Magang Full-Stack Web Developer",
-    logo: "/assets/hero/pln.png",
-    width: 120,
-    height: 40,
+    logo: "/assets/hero/pln-transparent.png",
+    width: 326,
+    height: 62,
+    logoClass: "affiliation-logo-img--wide",
   },
   {
     name: "Protergo Cyber Security",
     roleEn: "OT Engineer Intern",
     roleId: "Magang OT Engineer",
     logo: "/assets/hero/protergo.png",
-    width: 120,
-    height: 52,
+    width: 240,
+    height: 104,
+    logoClass: "affiliation-logo-img--protergo",
   },
   {
     name: "B401 Robotics Lab (ITS)",
     roleEn: "Lab & Practicum Assistant",
     roleId: "Asisten Lab & Praktikum",
-    logo: "/assets/hero/itsb401roboticslab.png",
-    width: 80,
-    height: 80,
-    isSquare: true,
+    logo: "/assets/hero/b401-transparent.png",
+    width: 350,
+    height: 252,
+    logoClass: "affiliation-logo-img--white",
   },
   {
     name: "Coding Camp by DBS",
     roleEn: "AI Engineer Cohort",
     roleId: "Peserta AI Engineer",
-    logo: "/assets/hero/codingcamp.png",
-    width: 120,
-    height: 120,
-    isWideCrop: true,
+    logo: "/assets/hero/codingcamp-hd.png",
+    width: 871,
+    height: 190,
+    logoClass: "affiliation-logo-img--codingcamp",
   },
 ];
 
@@ -50,38 +52,32 @@ export default function Affiliations() {
           {language === "id" ? "Pengalaman & Afiliasi" : "Experience & Affiliations"}
         </p>
         <div className="affiliations-grid">
-          {AFFILIATIONS.map((item, idx) => (
-            <motion.a
-              key={item.name}
-              href="#experience"
-              className="affiliation-card spotlight-card"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: idx * 0.06 }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
-                e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
-              }}
-            >
-              <div className="affiliation-logo-box">
-                <Image
-                  src={item.logo}
-                  alt={item.name}
-                  width={item.width}
-                  height={item.height}
-                  className={`affiliation-logo-img ${item.isSquare ? "affiliation-logo-img--square" : ""} ${item.isWideCrop ? "affiliation-logo-img--wide" : ""}`}
-                />
-              </div>
-              <div className="affiliation-info">
-                <span className="affiliation-name">{item.name}</span>
-                <span className="affiliation-role">
-                  {language === "id" ? item.roleId : item.roleEn}
-                </span>
-              </div>
-            </motion.a>
-          ))}
+          {AFFILIATIONS.map((item, idx) => {
+            const label = `${item.name} — ${language === "id" ? item.roleId : item.roleEn}`;
+            return (
+              <motion.a
+                key={item.name}
+                href="#experience"
+                aria-label={label}
+                title={label}
+                className="affiliation-card"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.06 }}
+              >
+                <div className="affiliation-logo-box">
+                  <Image
+                    src={item.logo}
+                    alt={item.name}
+                    width={item.width}
+                    height={item.height}
+                    className={`affiliation-logo-img ${item.logoClass || ""}`.trim()}
+                  />
+                </div>
+              </motion.a>
+            );
+          })}
         </div>
       </div>
     </section>
