@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { BookOpen, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { BookOpen, BrainCircuit, ChevronLeft, ChevronRight, Code2, Cpu, Maximize2, Network, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
 import { certsList } from "@/data/portfolio";
@@ -86,16 +86,34 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: 0.2 }}
             >
                 <button 
-                    className={`tab-btn ${activeTab === 'technical' ? 'active' : ''}`}
+                    className={`tab-btn tab-btn--motion ${activeTab === 'technical' ? 'active' : ''}`}
                     onClick={() => setActiveTab('technical')}
                 >
-                    {language === 'id' ? 'Keahlian Teknis' : 'Technical Skills'}
+                    {activeTab === 'technical' && (
+                        <motion.span
+                            layoutId="skills-tab-pill"
+                            className="tab-pill-bg"
+                            transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                        />
+                    )}
+                    <span className="tab-pill-label">
+                        {language === 'id' ? 'Keahlian Teknis' : 'Technical Skills'}
+                    </span>
                 </button>
                 <button 
-                    className={`tab-btn ${activeTab === 'certifications' ? 'active' : ''}`}
+                    className={`tab-btn tab-btn--motion ${activeTab === 'certifications' ? 'active' : ''}`}
                     onClick={() => setActiveTab('certifications')}
                 >
-                    {language === 'id' ? 'Sertifikasi' : 'Certifications'}
+                    {activeTab === 'certifications' && (
+                        <motion.span
+                            layoutId="skills-tab-pill"
+                            className="tab-pill-bg"
+                            transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                        />
+                    )}
+                    <span className="tab-pill-label">
+                        {language === 'id' ? 'Sertifikasi' : 'Certifications'}
+                    </span>
                 </button>
             </motion.div>
 
@@ -103,57 +121,85 @@ export default function Skills() {
                 {activeTab === 'technical' && (
                     <motion.div 
                         key="technical"
-                        className="skills-grid"
+                        className="skills-matrix"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.35 }}
                     >
-                        <div className="skill-category glass-card">
-                            <div className="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                            </div>
-                            <h3>{t.categories.ai}</h3>
-                            <div className="skill-pills-container">
-                                <span className="skill-pill-sm">Deep Learning</span>
-                                <span className="skill-pill-sm">Computer Vision</span>
-                                <span className="skill-pill-sm">TensorFlow</span>
-                                <span className="skill-pill-sm">Scikit-Learn</span>
-                                <span className="skill-pill-sm">PyTorch</span>
-                            </div>
-                        </div>
-                        <div className="skill-category glass-card">
-                            <div className="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                            </div>
-                            <h3>{t.categories.hardware}</h3>
-                            <div className="skill-pills-container">
-                                <span className="skill-pill-sm">ESP32</span>
-                                <span className="skill-pill-sm">ESP-IDF</span>
-                                <span className="skill-pill-sm">Raspberry Pi</span>
-                                <span className="skill-pill-sm">PLC & SCADA</span>
-                                <span className="skill-pill-sm">Sensors & Actuators</span>
-                                <span className="skill-pill-sm">Modbus / MQTT</span>
-                                <span className="skill-pill-sm">C / C++</span>
-                                <span className="skill-pill-sm">Electrical Wiring</span>
-                            </div>
-                        </div>
-                        <div className="skill-category glass-card">
-                            <div className="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                            </div>
-                            <h3>{t.categories.programming}</h3>
-                            <div className="skill-pills-container">
-                                <span className="skill-pill-sm">Python</span>
-                                <span className="skill-pill-sm">JavaScript / TypeScript</span>
-                                <span className="skill-pill-sm">React / Next.js</span>
-                                <span className="skill-pill-sm">Node.js / FastAPI</span>
-                                <span className="skill-pill-sm">Dart (Flutter)</span>
-                                <span className="skill-pill-sm">Firebase</span>
-                                <span className="skill-pill-sm">RESTful APIs</span>
-                                <span className="skill-pill-sm">Git & GitHub</span>
-                            </div>
-                        </div>
+                        {[
+                            {
+                                num: "01",
+                                Icon: Network,
+                                title: language === "id" ? "Industrial OT & SCADA" : "Industrial OT & SCADA",
+                                desc: language === "id"
+                                    ? "Sistem kontrol industri, simulasi PLC, telemetri real-time, dan containerization."
+                                    : "Industrial control systems, PLC sandboxes, real-time telemetry, and containerization.",
+                                items: ["Omron PLC", "OpenPLC", "Modbus TCP", "Node-RED", "Apache IoTDB", "Docker"],
+                            },
+                            {
+                                num: "02",
+                                Icon: Cpu,
+                                title: language === "id" ? "Embedded & Edge IoT" : "Embedded & Edge IoT",
+                                desc: language === "id"
+                                    ? "Pemrograman mikrokontroler, integrasi sensor/aktuator, dan desain rangkaian."
+                                    : "Microcontroller firmware, sensor/actuator interfacing, and hardware circuit design.",
+                                items: ["ESP32", "ESP-IDF", "Raspberry Pi", "RTOS", "MQTT", "C / C++", "PCB & Wiring"],
+                            },
+                            {
+                                num: "03",
+                                Icon: Code2,
+                                title: language === "id" ? "Full-Stack & Cloud" : "Full-Stack & Cloud",
+                                desc: language === "id"
+                                    ? "Pengembangan portal web, REST API, aplikasi mobile, dan basis data terpusat."
+                                    : "Web portal engineering, REST APIs, cross-platform mobile apps, and cloud databases.",
+                                items: ["React / Next.js", "Node.js", "FastAPI", "Flutter", "PostgreSQL", "Firebase", "Git & GitHub"],
+                            },
+                            {
+                                num: "04",
+                                Icon: BrainCircuit,
+                                title: language === "id" ? "AI & Machine Learning" : "AI & Machine Learning",
+                                desc: language === "id"
+                                    ? "Pemodelan prediktif, visi komputer, deep learning, dan integrasi LLM."
+                                    : "Predictive modeling, computer vision, deep learning pipelines, and LLM integration.",
+                                items: ["Deep Learning", "Computer Vision", "TensorFlow", "PyTorch", "Scikit-Learn", "LLM / Gemini API"],
+                            },
+                        ].map(({ num, Icon, title, desc, items }, idx) => (
+                            <motion.div
+                                key={num}
+                                className="skill-card-pro spotlight-card"
+                                initial={{ opacity: 0, y: 14 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.35, delay: idx * 0.06, ease: "easeOut" }}
+                                onMouseMove={(e) => {
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+                                    e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+                                }}
+                            >
+                                <div className="skill-card-top">
+                                    <div className="skill-card-title-group">
+                                        <div className="skill-card-icon-box">
+                                            <Icon size={20} />
+                                        </div>
+                                        <div>
+                                            <h3>{title}</h3>
+                                            <p className="skill-card-desc">{desc}</p>
+                                        </div>
+                                    </div>
+                                    <span className="skill-card-count">
+                                        {String(items.length).padStart(2, "0")} TOOLS
+                                    </span>
+                                </div>
+                                <div className="skill-pills-pro">
+                                    {items.map((item) => (
+                                        <span key={item} className="skill-pill-pro">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
                     </motion.div>
                 )}
 

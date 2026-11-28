@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
 import { Globe } from "lucide-react";
@@ -81,12 +82,40 @@ export default function Navbar() {
       <div className="nav-container">
         <div className="logo">THEO</div>
         <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <a href="#hero" className={activeSection === "hero" ? "active" : ""} onClick={(e) => handleNavClick(e, "hero")}>{t.profile}</a>
-          <a href="#skills" className={activeSection === "skills" ? "active" : ""} onClick={(e) => handleNavClick(e, "skills")}>{t.skills}</a>
-          <a href="#education" className={activeSection === "education" ? "active" : ""} onClick={(e) => handleNavClick(e, "education")}>{t.education}</a>
-          <a href="#experience" className={activeSection === "experience" ? "active" : ""} onClick={(e) => handleNavClick(e, "experience")}>{t.experience}</a>
-          <a href="#projects" className={activeSection === "projects" ? "active" : ""} onClick={(e) => handleNavClick(e, "projects")}>{t.projects}</a>
-          <a href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={(e) => handleNavClick(e, "contact")}>{t.contact}</a>
+          {[
+            { id: "hero", label: t.profile },
+            { id: "skills", label: t.skills },
+            { id: "education", label: t.education },
+            { id: "experience", label: t.experience },
+            { id: "projects", label: t.projects },
+            { id: "contact", label: t.contact },
+          ].map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={isActive ? "active" : ""}
+                style={{ position: "relative" }}
+                onClick={(e) => handleNavClick(e, item.id)}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "9999px",
+                      background: "rgba(255, 255, 255, 0.1)",
+                      zIndex: 0,
+                    }}
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <span style={{ position: "relative", zIndex: 1 }}>{item.label}</span>
+              </a>
+            );
+          })}
           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginLeft: '10px' }}>
               <button 
                   type="button"

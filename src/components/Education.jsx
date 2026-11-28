@@ -125,11 +125,16 @@ export default function Education() {
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={current.id}
-                            className="edu-pathway-card"
+                            className="edu-pathway-card spotlight-card"
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -12 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
+                            onMouseMove={(e) => {
+                                const rect = e.currentTarget.getBoundingClientRect();
+                                e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+                                e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+                            }}
                         >
                             <div className="edu-pathway-body">
                                 <div className="edu-pathway-top">

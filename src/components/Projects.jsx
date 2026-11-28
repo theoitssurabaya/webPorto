@@ -114,10 +114,17 @@ export default function Projects() {
                         <button
                             key={cat.id}
                             type="button"
-                            className={`tab-btn ${activeCategory === cat.id ? "active" : ""}`}
+                            className={`tab-btn tab-btn--motion ${activeCategory === cat.id ? "active" : ""}`}
                             onClick={() => handleCategoryChange(cat.id)}
                         >
-                            {cat.label}
+                            {activeCategory === cat.id && (
+                                <motion.span
+                                    layoutId="projects-filter-pill"
+                                    className="tab-pill-bg"
+                                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                                />
+                            )}
+                            <span className="tab-pill-label">{cat.label}</span>
                         </button>
                     ))}
                 </div>

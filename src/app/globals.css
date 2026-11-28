@@ -61,47 +61,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Preloader */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--bg-color);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-main);
-    overflow: hidden;
-}
-
-.preloader-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.preloader-logo {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    font-family: var(--font-heading);
-    background: linear-gradient(to right, #fff, #a0a0a0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.preloader-counter {
-    font-size: 1.2rem;
-    font-family: var(--font-body);
-    font-variant-numeric: tabular-nums;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-}
-
 /* SECTION DYNAMIC COLORS (Unified to monochrome) */
 .hero-section {
     --c-section-rgb: var(--c-white-rgb);
@@ -1422,231 +1381,6 @@ nav {
         flex-direction: column;
         gap: 8px;
     }
-}
-
-/* Carousel Projects */
-.projects-carousel {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    margin-top: -20px;
-    /* Offset the visual space added by padding-top */
-    width: 100%;
-    scroll-behavior: auto !important;
-}
-
-.projects-carousel:hover .carousel-card {
-    opacity: 0.5;
-    filter: brightness(0.5);
-}
-
-.projects-carousel .carousel-card:hover {
-    opacity: 1;
-    filter: brightness(1);
-}
-
-/* Hide Scrollbar for Seamless Infinite Effect */
-.projects-carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.projects-carousel {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-    will-change: transform, scroll-position;
-    transform: translateZ(0);
-    /* Hardware acceleration */
-}
-
-.carousel-card {
-    flex: 0 0 450px;
-    height: 520px;
-    will-change: transform;
-    transform: translateZ(0);
-}
-
-.bento-card {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    text-decoration: none;
-    text-align: left;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    padding: 24px;
-    cursor: pointer;
-    box-shadow: var(--glass-shadow);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.bento-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    transition: transform 0.7s ease, filter 0.5s ease;
-}
-
-.carousel-card:hover .bento-bg {
-    transform: scale(1.05);
-}
-
-.bento-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0) 80%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.bento-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.bento-text {
-    transform: translateY(15px);
-    transition: transform 0.5s ease;
-}
-
-.bento-text h3 {
-    color: var(--text-main);
-    background: none;
-    -webkit-text-fill-color: var(--text-main);
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    text-shadow: none;
-}
-
-.bento-text p {
-    color: var(--text-dim);
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    line-height: 1.4;
-    display: block;
-}
-
-.bento-card .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.bento-card .tech-tag {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-main);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-}
-
-.bento-card:hover {
-    opacity: 1 !important;
-    filter: brightness(1) !important;
-    transform: scale(1.02) translateY(-5px);
-    z-index: 10;
-    border-color: var(--accent);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-.bento-card:hover .bento-bg {
-    transform: scale(1.08);
-}
-
-.bento-card:hover .bento-overlay,
-.bento-card:hover .bento-content {
-    opacity: 1;
-}
-
-.bento-card:hover .bento-text {
-    transform: translateY(0);
-}
-
-.bento-card:hover .bento-text p,
-.bento-card:hover .tech-stack {
-    opacity: 1;
-}
-
-/* Certifications */
-.cert-grid-new {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
-}
-
-.cert-card-new {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    cursor: default;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.cert-card-new img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.cert-card-new:hover img {
-    transform: scale(1.05);
-}
-
-.cert-overlay-new {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.cert-card-new:hover .cert-overlay-new {
-    opacity: 1;
-}
-
-.cert-overlay-new span {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-align: left;
-    transform: translateY(10px);
-    transition: transform 0.3s ease;
-}
-
-.cert-card-new:hover .cert-overlay-new span {
-    transform: translateY(0);
 }
 
 /* Contact & Footer */
@@ -3301,6 +3035,176 @@ h1, h2, h3, h4, .logo {
         height: 38px;
     }
 }
+
+/* 2x2 Editorial Technical Skills Matrix */
+.skills-matrix {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 32px;
+    text-align: left;
+}
+
+.skill-card-pro {
+    padding: 26px;
+    border-radius: 12px;
+    background: #111111;
+    border: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-card-pro:hover {
+    border-color: #404040;
+    background: #131313;
+}
+
+.skill-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.skill-card-title-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.skill-card-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.skill-card-pro h3 {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 4px 0;
+}
+
+.skill-card-desc {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.skill-card-count {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: #71717a;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.skill-pills-pro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-pill-pro {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 11px;
+    border-radius: 6px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #e4e4e7;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-pill-pro:hover {
+    border-color: #525252;
+    background: #202024;
+}
+
+@media (max-width: 768px) {
+    .skills-matrix {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card-pro {
+        padding: 20px;
+    }
+}
+
+/* Sliding Motion Pills & Subtle Cursor Spotlight */
+.tab-btn--motion {
+    position: relative;
+    overflow: hidden;
+    background: #141414;
+    border-color: #262626;
+    color: #a1a1aa;
+}
+
+.tab-btn--motion.active {
+    background: transparent;
+    border-color: #fafafa;
+    color: #0a0a0a;
+    box-shadow: none;
+}
+
+.tab-pill-bg {
+    position: absolute;
+    inset: 0;
+    background: #fafafa;
+    border-radius: 7px;
+    z-index: 0;
+}
+
+.tab-pill-label {
+    position: relative;
+    z-index: 1;
+}
+
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        340px circle at var(--spot-x, -200px) var(--spot-y, -200px),
+        rgba(255, 255, 255, 0.055),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+.spotlight-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+
 
 
 

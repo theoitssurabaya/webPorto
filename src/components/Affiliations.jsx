@@ -54,11 +54,16 @@ export default function Affiliations() {
             <motion.a
               key={item.name}
               href="#experience"
-              className="affiliation-card"
+              className="affiliation-card spotlight-card"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.06 }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+                e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+              }}
             >
               <div className="affiliation-logo-box">
                 <Image

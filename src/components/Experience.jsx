@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/utils/translations";
@@ -30,6 +30,8 @@ export default function Experience() {
     const currentActiveId = filteredExp.some((e) => e.id === activeTab)
         ? activeTab
         : filteredExp[0]?.id;
+
+    const currentExp = filteredExp.find((e) => e.id === currentActiveId) || filteredExp[0];
 
     const tabs = filteredExp.map((e) => ({ id: e.id, title: e.tabTitle, subtitle: e.tabSubtitle }));
 
@@ -70,10 +72,17 @@ export default function Experience() {
                         <button
                             key={cat.id}
                             type="button"
-                            className={`tab-btn ${activeCategory === cat.id ? "active" : ""}`}
+                            className={`tab-btn tab-btn--motion ${activeCategory === cat.id ? "active" : ""}`}
                             onClick={() => handleCategoryChange(cat.id)}
                         >
-                            {cat.label}
+                            {activeCategory === cat.id && (
+                                <motion.span
+                                    layoutId="exp-filter-pill"
+                                    className="tab-pill-bg"
+                                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                                />
+                            )}
+                            <span className="tab-pill-label">{cat.label}</span>
                         </button>
                     ))}
                 </div>
@@ -108,23 +117,32 @@ export default function Experience() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     >
-                        {filteredExp.map((exp) => (
-                            <div key={exp.id} className={`selector-content ${currentActiveId === exp.id ? "active" : ""}`}>
-                                <div className="content-header">
-                                    <h3>{exp.tabTitle}</h3>
-                                    <span className="timeline-date">{exp.date}</span>
-                                </div>
-                                <h4 className="org-name">{exp.orgName}</h4>
-                                <ul>
-                                    {exp.points.map((pt, i) => <li key={i}>{pt}</li>)}
-                                </ul>
-                                {exp.image && (
-                                    <div className="timeline-img-wrapper mt-4">
-                                        <Image width={800} height={500} src={exp.image} alt={exp.orgName} className="timeline-img" style={exp.imgStyle} />
+                        <AnimatePresence mode="wait">
+                            {currentExp && (
+                                <motion.div
+                                    key={currentExp.id}
+                                    className="selector-content active"
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -8 }}
+                                    transition={{ duration: 0.2, ease: "easeOut" }}
+                                >
+                                    <div className="content-header">
+                                        <h3>{currentExp.tabTitle}</h3>
+                                        <span className="timeline-date">{currentExp.date}</span>
                                     </div>
-                                )}
-                            </div>
-                        ))}
+                                    <h4 className="org-name">{currentExp.orgName}</h4>
+                                    <ul>
+                                        {currentExp.points.map((pt, i) => <li key={i}>{pt}</li>)}
+                                    </ul>
+                                    {currentExp.image && (
+                                        <div className="timeline-img-wrapper mt-4">
+                                            <Image width={800} height={500} src={currentExp.image} alt={currentExp.orgName} className="timeline-img" style={currentExp.imgStyle} />
+                                        </div>
+                                    )}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 </div>
             </div>
